@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<% for(var i in Commoditys){ %>
+<p>
+
+    <%=Commoditys[i].name %>
+    <%=Commoditys[i].price %>
+    <%=Commoditys[i].imgSrc %>
+    <a class="btn btn-success" style="width: 120px;"  href="/addToCart/<%=Commoditys[i]._id%>">加入购物车</a>
+</p>
+<% } %>
+<a  href="cart" style="margin-right: 35px;">购物车</a>
+</body>
+</html>
