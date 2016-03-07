@@ -7,10 +7,32 @@
 <body>
 <% for(var i in carts){ %>
 <p>
-
     <%=carts[i] %>
 </p>
 <% } %>
+<p class="user">
+    <%=users[0].name %>
+</p>
+<button type="button" id="delUser">删除此用户</button>
 <a  href="addcommodity" style="margin-right: 35px;">添加展览馆</a>
+<script src="javascripts/jquery.min.js"></script>
+<script>
+    $('#delUser').click(function(){
+        var userName = $('.user').text().trim();
+        $.ajax({
+            url:'delUser',
+            type:'post',
+            data:{userName:userName},
+            success:function(data,status){
+                if(status == 'success'){
+                    location.href='admin'
+                }
+            },
+            error:function(data,status){
+                alert('错误')
+            }
+        })
+    })
+</script>
 </body>
 </html>

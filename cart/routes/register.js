@@ -1,10 +1,16 @@
+var crypto = require('crypto');
 module.exports = function(app){
     app.get('/register',function(req,res){
         res.render('register');
     });
     app.post('/register',function(req,res){
         var User = global.dbHelper.getModel('user'),
-            uname = req.body.uname;
+            uname = req.body.uname,
+            upwd = req.body.upwd;
+        //密码用md5保存
+        var md5 = crypto.createHash('md5'),
+            password = md5.update(upwd).digest('hex');
+
         User.findOne({name:uname},function(err,doc){
             if(err){
                 res.send(500);
@@ -14,7 +20,7 @@ module.exports = function(app){
             }else {
                 User.create({
                     name:uname,
-                    password:req.body.upwd,
+                    password:password,
                     admin:false
                 },function(err,doc){
                     if(err){

@@ -1,3 +1,4 @@
+var crypto = require('crypto');
 module.exports = function(app){
     app.get('/login',function(req,res){
         res.render('login');
@@ -6,6 +7,8 @@ module.exports = function(app){
         var User = global.dbHelper.getModel('user'),
             uname = req.body.uname,
             upwd = req.body.upwd;
+        var md5 = crypto.createHash('md5'),
+            password = md5.update(upwd).digest('hex');
         User.findOne({name:uname},function(err,doc){
             if(err){
                 res.end(500);
@@ -15,7 +18,7 @@ module.exports = function(app){
                 console.log('用户名不存在');
                 res.send(404);
             }else {
-                if(doc.password != upwd){
+                if(doc.password != password){
                     req.session.error = '密码错误';
                     res.send(404);
                 }else {

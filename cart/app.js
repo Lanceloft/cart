@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var multer = require('multer');
 var session = require('express-session');
+var crypto = require('crypto');
 var app = express();
 //全局
 global.dbHelper = require('./common/dbHelper');
