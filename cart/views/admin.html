@@ -3,12 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .displayNone{
+            display: none;
+        }
+    </style>
 </head>
 <body>
-<% for(var i in carts){ %>
-<p>
-    <%=carts[i] %>
-</p>
+<% for(var i in commoditys){ %>
+<div>
+    <table>
+        <tr>
+            <th>商品名</th>
+            <td class="oName"><%=commoditys[i].name %></td>
+        </tr>
+        <tr>
+            <th>商品价格</th>
+            <td><%=commoditys[i].price %></td>
+        </tr>
+        <tr>
+            <th>商品图片</th>
+            <td><%=commoditys[i].imgSrc %></td>
+        </tr>
+    </table>
+    <button type="button" class="updateBtn">修改该商品信息</button>
+    <input class="displayNone name"  type="text" value="<%=commoditys[i].name %>">
+    <input class="displayNone price"  type="text" value="<%=commoditys[i].price %>">
+    <input class="displayNone imgSrc"  type="text" value="<%=commoditys[i].imgSrc %>">
+    <button class="displayNone commitBtn" type="button">确认修改</button>
+</div>
 <% } %>
 <p class="user">
     <%=users[0].name %>
@@ -33,6 +56,29 @@
             }
         })
     })
+    $('.updateBtn').click(function(){
+        $(this).parent().find('input,.commitBtn').removeClass('displayNone');
+        $(this).parent().find('.commitBtn').click(function(){
+            var oname = $(this).parent().find('.oName').text(),
+                nname = $(this).parent().find('.name').val(),
+                price = $(this).parent().find('.price').val(),
+                imgSrc = $(this).parent().find('.imgSrc').val();
+            $.ajax({
+                url:'/updateCommodity',
+                type:'post',
+                data:{oname:oname,name:nname,price:price,imgSrc:imgSrc},
+                success:function(data,status){
+                    if(status == 'success'){
+                        location.href = 'admin'
+                    }
+                },
+                error: function (data,status) {
+                    alert('error');
+                }
+            })
+        })
+    });
+
 </script>
 </body>
 </html>
