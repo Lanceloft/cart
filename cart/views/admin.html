@@ -67,10 +67,10 @@
             $.ajax({
                 url:'/updateCommodity',
                 type:'post',
-                data:{oname:oname,name:nname,price:price,imgSrc:imgSrc},
+                data:{oname:oname,nname:nname,price:price,imgSrc:imgSrc},
                 success:function(data,status){
                     if(status == 'success'){
-                        location.href = 'admin'
+                        location.reload();
                     }
                 },
                 error: function (data,status) {

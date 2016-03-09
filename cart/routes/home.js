@@ -1,4 +1,5 @@
 module.exports = function(app){
+    app.get('/bootstrap',function(req,res){res.render('bootstrap')})
     app.get('/home',function(req,res){
         if(req.session.user){
            var Commodity = global.dbHelper.getModel('commodity');

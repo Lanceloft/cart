@@ -36,7 +36,7 @@ module.exports = function(app){
                 imgSrc = req.body.imgSrc;
             Commodity.update({name:oname},{$set:{name:nname,price:price,imgSrc:imgSrc}},function(err,doc){
                 if(doc > 0){
-                    res.redirect('/admin');
+                    res.redirect('/cart');
                 }
             });
         }else {
