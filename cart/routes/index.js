@@ -6,4 +6,5 @@ module.exports = function(app){
     require('./home')(app);
     require('./adminLogin')(app);
     require('./admin')(app);
+    require('./forget')(app);
 }

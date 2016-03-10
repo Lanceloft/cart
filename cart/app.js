@@ -13,7 +13,7 @@ global.db = mongoose.connect('mongodb://127.0.0.1:27017/cart');
 app.use(session({
     secret:'secret',
     cookie:{
-        maxAge:1000*60*30
+        maxAge:1000 * 60 * 60 * 24 * 30
     }
 }));
 // view engine setup

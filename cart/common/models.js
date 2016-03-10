@@ -6,6 +6,9 @@ module.exports = {
         password:{
             type:String,required:true
         },
+        email:{
+            type:String,required:true
+        },
         admin:{
             type:Boolean,default:false
         }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=title%></title>
+</head>
+<body>
+<%=user.name%>你好：
+<input id="password" type="password" placeholder="新密码">
+<button type="button">修改</button>
+<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+<script>
+    $('button').click(function(){
+        var password = $('#password').val();
+        $.ajax({
+            url:'forgettochange',
+            type:'post',
+            data:{password:password},
+            success:function(data,status){
+                if(status == 'success'){
+                }
+            },
+            error:function(data,status){
+                alert('错误')
+            }
+        })
+    })
+</script>
+</body>
+</html>

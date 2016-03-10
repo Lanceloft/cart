@@ -1,4 +1,5 @@
 var crypto = require('crypto');
+var nodemailer = require('nodemailer');
 module.exports = function(app){
     app.get('/register',function(req,res){
         res.render('register');
@@ -6,7 +7,8 @@ module.exports = function(app){
     app.post('/register',function(req,res){
         var User = global.dbHelper.getModel('user'),
             uname = req.body.uname,
-            upwd = req.body.upwd;
+            upwd = req.body.upwd,
+            uemail = req.body.uemail;
         //密码用md5保存
         var md5 = crypto.createHash('md5'),
             password = md5.update(upwd).digest('hex');
@@ -21,6 +23,7 @@ module.exports = function(app){
                 User.create({
                     name:uname,
                     password:password,
+                    email:uemail,
                     admin:false
                 },function(err,doc){
                     if(err){

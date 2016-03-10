@@ -18,6 +18,7 @@
     "mongoose": "~3.8.1",
     "morgan": "~1.6.1",
     "multer": "~0.1.6",
+    "nodemailer": "^2.3.0",
     "path": "~0.4.9",
     "randexp": "^0.4.2",
     "serve-favicon": "~2.3.0"

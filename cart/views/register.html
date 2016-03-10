@@ -9,6 +9,7 @@
     <div class="form">
         <input id="name" type="text" placeholder="账号">
         <input id="password" type="password" placeholder="密码">
+        <input id="email" type="email" placeholder="邮箱(找回密码时用)">
         <button type="button">提交</button>
     </div>
     <script type="text/javascript" src="javascripts/jquery.min.js"></script>
@@ -16,10 +17,11 @@
         $('button').click(function(){
             var name = $('#name').val();
             var password = $('#password').val();
+            var email = $('#email').val();
             $.ajax({
                 url:'/register',
                 type:'post',
-                data:{"uname":name,"upwd":password},
+                data:{"uname":name,"upwd":password,"uemail":email},
                 success:function(data,status){
                     if(status == 'success'){
                         location.href='login'
