@@ -5,19 +5,23 @@
     <title><%=title%></title>
 </head>
 <body>
-<%=user.name%>你好：
+<div id="name"><%=user.name%></div>你好：
 <input id="password" type="password" placeholder="新密码">
 <button type="button">修改</button>
-<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="../javascripts/jquery.min.js"></script>
 <script>
     $('button').click(function(){
         var password = $('#password').val();
+        var name = $('#name').text();
         $.ajax({
-            url:'forgettochange',
+            url:'/cpwd',
             type:'post',
-            data:{password:password},
+            data:{name:name,password:password},
             success:function(data,status){
                 if(status == 'success'){
+                    alert("success")
+                }else {
+                    alert("err")
                 }
             },
             error:function(data,status){

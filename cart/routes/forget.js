@@ -1,5 +1,5 @@
 var nodemailer = require("nodemailer");
-var crypto = require("nodemailer");
+var crypto = require("crypto");
 module.exports = function(app){
     app.get('/forget', function (req, res) {
         //var user = req.session.user;
@@ -69,9 +69,19 @@ module.exports = function(app){
             res.render('usersetting',{title:"123",user:doc});
         });
     });
-    app.post('/forgettochange',function(req,res){
-        if(!req.session.user){
-            res.redirect('/');
-        }
+    app.post('/cpwd',function(req,res){
+        var User = global.dbHelper.getModel('user');
+        var name = req.body.name;
+        var password = req.body.password;
+        var md5 = crypto.createHash('md5'),
+            password = md5.update('password').digest('hex');
+        User.update({name:name},{$set:{password:password}},function(err,doc){
+            if(err){
+                req.session.error = err;
+            }else {
+                req.session.user = doc;
+            }
+        })
+
     })
 }

@@ -21,7 +21,7 @@ module.exports = function(app){
             Cart.findOne({"uId":req.session.user._id,"cId":req.params.id},function(err,doc){
                 //商品已存在 +1
                 if(doc){
-                    Cart.update({"uId":req.session.user._id,"cId":req.params.id},{$set:{cQuantity:doc.cQuantity+1}},function(err,doc){
+                    Cart.update({"uId":req.session.user._id,"cId":req.params.id,cStatus:true},{$set:{cQuantity:doc.cQuantity+1}},function(err,doc){
                         //成功返回1 失败返回0
                         if(doc>0){
                             res.redirect('/home');
