@@ -5,7 +5,7 @@ module.exports = function(app){
             var User = global.dbHelper.getModel('user');
             Commodities.find({},function(err,docs1){
                 User.find({},function(err,docs2){
-                    res.render('admin',{commoditys:docs1,users:docs2});
+                    res.render('admin',{commoditys:docs1,users:docs2,admin:req.session.user});
                 });
             });
 
@@ -37,6 +37,24 @@ module.exports = function(app){
             Commodity.update({name:oname},{$set:{name:nname,price:price,imgSrc:imgSrc}},function(err,doc){
                 if(doc > 0){
                     res.redirect('/cart');
+                }
+            });
+        }else {
+            req.session.error = '请重新登录';
+            res.redirect('/adminLogin')
+        }
+    });
+    //商品名模糊查询->正则
+    app.get('/search',function(req,res){
+        if(req.session.user && req.session.user.admin) {
+            var Commodity = global.dbHelper.getModel('commodity');
+            var searchText = req.query.searchText;
+            var nSearchText = new RegExp(searchText);
+            Commodity.find({name:nSearchText},function(err,doc){
+                if(doc){
+                    res.render('search',{search:doc});
+                }else {
+                    console.log(err);
                 }
             });
         }else {
