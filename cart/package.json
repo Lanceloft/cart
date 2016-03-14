@@ -21,6 +21,6 @@
     "nodemailer": "^2.3.0",
     "path": "~0.4.9",
     "randexp": "^0.4.2",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "^2.3.0"
   }
 }
