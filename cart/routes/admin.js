@@ -8,7 +8,6 @@ module.exports = function(app){
                     res.render('admin',{commoditys:docs1,users:docs2,admin:req.session.user});
                 });
             });
-
         }else {
             res.redirect('/adminLogin');
         }
