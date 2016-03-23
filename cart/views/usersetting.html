@@ -1,34 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title><%=title%></title>
-</head>
-<body>
-<div id="name"><%=user.name%></div>你好：
+<%-include ./layout/homeheader.html%>
+<p>您好：<span id="name"><%=user.name%></span></p>
 <input id="password" type="password" placeholder="新密码">
+<input id="password_re" type="password" placeholder="重复密码">
 <button type="button">修改</button>
-<script type="text/javascript" src="../javascripts/jquery.min.js"></script>
 <script>
-    $('button').click(function(){
-        var password = $('#password').val();
-        var name = $('#name').text();
-        $.ajax({
-            url:'/cpwd',
-            type:'post',
-            data:{name:name,password:password},
-            success:function(data,status){
-                if(status == 'success'){
-                    alert("success")
-                }else {
-                    alert("err")
-                }
-            },
-            error:function(data,status){
-                alert('错误')
-            }
+    require(['/js/common.js'],function(common){
+        require(['jquery'], function ($) {
+            $('button').click(function(){
+                var name = $('#name').text();
+                var password = $('#password').val();
+                var password_re = $('#password_re').val();
+                $.ajax({
+                    url:'/cpwd',
+                    type:'post',
+                    data:{name:name,password:password},
+                    success:function(data,status){
+                        if(status == 'success'){
+                            location.href='/home'
+                        }else {
+                            alert("err")
+                        }
+                    },
+                    error:function(data,status){
+                        alert('错误')
+                    }
+                })
+            })
         })
-    })
+    });
 </script>
-</body>
-</html>
+<%-include ./layout/footer.html%>

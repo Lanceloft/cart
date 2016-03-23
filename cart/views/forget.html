@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title><%=title %></title>
-</head>
-<body>
+<%-include ./layout/homeheader.html%>
 <%-message %>
 <div class="form">
     <input id="email" type="email" placeholder="邮箱">
     <button type="button">提交</button>
 </div>
-<script type="text/javascript" src="javascripts/jquery.min.js"></script>
 <script>
-    $('button').click(function(){
+    require(['/js/common.js'],function(common){
+        require(['jquery'], function ($) {
+            $('button').click(function(){
         var email = $('#email').val();
         $.ajax({
             url:'/sendmail',
@@ -27,7 +22,8 @@
                 location.href='forget';
             }
         })
-    })
+    });
+        })
+    });
 </script>
-</body>
-</html>
+<%-include ./layout/footer.html%>

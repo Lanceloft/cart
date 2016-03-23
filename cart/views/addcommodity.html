@@ -1,37 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>登录</title>
-</head>
-<body>
-<%-message %>
+<%-include ./layout/homeheader.html%>
 <div class="form">
     <input id="name" type="text" placeholder="名字">
     <input id="price" type="text" placeholder="价格">
     <input id="imgSrc" type="text" placeholder="图片链接">
     <button type="button">提交</button>
 </div>
-<script type="text/javascript" src="javascripts/jquery.min.js"></script>
 <script>
-    $('button').click(function(){
-        var name = $('#name').val();
-        var price = $('#price').val();
-        var imgSrc = $('#imgSrc').val();
-        $.ajax({
-            url:'/addcommodity',
-            type:'post',
-            data:{"name":name,"price":price,"imgSrc":imgSrc},
-            success:function(data,status){
-                if(status == 'success'){
-                    location.href='home'
-                }
-            },
-            error:function(data,err){
-                alert("错误");
-            }
+    require(['/js/common.js'],function(common){
+        require(['jquery'], function ($) {
+            $('button').click(function () {
+                var name = $('#name').val();
+                var price = $('#price').val();
+                var imgSrc = $('#imgSrc').val();
+                $.ajax({
+                    url: '/addcommodity',
+                    type: 'post',
+                    data: {"name": name, "price": price, "imgSrc": imgSrc},
+                    success: function (data, status) {
+                        if (status == 'success') {
+                            location.href = 'home'
+                        }
+                    },
+                    error: function (data, err) {
+                        alert("错误");
+                    }
+                })
+            })
         })
-    })
+    });
 </script>
-</body>
-</html>
+<%-include ./layout/footer.html%>

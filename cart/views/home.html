@@ -1,13 +1,12 @@
 <%-include ./layout/homeheader.html%>
-<% for(var i in Commoditys){ %>
+<% Commoditys.forEach(function(commodity,index){ %>
 <p>
-
-    <%=Commoditys[i].name %>
-    <%=Commoditys[i].price %>
-    <%=Commoditys[i].imgSrc %>
-    <a class="btn btn-success" style="width: 120px;"  href="/addToCart/<%=Commoditys[i]._id%>">加入购物车</a>
+    <a href="/exh_detail?uid=<%=commodity._id%>"><%=commodity.name %></a>
+    <%=commodity.name %>
+    <%=commodity.price %>
+    <%=commodity.imgSrc %>
+    <a class="btn btn-success" style="width: 120px;"  href="/addToCart/<%=commodity._id%>">加入购物车</a>
 </p>
-<% } %>
+<% }) %>
 <a  href="cart" style="margin-right: 35px;">购物车</a>
-</body>
-</html>
+<%-include ./layout/footer.html%>

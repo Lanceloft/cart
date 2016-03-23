@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        .displayNone{
-            display: none;
-        }
-    </style>
-</head>
-<body>
+<%-include ./layout/homeheader.html%>
 你好：管理员<%=admin.name%>
 <div class="searchForm">
     <p>按商品名搜索商品</p>
@@ -44,64 +33,64 @@
 </p>
 <button type="button" id="delUser">删除此用户</button>
 <a  href="addcommodity" style="margin-right: 35px;">添加展览馆</a>
-<script src="javascripts/jquery.min.js"></script>
-<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.17/vue.min.js"></script>-->
 <script>
-    $('#search').change(function(){
-        var searchText = $(this).val().trim();
-        $.ajax({
-            url:'search',
-            type:'get',
-            data:{searchText:searchText},
-            success:function(data,status){
-                if(status == 'success'){
-                    location.href = '/search?searchText='+searchText;
-                }
-            },
-            error:function(data,status){
-                alert('错误')
-            }
-        })
-    });
-    $('#delUser').click(function(){
-        var userName = $('.user').text().trim();
-        $.ajax({
-            url:'delUser',
-            type:'post',
-            data:{userName:userName},
-            success:function(data,status){
-                if(status == 'success'){
-                    location.href='admin'
-                }
-            },
-            error:function(data,status){
-                alert('错误')
-            }
-        })
-    })
-    $('.updateBtn').click(function(){
-        $(this).parent().find('input,.commitBtn').removeClass('displayNone');
-        $(this).parent().find('.commitBtn').click(function(){
-            var oname = $(this).parent().find('.oName').text(),
-                nname = $(this).parent().find('.name').val(),
-                price = $(this).parent().find('.price').val(),
-                imgSrc = $(this).parent().find('.imgSrc').val();
-            $.ajax({
-                url:'/updateCommodity',
-                type:'post',
-                data:{oname:oname,nname:nname,price:price,imgSrc:imgSrc},
-                success:function(data,status){
-                    if(status == 'success'){
-                        location.reload();
+    require(['/js/common.js'],function(common){
+        require(['jquery'], function ($) {
+            $('#search').change(function(){
+                var searchText = $(this).val().trim();
+                $.ajax({
+                    url:'search',
+                    type:'get',
+                    data:{searchText:searchText},
+                    success:function(data,status){
+                        if(status == 'success'){
+                            location.href = '/search?searchText='+searchText;
+                        }
+                    },
+                    error:function(data,status){
+                        alert('错误')
                     }
-                },
-                error: function (data,status) {
-                    alert('error');
-                }
+                })
+            });
+            $('#delUser').click(function(){
+                var userName = $('.user').text().trim();
+                $.ajax({
+                    url:'delUser',
+                    type:'post',
+                    data:{userName:userName},
+                    success:function(data,status){
+                        if(status == 'success'){
+                            location.href='admin'
+                        }
+                    },
+                    error:function(data,status){
+                        alert('错误')
+                    }
+                })
             })
+            $('.updateBtn').click(function(){
+                $(this).parent().find('input,.commitBtn').removeClass('displayNone');
+                $(this).parent().find('.commitBtn').click(function(){
+                    var oname = $(this).parent().find('.oName').text(),
+                        nname = $(this).parent().find('.name').val(),
+                        price = $(this).parent().find('.price').val(),
+                        imgSrc = $(this).parent().find('.imgSrc').val();
+                    $.ajax({
+                        url:'/updateCommodity',
+                        type:'post',
+                        data:{oname:oname,nname:nname,price:price,imgSrc:imgSrc},
+                        success:function(data,status){
+                            if(status == 'success'){
+                                location.reload();
+                            }
+                        },
+                        error: function (data,status) {
+                            alert('error');
+                        }
+                    })
+                })
+            });
         })
     });
-
 </script>
-</body>
-</html>
+<%-include ./layout/footer.html%>

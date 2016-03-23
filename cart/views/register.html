@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>注册</title>
-</head>
-<body>
+<%-include ./layout/homeheader.html%>
     <%-message %>
     <div class="form">
         <input id="name" type="text" placeholder="账号">
@@ -12,26 +6,28 @@
         <input id="email" type="email" placeholder="邮箱(找回密码时用)">
         <button type="button">提交</button>
     </div>
-    <script type="text/javascript" src="javascripts/jquery.min.js"></script>
     <script>
-        $('button').click(function(){
-            var name = $('#name').val();
-            var password = $('#password').val();
-            var email = $('#email').val();
-            $.ajax({
-                url:'/register',
-                type:'post',
-                data:{"uname":name,"upwd":password,"uemail":email},
-                success:function(data,status){
-                    if(status == 'success'){
-                        location.href='login'
-                    }
-                },
-                error:function(data,err){
-                    location.href='register';
-                }
+        require(['/js/common.js'],function(common){
+            require(['jquery'], function ($) {
+                $('button').click(function(){
+                    var name = $('#name').val();
+                    var password = $('#password').val();
+                    var email = $('#email').val();
+                    $.ajax({
+                        url:'/register',
+                        type:'post',
+                        data:{"uname":name,"upwd":password,"uemail":email},
+                        success:function(data,status){
+                            if(status == 'success'){
+                                location.href='login'
+                            }
+                        },
+                        error:function(data,err){
+                            location.href='register';
+                        }
+                    })
+                })
             })
-        })
+        });
     </script>
-</body>
-</html>
+<%-include ./layout/footer.html%>

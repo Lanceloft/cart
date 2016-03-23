@@ -9,7 +9,7 @@ module.exports = function(app){
                 res.render('cart',{carts:docs});
             });
         }
-    })
+    });
     //添加购物车商品
     app.get('/addToCart/:id',function(req,res){
         if(!req.session.user){

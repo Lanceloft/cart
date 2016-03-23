@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>登录</title>
-</head>
-<body>
+<%-include ./layout/homeheader.html%>
 <%-message %>
 <div class="form">
     <input id="name" type="text" placeholder="账号">
     <input id="password" type="password" placeholder="密码">
     <button type="button">提交</button>
 </div>
-<script type="text/javascript" src="javascripts/jquery.min.js"></script>
 <script>
-    $('button').click(function(){
+    require(['/js/common.js'],function(common){
+        require(['jquery'], function ($) {
+            $('button').click(function(){
         var name = $('#name').val();
         var password = $('#password').val();
         $.ajax({
@@ -30,6 +25,7 @@
             }
         })
     })
+        })
+    });
 </script>
-</body>
-</html>
+<%-include ./layout/footer.html%>
