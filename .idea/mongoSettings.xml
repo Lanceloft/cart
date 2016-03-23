@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MongoConfiguration">
+    <option name="serverConfigurations">
+      <list>
+        <ServerConfiguration>
+          <option name="authenticationDatabase" value="cart" />
+          <option name="label" value="cart" />
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+        </ServerConfiguration>
+      </list>
+    </option>
+    <option name="shellPath" value="$PROJECT_DIR$/../mongodb/bin/mongod" />
+  </component>
+</project>
