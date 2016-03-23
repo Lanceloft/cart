@@ -484,7 +484,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458722105352</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="整理静态文件使用require.js。views使用ejs重新整理layout，添加展览馆详情页">
+      <created>1458722226464</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1458722226464</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
