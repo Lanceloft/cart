@@ -28,16 +28,31 @@
                     <a href="http://www.zi-han.net/">首页</a>
                 </li>
                 <li>
-                    <a href="http://www.zi-han.net/">首页</a>
+                    <a href="http://www.zi-han.net/">首1页</a>
                 </li>
             </ul>
         </nav>
         <div class="u-search right">
             <form class="search-form clearfix">
-                <input class="search-submit" type="submit">
-                <input class="search-text" name="s" type="text" placeholder="Search...">
+                <input class="search-submit">
+                <input class="search-text" type="text" placeholder="Search...">
             </form>
         </div>
     </div>
+    <div class="m-login clearfix">
+        <p>登录</p>
+        <p>注册</p>
+    </div>
 </header>
-
+<script type="text/javascript">
+    require(['/js/common.js'],function(common){
+        require(['jquery'], function ($) {
+            $('.search-form').click(function(){
+                $(this).addClass('focus');
+            });
+            $('.search-form').blur(function(){
+                $(this).removeClass('focus');
+            });
+        });
+    });
+</script>
