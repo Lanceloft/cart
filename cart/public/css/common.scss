@@ -13,80 +13,80 @@ a {
 .displayNone{
   display: none;
 }
-//.allScreen {
-//  width: 100%;
-//  height: 100%;
-//  position: fixed;
-//  top: 0;
-//  left: 0;
-//  z-index: 10000;
-//  background-color: rgba(0,0,0,0.6);
-//}
-//.g_recommend_popup {
-//  width: 648px;
-//  height: 444px;
-//  background: #fff;
-//  position: absolute;
-//  left: 50%;
-//  top: 15%;
-//  margin-left: -324px;
-//  .u_close_btn {
-//    width: 35px;
-//    height: 36px;
-//    position: absolute;
-//    right: -46px;
-//    cursor: pointer;
-//    background: url("../image/close_bt.png") no-repeat;
-//  }
-//  .m_recommend_form {
-//    width: 422px;
-//    height: 350px;
-//    margin: 0 auto;
-//    padding-top: 45px;
-//    .u_submit {
-//      width: 318px;
-//      height: 56px;
-//      color: #fff;
-//      background: #ff7da9;
-//      font-size: 18px;
-//      margin-left: 61px;
-//      margin-top: 40px;
-//    }
-//    .form_inner {
-//      .title {
-//        margin-bottom: 25px;
-//        font-size: 24px;
-//        font-weight: bold;
-//        text-align: center;
-//      }
-//      .row {
-//        width: 420px;
-//        height: 69px;
-//        line-height: 69px;
-//        position: relative;
-//        .check_code_button {
-//          position: absolute;
-//          right: 0;
-//          bottom: 9px;
-//          height: 51px;
-//          width: 138px;
-//          background: #4ad7ff;
-//          color: #fff;
-//        }
-//      }
-//      input {
-//        width: 100%;
-//        height: 53px;
-//        font-size: 16px;
-//        color: #333;
-//        outline: 0;
-//        border: 1px solid #e8e8e8;
-//        padding-left: 16px;
-//        box-sizing: border-box;
-//      }
-//    }
-//  }
-//}
+.allScreen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  background-color: rgba(0,0,0,0.6);
+}
+.g_recommend_popup {
+  width: 648px;
+  height: 444px;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  margin-left: -324px;
+  .u_close_btn {
+    width: 35px;
+    height: 36px;
+    position: absolute;
+    right: -46px;
+    cursor: pointer;
+    background: url("../image/close_bt.png") no-repeat;
+  }
+  .m_recommend_form {
+    width: 422px;
+    height: 350px;
+    margin: 0 auto;
+    padding-top: 45px;
+    .u_submit {
+      width: 318px;
+      height: 56px;
+      color: #fff;
+      background: #ff7da9;
+      font-size: 18px;
+      margin-left: 61px;
+      margin-top: 40px;
+    }
+    .form_inner {
+      .title {
+        margin-bottom: 25px;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .row {
+        width: 420px;
+        height: 69px;
+        line-height: 69px;
+        position: relative;
+        .check_code_button {
+          position: absolute;
+          right: 0;
+          bottom: 9px;
+          height: 51px;
+          width: 138px;
+          background: #4ad7ff;
+          color: #fff;
+        }
+      }
+      input {
+        width: 100%;
+        height: 53px;
+        font-size: 16px;
+        color: #333;
+        outline: 0;
+        border: 1px solid #e8e8e8;
+        padding-left: 16px;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
 /*common end*/
 .g-header {
   position: relative;
@@ -173,7 +173,7 @@ a {
     position: absolute;
     right: 0;
     top:0;
-    p{
+    button{
       float: left;
       width: 59px;
       color: #fff;
@@ -182,6 +182,8 @@ a {
       text-align: center;
       cursor: pointer;
       margin-left: 10px;
+      border: 0;
+      outline: 0;
     }
   }
 }
