@@ -8,27 +8,28 @@
     <link href="favicon.ico" type="image/x-icon" rel="shortcut icon" />
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="/css/common.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/animate.min.css">
     <script src="http://cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
 </head>
 <body>
 <header class="g-header">
     <div class="m-center">
-        <a class="u-logo" href="http://www.zi-han.net" alt="江苏展览馆">
+        <a class="u-logo" href="#" alt="江苏展览馆">
             <img src="http://www.zi-han.net/wp-content/uploads/2015/09/logo1.png" alt="Zihan's Blog">
         </a>
         <nav class="u-nav">
             <ul class="menu list-inline">
                 <li>
-                    <a href="http://www.zi-han.net/">首页</a>
+                    <a href="#">首页</a>
                 </li>
                 <li>
-                    <a href="http://www.zi-han.net/">列表页</a>
+                    <a href="#">列表页</a>
                 </li>
                 <li>
-                    <a href="http://www.zi-han.net/">首页</a>
+                    <a href="#">首页</a>
                 </li>
                 <li>
-                    <a href="http://www.zi-han.net/">首1页</a>
+                    <a href="#">首1页</a>
                 </li>
             </ul>
         </nav>
@@ -40,18 +41,52 @@
         </div>
     </div>
     <div class="m-login clearfix">
-        <p>登录</p>
+        <button data-toggle="modal" data-target="#myModal">登录</button>
         <p>注册</p>
     </div>
 </header>
+<!--<div class="allScreen" id="signup">-->
+    <!--<div class="g_recommend_popup">-->
+        <!--<div class="u_close_btn"></div>-->
+        <!--<form class="m_recommend_form clearfix">-->
+            <!--<div class="fl form_inner">-->
+                <!--<p class="title">填写个人信息</p>-->
+                <!--<div class="row">-->
+                    <!--<input class="m_name" type="text" placeholder="输入您的姓名">-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                    <!--<input class="m_tel" type="text" placeholder="输入您的手机号">-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                    <!--<input type="text" class="contactMobile" placeholder="输入验证码">-->
+                    <!--<button class="check_code_button checkCode" id="checkCodeBt" type="button">发送短信验证码</button>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<button type="button" class="u_submit">提交</button>-->
+        <!--</form>-->
+    <!--</div>-->
+<!--</div>-->
 <script type="text/javascript">
     require(['/js/common.js'],function(common){
-        require(['jquery'], function ($) {
-            $('.search-form').click(function(){
-                $(this).addClass('focus');
-            });
-            $('.search-form').blur(function(){
-                $(this).removeClass('focus');
+        require(['jquery','bootstrap'], function ($,bootstrap) {
+            $('document').ready(function(){
+                /*=============搜索=============*/
+                (function(){
+                    var searchForm = $('.search-submit');
+                    searchForm.bind('click',function(){
+                        $(this).parent().toggleClass('focus');
+                    });
+                }());
+                /*=============返回顶部===========*/
+                (function(){
+                    var back2top = $('aside .back2top');
+                    $(window).scroll(function(){
+                        $(window).scrollTop() > 150?back2top.addClass('scrolled'):back2top.removeClass('scrolled');
+                    });
+                    back2top.click(function () {
+                        $('body').animate({scrollTop:0},300)
+                    });
+                }());
             });
         });
     });
