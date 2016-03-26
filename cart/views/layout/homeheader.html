@@ -39,7 +39,7 @@
     </div>
     <div class="m-login clearfix">
     <% if(user){ %>
-        <button class="u-center">用户名：<%=user.name%> 丨 个人中心</button>
+        <button onclick="location.href='/userCenter'" class="u-center">用户名：<%=user.name%> 丨 个人中心</button>
     <%}else{%>
         <button class="u-signup login">登录</button>
         <button class="u-signup reg">注册</button>
@@ -48,7 +48,7 @@
     </div>
 </header>
 <div class="allScreen displayNone" id="signup">
-    <div class="g_recommend_popup animated bounceIn">
+    <div class="g_recommend_popup animated bounceInDown">
         <div class="u_close_btn"></div>
         <form class="m_recommend_form clearfix">
             <div class="fl form_inner">
@@ -73,70 +73,63 @@
         require(['jquery'], function ($) {
             $('document').ready(function(){
                 /*=============搜索=============*/
-                (function(){
-                    var searchForm = $('.search-submit');
-                    searchForm.bind('click',function(){
-                        $(this).parent().toggleClass('focus');
-                    });
-                }());
+                var searchForm = $('.search-submit');
+                searchForm.bind('click',function(){
+                    $(this).parent().toggleClass('focus');
+                });
                 /*=============返回顶部===========*/
-                (function(){
-                    var back2top = $('aside .back2top');
-                    $(window).scroll(function(){
-                        $(window).scrollTop() > 150?back2top.addClass('scrolled'):back2top.removeClass('scrolled');
-                    });
-                    back2top.click(function () {
-                        $('body').animate({scrollTop:0},300)
-                    });
-                }());
+                var back2top = $('aside .back2top');
+                $(window).scroll(function(){
+                    $(window).scrollTop() > 150?back2top.addClass('scrolled'):back2top.removeClass('scrolled');
+                });
+                back2top.click(function () {
+                    $('body').animate({scrollTop:0},300)
+                });
                 /*=============登录注册===========*/
-                (function(){
-                    $('.u-signup').bind('click', function () {
-                        $('#signup').removeClass('displayNone');
-                    });
-                    $('.u_close_btn').bind('click', function () {
-                       $('#signup').addClass('displayNone');
-                    });
-                    //ajax->后台
-                    $('button.u_submit').click(function(){
-                        var name = $('.m_tel').val();
-                        var password = $('.m_password').val();
-                        //        var code = $('#code').val();
-                        $.ajax({
-                            url:'/login',
-                            type:'post',
-                            data:{"uname":name,"upwd":password},
-                            success:function(data,status){
-                                if(status == 'success'){
-                                    $('#signup').addClass('displayNone');
-                                }
-                            },
-                            error:function(data,err){
-                                location.href='login';
+                $('.u-signup').bind('click', function () {
+                    $('#signup').removeClass('displayNone');
+                });
+                $('.u_close_btn').bind('click', function () {
+                   $('#signup').addClass('displayNone');
+                });
+                //ajax->后台
+                $('button.u_submit').click(function(){
+                    var name = $('.m_tel').val();
+                    var password = $('.m_password').val();
+                    //        var code = $('#code').val();
+                    $.ajax({
+                        url:'/login',
+                        type:'post',
+                        data:{"uname":name,"upwd":password},
+                        success:function(data,status){
+                            if(status == 'success'){
+                                $('#signup').addClass('displayNone');
+                                location.href='/';
                             }
-                        })
+                        },
+                        error:function(data,err){
+                            location.href='login';
+                        }
                     })
-                }());
+                })
                 /*=============搜索===========*/
-                (function(){
-                    $('.search-text').bind('change', function () {
-                        var searchText = $(this).val().trim();
-                        $.ajax({
-                            url:'search',
-                            type:'get',
-                            data:{searchText:searchText},
-                            success:function(data,status){
-                                if(status == 'success'){
-                                    location.href = '/search?searchText='+searchText;
-                                }
-                            },
-                            error:function(data,status){
-                                alert('错误')
+                $('.search-text').bind('change', function () {
+                    var searchText = $(this).val().trim();
+                    $.ajax({
+                        url:'search',
+                        type:'get',
+                        data:{searchText:searchText},
+                        success:function(data,status){
+                            if(status == 'success'){
+                                location.href = '/search?searchText='+searchText;
                             }
-                        })
+                        },
+                        error:function(data,status){
+                            alert('错误')
+                        }
                     })
-                }())
-            });
+                })
+        });
         });
     });
 </script>

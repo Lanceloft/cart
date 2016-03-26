@@ -3,7 +3,7 @@ module.exports = function(app){
         var Cart = global.dbHelper.getModel('cart');
         if(!req.session.user){
             req.session.error = "用户已过期，请重新登录";
-            res.redirect('/login');
+            res.redirect('/');
         }else {
             Cart.find({"uId":req.session.user._id,"cStatus":false},function(err,docs){
                 res.render('cart',{carts:docs});
@@ -14,7 +14,7 @@ module.exports = function(app){
     app.get('/addToCart/:id',function(req,res){
         if(!req.session.user){
             req.session.error = "用户已过期，请重新登录";
-            res.redirect('/login');
+            res.redirect('/');
         }else {
             var Commodity = global.dbHelper.getModel('commodity'),
                 Cart = global.dbHelper.getModel('cart');

@@ -4,6 +4,7 @@ module.exports = function(app){
     require('./home')(app);
     require('./adminLogin')(app);
     require('./admin')(app);
+    require('./userCenter')(app);
     require('./forget')(app);
     require('./exhibition')(app);
     var crypto = require('crypto');
@@ -30,7 +31,11 @@ module.exports = function(app){
     //   res.end(buffer);
     //});
     app.get('/',function(req,res){
-        res.render('index',{userDoc:req.session.user});
+        if(req.session.user) {
+            res.render('index', {userDoc: req.session.user});
+        }else {
+            res.render('index');
+        }
     });
     app.post('/login',function(req,res){
         var User = global.dbHelper.getModel('user'),

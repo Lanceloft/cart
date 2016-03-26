@@ -1,15 +1,10 @@
 module.exports = function(app){
-    app.get('/bootstrap',function(req,res){res.render('bootstrap')})
     app.get('/home',function(req,res){
-        if(req.session.user){
-           var Commodity = global.dbHelper.getModel('commodity');
-            Commodity.find({},function(err,docs){
-                console.log(docs);
-                res.render('home',{Commoditys:docs});
-            })
-        }else {
-            res.redirect('/login');
-        }
+       var Commodity = global.dbHelper.getModel('commodity');
+        Commodity.find({},function(err,docs){
+            console.log(docs);
+            res.render('home',{Commoditys:docs});
+        })
     });
     app.get('/addcommodity',function(req,res){
         if(!req.session.user){
