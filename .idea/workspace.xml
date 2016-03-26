@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4862efc-2a2a-4536-a0bb-6bb2c688b17e" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cart/routes/userCenter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cart/views/userCenter.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/app.js" afterPath="$PROJECT_DIR$/cart/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/gulpfile.js" afterPath="$PROJECT_DIR$/cart/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/routes/cart.js" afterPath="$PROJECT_DIR$/cart/routes/cart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/routes/home.js" afterPath="$PROJECT_DIR$/cart/routes/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/routes/index.js" afterPath="$PROJECT_DIR$/cart/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/views/layout/footer.html" afterPath="$PROJECT_DIR$/cart/views/layout/footer.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/views/layout/homeheader.html" afterPath="$PROJECT_DIR$/cart/views/layout/homeheader.html" />
     </list>
     <ignored path="cart.iws" />
@@ -42,21 +34,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="homeheader.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="homeheader.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cart/views/layout/homeheader.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="17.193548">
-              <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.55643564">
+              <caret line="113" column="18" selection-start-line="113" selection-start-column="18" selection-end-line="113" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="footer.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="footer.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cart/views/layout/footer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.087128714">
-              <caret line="2" column="203" selection-start-line="2" selection-start-column="203" selection-end-line="2" selection-end-column="203" />
+            <state vertical-scroll-proportion="-2.8387096">
+              <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -187,8 +179,8 @@
         <option value="$PROJECT_DIR$/cart/routes/userCenter.js" />
         <option value="$PROJECT_DIR$/cart/routes/home.js" />
         <option value="$PROJECT_DIR$/cart/routes/cart.js" />
-        <option value="$PROJECT_DIR$/cart/views/layout/homeheader.html" />
         <option value="$PROJECT_DIR$/cart/views/layout/footer.html" />
+        <option value="$PROJECT_DIR$/cart/views/layout/homeheader.html" />
       </list>
     </option>
   </component>
@@ -198,8 +190,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="161" />
-    <option name="y" value="96" />
+    <option name="x" value="555" />
+    <option name="y" value="99" />
     <option name="width" value="1430" />
     <option name="height" value="922" />
   </component>
@@ -637,7 +629,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458977073122</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="啦啦啦  啦啦啦啦啦啦~">
+      <created>1458979043317</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1458979043317</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -650,7 +648,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="161" y="96" width="1430" height="922" extended-state="0" />
+    <frame x="555" y="99" width="1430" height="922" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18057553" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1072,18 +1070,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cart/views/layout/homeheader.html">
+    <entry file="file://$PROJECT_DIR$/cart/views/layout/footer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="17.193548">
-          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+        <state vertical-scroll-proportion="-2.8387096">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cart/views/layout/footer.html">
+    <entry file="file://$PROJECT_DIR$/cart/views/layout/homeheader.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.087128714">
-          <caret line="2" column="203" selection-start-line="2" selection-start-column="203" selection-end-line="2" selection-end-column="203" />
+        <state vertical-scroll-proportion="0.55643564">
+          <caret line="113" column="18" selection-start-line="113" selection-start-column="18" selection-end-line="113" selection-end-column="18" />
           <folding />
         </state>
       </provider>
