@@ -14,7 +14,7 @@
 <body>
 <header class="g-header">
     <div class="m-center">
-        <a class="u-logo" href="#" alt="江苏展览馆">
+        <a class="u-logo" href="/" alt="江苏展览馆">
             <img src="http://www.zi-han.net/wp-content/uploads/2015/09/logo1.png" alt="Zihan's Blog">
         </a>
         <nav class="u-nav">
@@ -41,21 +41,21 @@
         </div>
     </div>
     <div class="m-login clearfix">
-        <button data-toggle="modal" data-target="#myModal">登录</button>
-        <button data-toggle="modal" data-target="#myModal">注册</button>
+        <button class="u-signup login">登录</button>
+        <button class="u-signup reg">注册</button>
     </div>
 </header>
-<div class="allScreen" id="signup">
-    <div class="g_recommend_popup">
+<div class="allScreen displayNone" id="signup">
+    <div class="g_recommend_popup animated bounceIn">
         <div class="u_close_btn"></div>
         <form class="m_recommend_form clearfix">
             <div class="fl form_inner">
-                <p class="title">填写个人信息</p>
-                <div class="row">
-                    <input class="m_name" type="text" placeholder="输入您的姓名">
-                </div>
+                <p class="title">登录</p>
                 <div class="row">
                     <input class="m_tel" type="text" placeholder="输入您的手机号">
+                </div>
+                <div class="row">
+                    <input class="m_password" type="password" placeholder="输入您的密码">
                 </div>
                 <div class="row">
                     <input type="text" class="contactMobile" placeholder="输入验证码">
@@ -68,7 +68,7 @@
 </div>
 <script type="text/javascript">
     require(['/js/common.js'],function(common){
-        require(['jquery','bootstrap'], function ($,bootstrap) {
+        require(['jquery'], function ($) {
             $('document').ready(function(){
                 /*=============搜索=============*/
                 (function(){
@@ -86,6 +86,34 @@
                     back2top.click(function () {
                         $('body').animate({scrollTop:0},300)
                     });
+                }());
+                /*=============登录注册===========*/
+                (function(){
+                    $('.u-signup').bind('click', function () {
+                        $('#signup').removeClass('displayNone');
+                    });
+                    $('.u_close_btn').bind('click', function () {
+                       $('#signup').addClass('displayNone');
+                    });
+                    //ajax->后台
+                    $('button.u_submit').click(function(){
+                        var name = $('.m_tel').val();
+                        var password = $('.m_password').val();
+                        //        var code = $('#code').val();
+                        $.ajax({
+                            url:'/login',
+                            type:'post',
+                            data:{"uname":name,"upwd":password},
+                            success:function(data,status){
+                                if(status == 'success'){
+                                    location.href='home'
+                                }
+                            },
+                            error:function(data,err){
+                                location.href='login';
+                            }
+                        })
+                    })
                 }());
             });
         });

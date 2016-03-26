@@ -7,6 +7,21 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+button,input{
+  border: 0;
+  outline: 0;
+}
+.fl{
+  float: left;
+  display: inline-block;
+}
+.fr{
+  float: right;
+  display: inline-block;
+}
+input{
+  border: 1px solid #e8e8e8;
+}
 a {
   color: #00B7FF;
 }
@@ -68,15 +83,17 @@ a {
           position: absolute;
           right: 0;
           bottom: 9px;
-          height: 51px;
+          height: 52px;
           width: 138px;
           background: #4ad7ff;
           color: #fff;
+          line-height: 51px;
         }
       }
       input {
         width: 100%;
         height: 53px;
+        line-height: 53px;
         font-size: 16px;
         color: #333;
         outline: 0;
@@ -241,3 +258,117 @@ aside{
     opacity: 1;
   }
 }
+//首页
+.g-body.index_page {
+  width: 910px;
+  margin: 20px auto;
+  .m-left-body{
+    width: 66%;
+    float: left;
+    .m-quick-links .u-main{
+      width:100% ;
+      height: 300px;
+    }
+
+    .m-anno-info .m-anno, .m-anno-info .m-info {
+      width: 49%;
+    }
+
+    .m-anno-info .m-anno {
+      border-right: 1px solid #e8e8e8;
+    }
+
+    .m-anno-info .u-list {
+      border-bottom: 1px solid #999;
+      width: 95%;
+      margin: 0 auto 15px;
+    }
+
+    .m-anno-info .u-list h4 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      white-space: nowrap;
+    }
+
+    .m-anno-info .u-list .line1 {
+      line-height: 28px;
+    }
+
+    .m-anno-info .u-list .line2 {
+      color: #777;
+      font-size: 15px;
+      padding-bottom: 15px;
+      min-height: 57px;
+    }
+
+    .m-anno-info .u-last-list {
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    .m-anno-info .u-last-list p {
+      height: 24px;
+      color: #666;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      white-space: nowrap;
+    }
+
+    .m-anno-info .u-last-list .date {
+      margin-right: 15px;
+    }
+
+    .m-anno-info .u-last-list .more {
+      color: #0c00aa;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .m-anno-info .u-last-list .more:hover {
+      color: #137137;
+    }
+
+  }
+
+  .m-right-body{
+    width: 34%;
+    float: left;
+    background-color: #cfd3d8;
+    color: #fff;
+    min-height: 770px;
+    font-size: 13px;
+    .u-main .main-list {
+      border-bottom: 1px solid #bbb;
+      padding-bottom: 10px;
+      width: 97%;
+      margin: 0 auto 10px;
+    }
+
+    .u-main .main-list h5 {
+      line-height: 25px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      white-space: nowrap;
+    }
+
+    .u-main .main-list h5 a {
+      color: #fff;
+    }
+
+    .u-main .main-list h5 a:hover {
+      color: #81be00;
+    }
+
+    .u-main .main-list .line1 {
+      line-height: 25px;
+    }
+
+    .u-main .main-list .line2 {
+      line-height: 21px;
+    }
+  }
+}
+
