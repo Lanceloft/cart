@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4862efc-2a2a-4536-a0bb-6bb2c688b17e" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cart/public/css/animate.min.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cart/views/login.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/public/css/common.scss" afterPath="$PROJECT_DIR$/cart/public/css/common.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/routes/cart.js" afterPath="$PROJECT_DIR$/cart/routes/cart.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/routes/index.js" afterPath="$PROJECT_DIR$/cart/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/routes/login.js" afterPath="$PROJECT_DIR$/cart/routes/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/views/cart.html" afterPath="$PROJECT_DIR$/cart/views/cart.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/views/exh_detail.html" afterPath="$PROJECT_DIR$/cart/views/exh_detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/views/home.html" afterPath="$PROJECT_DIR$/cart/views/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/views/layout/homeheader.html" afterPath="$PROJECT_DIR$/cart/views/layout/homeheader.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart/views/login.html" afterPath="$PROJECT_DIR$/cart/views/login.html" />
     </list>
     <ignored path="cart.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cart/routes/index.js">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cart/routes/login.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -40,8 +45,18 @@
       <file leaf-file-name="common.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cart/public/css/common.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.074468">
-              <caret line="268" column="18" selection-start-line="268" selection-start-column="18" selection-end-line="268" selection-end-column="18" />
+            <state vertical-scroll-proportion="-3.0425532">
+              <caret line="197" column="25" selection-start-line="197" selection-start-column="25" selection-end-line="197" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cart/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -50,21 +65,59 @@
       <file leaf-file-name="homeheader.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cart/views/layout/homeheader.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6489363">
-              <caret line="98" column="38" selection-start-line="98" selection-start-column="38" selection-end-line="98" selection-end-column="38" />
+            <state vertical-scroll-proportion="-5.193548">
+              <caret line="111" column="55" selection-start-line="111" selection-start-column="55" selection-end-line="111" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cart/views/login.html">
+      <file leaf-file-name="cart.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cart/views/cart.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15471168">
-              <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-              <folding>
-                <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.2720588">
+              <caret line="45" column="78" selection-start-line="45" selection-start-column="78" selection-end-line="45" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cart.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cart/routes/cart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cart/views/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.225806">
+              <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exh_detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cart/views/exh_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.2580647">
+              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cart/views/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="2.1290324">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,15 +149,10 @@
         <option value="$PROJECT_DIR$/cart/views/adminLogin.html" />
         <option value="$PROJECT_DIR$/cart/views/admin.html" />
         <option value="$PROJECT_DIR$/cart/views/addcommodity.html" />
-        <option value="$PROJECT_DIR$/cart/views/home.html" />
         <option value="$PROJECT_DIR$/cart/routes/admin.js" />
-        <option value="$PROJECT_DIR$/cart/routes/cart.js" />
         <option value="$PROJECT_DIR$/cart/routes/exhibition.js" />
-        <option value="$PROJECT_DIR$/cart/views/exh_detail.html" />
         <option value="$PROJECT_DIR$/cart/views/usersetting.html" />
         <option value="$PROJECT_DIR$/cart/routes/forget.js" />
-        <option value="$PROJECT_DIR$/cart/views/cart.html" />
-        <option value="$PROJECT_DIR$/cart/routes/login.js" />
         <option value="$PROJECT_DIR$/cart/public/css/header.css" />
         <option value="$PROJECT_DIR$/cart/public/css/style.css" />
         <option value="$PROJECT_DIR$/cart/package.json" />
@@ -114,10 +162,15 @@
         <option value="$PROJECT_DIR$/cart/public/css/common.css" />
         <option value="$PROJECT_DIR$/cart/views/anhui.html" />
         <option value="$PROJECT_DIR$/cart/public/css/anhui.css" />
+        <option value="$PROJECT_DIR$/cart/views/login.html" />
+        <option value="$PROJECT_DIR$/cart/routes/login.js" />
         <option value="$PROJECT_DIR$/cart/routes/index.js" />
         <option value="$PROJECT_DIR$/cart/public/css/common.scss" />
+        <option value="$PROJECT_DIR$/cart/views/home.html" />
+        <option value="$PROJECT_DIR$/cart/views/exh_detail.html" />
+        <option value="$PROJECT_DIR$/cart/routes/cart.js" />
         <option value="$PROJECT_DIR$/cart/views/layout/homeheader.html" />
-        <option value="$PROJECT_DIR$/cart/views/login.html" />
+        <option value="$PROJECT_DIR$/cart/views/cart.html" />
       </list>
     </option>
   </component>
@@ -127,10 +180,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="184" />
-    <option name="y" value="175" />
-    <option name="width" value="1529" />
-    <option name="height" value="973" />
+    <option name="x" value="343" />
+    <option name="y" value="24" />
+    <option name="width" value="1430" />
+    <option name="height" value="977" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -163,6 +216,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -232,6 +286,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -320,7 +392,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -348,6 +419,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1032" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -485,7 +557,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458895903394</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="首页">
+      <created>1458962139110</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1458962139110</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -498,17 +576,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="184" y="175" width="1529" height="973" extended-state="0" />
+    <frame x="343" y="24" width="1430" height="977" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24042982" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18057553" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281768" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35517243" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2799043" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31459332" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27857143" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31413043" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -748,13 +826,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cart/views/exh_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.076124564">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cart/routes/adminLogin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.06813996">
@@ -783,13 +854,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cart/routes/cart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40266222">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cart/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -802,24 +866,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cart/views/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3786575">
-          <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cart/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cart/views/cart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="180" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -851,13 +901,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cart/routes/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2433281">
-          <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cart/common/models.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -866,21 +909,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cart/public/css/common.css.map">
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.038327526">
           <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cart/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding />
-        </state>
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cart/public/css/animate.min.css">
@@ -891,29 +926,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cart/routes/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cart/public/css/common.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.074468">
-          <caret line="268" column="18" selection-start-line="268" selection-start-column="18" selection-end-line="268" selection-end-column="18" />
+        <state vertical-scroll-proportion="-3.0425532">
+          <caret line="197" column="25" selection-start-line="197" selection-start-column="25" selection-end-line="197" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.1290324">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart/views/exh_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.2580647">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart/views/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.225806">
+          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart/routes/cart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cart/views/layout/homeheader.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6489363">
-          <caret line="98" column="38" selection-start-line="98" selection-start-column="38" selection-end-line="98" selection-end-column="38" />
+        <state vertical-scroll-proportion="-5.193548">
+          <caret line="111" column="55" selection-start-line="111" selection-start-column="55" selection-end-line="111" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cart/views/login.html">
+    <entry file="file://$PROJECT_DIR$/cart/views/cart.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15471168">
-          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.2720588">
+          <caret line="45" column="78" selection-start-line="45" selection-start-column="78" selection-end-line="45" selection-end-column="78" />
+          <folding />
         </state>
       </provider>
     </entry>

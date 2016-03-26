@@ -1,7 +1,7 @@
 module.exports = function(app){
     app.get('/cart',function(req,res){
         var Cart = global.dbHelper.getModel('cart');
-        if(!req.session.error){
+        if(!req.session.user){
             req.session.error = "用户已过期，请重新登录";
             res.redirect('/login');
         }else {
