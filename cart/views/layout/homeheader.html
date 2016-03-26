@@ -120,6 +120,25 @@
                         })
                     })
                 }());
+                /*=============搜索===========*/
+                (function(){
+                    $('.search-text').bind('change', function () {
+                        var searchText = $(this).val().trim();
+                        $.ajax({
+                            url:'search',
+                            type:'get',
+                            data:{searchText:searchText},
+                            success:function(data,status){
+                                if(status == 'success'){
+                                    location.href = '/search?searchText='+searchText;
+                                }
+                            },
+                            error:function(data,status){
+                                alert('错误')
+                            }
+                        })
+                    })
+                }())
             });
         });
     });

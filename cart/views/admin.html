@@ -1,10 +1,5 @@
 <%-include ./layout/homeheader.html%>
 你好：管理员<%=admin.name%>
-<div class="searchForm">
-    <p>按商品名搜索商品</p>
-    <input type="text" id="search">
-
-</div>
 <% for(var i in commoditys){ %>
 <div>
     <table>
@@ -36,22 +31,6 @@
 <script>
     require(['/js/common.js'],function(common){
         require(['jquery'], function ($) {
-            $('#search').change(function(){
-                var searchText = $(this).val().trim();
-                $.ajax({
-                    url:'search',
-                    type:'get',
-                    data:{searchText:searchText},
-                    success:function(data,status){
-                        if(status == 'success'){
-                            location.href = '/search?searchText='+searchText;
-                        }
-                    },
-                    error:function(data,status){
-                        alert('错误')
-                    }
-                })
-            });
             $('#delUser').click(function(){
                 var userName = $('.user').text().trim();
                 $.ajax({
