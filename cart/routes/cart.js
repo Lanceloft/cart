@@ -24,7 +24,7 @@ module.exports = function(app){
                     Cart.update({"uId":req.session.user._id,"cId":req.params.id,cStatus:true},{$set:{cQuantity:doc.cQuantity+1}},function(err,doc){
                         //成功返回1 失败返回0
                         if(doc>0){
-                            res.redirect('/home');
+                            res.redirect('/cart');
                         }
                     });
                 //商品未存在，添加
@@ -40,7 +40,7 @@ module.exports = function(app){
                                 cQuantity : 1
                             },function(err,doc){
                                 if(doc){
-                                    res.redirect('/home');
+                                    res.redirect('/cart');
                                 }
                             })
                         }

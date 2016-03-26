@@ -6,10 +6,12 @@
         <thead>
             <th>馆名</th>
             <th>价格</th>
+            <th>呵呵</th>
         </thead>
         <tbody>
             <td> <a href="/exh_detail?uid=<%=item.id%>"><%=item.name%></a></td>
             <td> <p><%=item.price%></p></td>
+            <td> <a class="btn btn-success" style="width: 120px;"  href="/addToCart/<%=item._id%>">立即预约</a></td>
         </tbody>
     </table>
     <% });}else{ %>
