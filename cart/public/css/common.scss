@@ -6,6 +6,7 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  transition: all .3s linear;
 }
 button,input{
   border: 0;
@@ -61,8 +62,6 @@ a {
     .u_submit {
       width: 318px;
       height: 56px;
-      color: #fff;
-      background: #ff7da9;
       font-size: 18px;
       margin-left: 61px;
       margin-top: 40px;
@@ -104,6 +103,9 @@ a {
     }
   }
 }
+.g_recommend_popup.register_pop{
+  height:522px;
+}
 /*common end*/
 .g-header {
   position: relative;
@@ -126,7 +128,6 @@ a {
       vertical-align: middle;
       font-size: 18px;
       li{
-        width: 100px;
         height:35px;
         text-align: center;
         cursor: pointer;
@@ -140,6 +141,7 @@ a {
       a{
         color: #838fa8;
         text-decoration: none;
+        padding: 30px;
       }
     }
     .u-search{
@@ -190,7 +192,7 @@ a {
     position: absolute;
     right: 0;
     top:0;
-    button{
+    button.u-signup{
       float: left;
       color: #fff;
       height: 24px;
@@ -199,6 +201,9 @@ a {
       cursor: pointer;
       margin-left: 10px;
       padding: 0 20px;
+      &:hover{
+        background-color:#46b855;
+      }
     }
   }
 }

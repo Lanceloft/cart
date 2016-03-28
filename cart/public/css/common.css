@@ -5,7 +5,8 @@ body {
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  transition: all .3s linear; }
 
 button, input {
   border: 0;
@@ -60,8 +61,6 @@ a {
     .g_recommend_popup .m_recommend_form .u_submit {
       width: 318px;
       height: 56px;
-      color: #fff;
-      background: #ff7da9;
       font-size: 18px;
       margin-left: 61px;
       margin-top: 40px; }
@@ -95,6 +94,9 @@ a {
       padding-left: 16px;
       box-sizing: border-box; }
 
+.g_recommend_popup.register_pop {
+  height: 522px; }
+
 /*common end*/
 .g-header {
   position: relative;
@@ -116,7 +118,6 @@ a {
       vertical-align: middle;
       font-size: 18px; }
       .g-header .m-center .u-nav li {
-        width: 100px;
         height: 35px;
         text-align: center;
         cursor: pointer; }
@@ -126,7 +127,8 @@ a {
           color: #fff; }
       .g-header .m-center .u-nav a {
         color: #838fa8;
-        text-decoration: none; }
+        text-decoration: none;
+        padding: 30px; }
     .g-header .m-center .u-search {
       position: absolute;
       top: 0;
@@ -168,7 +170,7 @@ a {
     position: absolute;
     right: 0;
     top: 0; }
-    .g-header .m-login button {
+    .g-header .m-login button.u-signup {
       float: left;
       color: #fff;
       height: 24px;
@@ -177,6 +179,8 @@ a {
       cursor: pointer;
       margin-left: 10px;
       padding: 0 20px; }
+      .g-header .m-login button.u-signup:hover {
+        background-color: #46b855; }
 
 .g-body {
   width: 100%;

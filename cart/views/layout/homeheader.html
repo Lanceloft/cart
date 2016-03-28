@@ -41,9 +41,11 @@
     <% if(user){ %>
         <button onclick="location.href='/userCenter'" class="u-center">用户名：<%=user.name%> 丨 个人中心</button>
     <%}else{%>
-        <button class="u-signup login">登录</button>
-        <button class="u-signup reg">注册</button>
-        <button class="u-signup admin">管理员登录</button>
+        <div class="login-before">
+            <button class="u-signup" id="loginBtn" data-type="user">登录</button>
+            <button class="u-signup" id="regBtn">注册</button>
+            <button class="u-signup" id="adminBtn" data-type="admin">管理员登录</button>
+        </div>
     <%}%>
     </div>
 </header>
@@ -54,17 +56,40 @@
             <div class="fl form_inner">
                 <p class="title">登录</p>
                 <div class="row">
-                    <input class="m_tel" type="text" placeholder="输入您的手机号">
+                    <input id="loginTel" class="m_tel" type="text" placeholder="输入您的手机号">
                 </div>
                 <div class="row">
-                    <input class="m_password" type="password" placeholder="输入您的密码">
+                    <input id="loginPwd" class="m_password" type="password" placeholder="输入您的密码">
                 </div>
                 <div class="row">
                     <input type="text" class="contactMobile" placeholder="输入验证码">
                     <button class="check_code_button checkCode" id="checkCodeBt" type="button">发送短信验证码</button>
                 </div>
             </div>
-            <button type="button" class="u_submit">提交</button>
+            <button type="button" id="loginSubmit" class="u_submit btn-success">提交</button>
+        </form>
+    </div>
+</div>
+<div class="allScreen displayNone" id="register">
+    <div class="g_recommend_popup register_pop animated bounceInDown">
+        <div class="u_close_btn"></div>
+        <form class="m_recommend_form clearfix">
+            <div class="fl form_inner">
+                <p class="title">注册</p>
+                <div class="row">
+                    <input class="m_tel" id="regTel" type="text" placeholder="输入您的手机号">
+                </div>
+                <div class="row">
+                    <input class="m_password" id="regPwd" type="password" placeholder="输入您的密码">
+                </div>
+                <div class="row">
+                    <input type="password" class="m_password_re" id="regPwdRe" placeholder="再次输入密码">
+                </div>
+                <div class="row">
+                    <input type="email" class="email" id="regEmail" placeholder="输入您的邮箱方便找回密码">
+                </div>
+            </div>
+            <button type="button" id="regSubmit" class="u_submit btn-success">提交</button>
         </form>
     </div>
 </div>
@@ -86,31 +111,71 @@
                     $('body').animate({scrollTop:0},300)
                 });
                 /*=============登录注册===========*/
-                $('.u-signup').bind('click', function () {
+                $('#loginBtn,#adminBtn').bind('click', function () {
+                    var postUrl;
+                    var loginType = $(this).attr("data-type");
+                    loginType == "user"? postUrl ='/login':postUrl = '/adminLogin';
                     $('#signup').removeClass('displayNone');
-                });
-                $('.u_close_btn').bind('click', function () {
-                   $('#signup').addClass('displayNone');
-                });
-                //ajax->后台
-                $('button.u_submit').click(function(){
-                    var name = $('.m_tel').val();
-                    var password = $('.m_password').val();
-                    //        var code = $('#code').val();
-                    $.ajax({
-                        url:'/login',
-                        type:'post',
-                        data:{"uname":name,"upwd":password},
-                        success:function(data,status){
-                            if(status == 'success'){
-                                $('#signup').addClass('displayNone');
+                    //ajax->后台
+                    $('#loginSubmit').click(function(){
+                        var name = $('#loginTel').val(),
+                            password = $('#loginPwd').val();
+                        //        var code = $('#code').val();
+                        function loginCallback(){
+                           if(loginType == 'user'){
+                               $('#signup').addClass('displayNone');
+                               $('.login-before').remove()
+                               var htmlAfter = "<button onclick=\"location.href='/userCenter'\" class='u-center'>用户名："
+                                       + name + " 丨 个人中心</button>";
+                               $('.m-login').append(htmlAfter);
+                           }else {
+                               location.href = '/admin';
+                           }
+                        }
+                        $.ajax({
+                            url:postUrl,
+                            type:'post',
+                            data:{"uname":name,"upwd":password},
+                            success:function(data,status){
+                                if(status == 'success'){
+                                    loginCallback();
+                                }
+                            },
+                            error:function(data,err){
                                 location.href='/';
                             }
-                        },
-                        error:function(data,err){
-                            location.href='/';
-                        }
-                    })
+                        })
+                    });
+                });
+                $('.u_close_btn').bind('click', function () {
+                   $('#signup,#register').addClass('displayNone');
+                });
+                $('#regBtn').bind('click', function () {
+                    $('#register').removeClass('displayNone');
+                });
+                $('#regSubmit').click(function(){
+                    var name = $('#regTel').val(),
+                        password = $('#regPwd').val(),
+                        password_re = $('#regPwdRe').val(),
+                        email = $('#regEmail').val();
+                    if(password != password_re){
+                        alert('两次密码输入不一致')
+                    }else {
+                        $.ajax({
+                            url:'/register',
+                            type:'post',
+                            data:{"uname":name,"upwd":password,"uemail":email},
+                            success:function(data,status){
+                                if(status == 'success'){
+                                    $('#register').addClass('displayNone');
+                                    $('#signup').removeClass('displayNone');
+                                }
+                            },
+                            error:function(data,err){
+                                location.href='/';
+                            }
+                        })
+                    }
                 })
                 /*=============搜索===========*/
                 $('.search-text').bind('change', function () {
