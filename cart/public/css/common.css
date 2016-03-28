@@ -77,6 +77,10 @@ input.valid {
       font-size: 24px;
       font-weight: bold;
       text-align: center; }
+    .g_recommend_popup .m_recommend_form .form_inner .login-img {
+      position: absolute;
+      left: 260px;
+      top: 20px; }
     .g_recommend_popup .m_recommend_form .form_inner .row {
       width: 441px;
       height: 69px;

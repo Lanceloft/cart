@@ -55,6 +55,7 @@
         <form class="m_recommend_form clearfix">
             <div class="form_inner">
                 <p class="title">登录</p>
+                <img class="login-img" id="login-img" src="image/username.gif">
                 <div class="row">
                     <label class="row_label" for="loginTel">手机号</label>
                     <input name="loginTel" id="loginTel" class="m_tel" type="text" placeholder="输入您的手机号">
@@ -79,6 +80,7 @@
         <form class="m_recommend_form clearfix" id="register-form" method="post" onsubmit="return false">
             <div class="form_inner">
                 <p class="title">注册</p>
+                <img class="login-img" src="image/username.gif">
                 <div class="row">
                     <label class="row_label" for="regTel">手机号</label>
                     <input name="regTel" class="m_tel" id="regTel" type="text" placeholder="输入您的手机号">
@@ -120,6 +122,12 @@
                 });
 
 /*=============登录注册===========*/
+                $('#loginPwd,#regPwd,#regPwdRe').focus(function(){
+                    $('.login-img').attr('src','image/password.gif')
+                }).blur(function(){
+                    $('.login-img').attr('src','image/username.gif')
+                   }
+                )
                 //注册表单验证
                 var regAjax = (function() {
                     $('#regSubmit').click(function () {
