@@ -26,6 +26,10 @@ input{
 a {
   color: #00B7FF;
 }
+/*验证form*/
+input.error {color:red;}
+input.valid {color:green}
+
 .displayNone{
   display: none;
 }
@@ -74,7 +78,7 @@ a {
         text-align: center;
       }
       .row {
-        width: 420px;
+        width: 441px;
         height: 69px;
         line-height: 69px;
         position: relative;
@@ -89,12 +93,23 @@ a {
           line-height: 51px;
         }
       }
+      .row_label{
+        width: 65px;
+        text-align: right;
+        font-size: 15px;
+      }
+      label.error{
+        position: absolute;
+        right: 20px;
+        bottom: -39px;
+        height: 70px;
+        color: #FF0808;
+      }
       input {
-        width: 100%;
+        width: 352px;
         height: 53px;
         line-height: 53px;
         font-size: 16px;
-        color: #333;
         outline: 0;
         border: 1px solid #e8e8e8;
         padding-left: 16px;

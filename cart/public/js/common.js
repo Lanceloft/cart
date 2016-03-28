@@ -3,7 +3,9 @@ require.config({
     paths: {
         'bootstrap': 'bootstrap.min',
         'jquery': 'jquery.min',
-        'datetimepicker': 'jquery.datetimepicker'
+        'datetimepicker': 'jquery.datetimepicker',
+        'validate':'jquery.validate.min',
+        'validate-methods':'validate-methods'
     },
     shim: {
         'jquery': {
@@ -14,6 +16,12 @@ require.config({
         },
         'bootstrap':{
             deps:['jquery']
+        },
+        'validate':{
+            deps:['jquery']
+        },
+        'validate-methods':{
+            deps:['jquery','validate']
         }
     }
 });

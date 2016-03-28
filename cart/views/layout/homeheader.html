@@ -53,16 +53,19 @@
     <div class="g_recommend_popup animated bounceInDown">
         <div class="u_close_btn"></div>
         <form class="m_recommend_form clearfix">
-            <div class="fl form_inner">
+            <div class="form_inner">
                 <p class="title">登录</p>
                 <div class="row">
-                    <input id="loginTel" class="m_tel" type="text" placeholder="输入您的手机号">
+                    <label class="row_label" for="loginTel">手机号</label>
+                    <input name="loginTel" id="loginTel" class="m_tel" type="text" placeholder="输入您的手机号">
                 </div>
                 <div class="row">
-                    <input id="loginPwd" class="m_password" type="password" placeholder="输入您的密码">
+                    <label class="row_label" for="loginPwd">密码</label>
+                    <input name="loginPwd" id="loginPwd" class="m_password" type="password" placeholder="输入您的密码">
                 </div>
                 <div class="row">
-                    <input type="text" class="contactMobile" placeholder="输入验证码">
+                    <label class="row_label" for="loginCode">验证码</label>
+                    <input name="loginCode" id="loginCode" type="text" class="contactMobile" placeholder="输入验证码">
                     <button class="check_code_button checkCode" id="checkCodeBt" type="button">发送短信验证码</button>
                 </div>
             </div>
@@ -73,20 +76,24 @@
 <div class="allScreen displayNone" id="register">
     <div class="g_recommend_popup register_pop animated bounceInDown">
         <div class="u_close_btn"></div>
-        <form class="m_recommend_form clearfix">
-            <div class="fl form_inner">
+        <form class="m_recommend_form clearfix" id="register-form" method="post" onsubmit="return false">
+            <div class="form_inner">
                 <p class="title">注册</p>
                 <div class="row">
-                    <input class="m_tel" id="regTel" type="text" placeholder="输入您的手机号">
+                    <label class="row_label" for="regTel">手机号</label>
+                    <input name="regTel" class="m_tel" id="regTel" type="text" placeholder="输入您的手机号">
                 </div>
                 <div class="row">
-                    <input class="m_password" id="regPwd" type="password" placeholder="输入您的密码">
+                    <label class="row_label" for="regPwd">密码</label>
+                    <input name="regPwd" class="m_password" id="regPwd" type="password" placeholder="输入您的密码">
                 </div>
                 <div class="row">
-                    <input type="password" class="m_password_re" id="regPwdRe" placeholder="再次输入密码">
+                    <label class="row_label" for="regPwdRe">重复密码</label>
+                    <input name="regPwdRe" type="password" class="m_password_re" id="regPwdRe" placeholder="再次输入密码">
                 </div>
                 <div class="row">
-                    <input type="email" class="email" id="regEmail" placeholder="输入您的邮箱方便找回密码">
+                    <label class="row_label" for="regEmail">邮箱</label>
+                    <input name="regEmail" type="email" class="email" id="regEmail" placeholder="输入您的邮箱方便找回密码">
                 </div>
             </div>
             <button type="button" id="regSubmit" class="u_submit btn-success">提交</button>
@@ -95,14 +102,15 @@
 </div>
 <script type="text/javascript">
     require(['/js/common.js'],function(common){
-        require(['jquery'], function ($) {
+        require(['jquery','validate','validate-methods'], function ($,validate,validate_methods) {
             $('document').ready(function(){
-                /*=============搜索=============*/
+/*=============搜索=============*/
                 var searchForm = $('.search-submit');
                 searchForm.bind('click',function(){
                     $(this).parent().toggleClass('focus');
                 });
-                /*=============返回顶部===========*/
+
+/*=============返回顶部===========*/
                 var back2top = $('aside .back2top');
                 $(window).scroll(function(){
                     $(window).scrollTop() > 150?back2top.addClass('scrolled'):back2top.removeClass('scrolled');
@@ -110,7 +118,62 @@
                 back2top.click(function () {
                     $('body').animate({scrollTop:0},300)
                 });
-                /*=============登录注册===========*/
+
+/*=============登录注册===========*/
+                //注册表单验证
+                var regAjax = (function() {
+                    $('#regSubmit').click(function () {
+                        var name = $('#regTel').val(),
+                                password = $('#regPwd').val(),
+                                email = $('#regEmail').val();
+                        console.log($('#register-form input.valid').length);
+                        if($('#register-form input.valid').length == 4) {
+                            $.ajax({
+                                url: '/register',
+                                type: 'post',
+                                data: {"uname": name, "upwd": password, "uemail": email},
+                                success: function (data, status) {
+                                    if (status == 'success') {
+                                        $('#register').addClass('displayNone');
+                                        $('#signup').removeClass('displayNone');
+                                    }
+                                },
+                                error: function (data, err) {
+                                    location.href = '/';
+                                }
+                            })
+                        }
+                    });
+                }());
+                $("#register-form").validate({
+                    rules: {
+                        regTel: {
+                            required:true,
+                            isMobile:true
+                        },
+                        regPwd: {
+                            required:true,
+                            rangelength:[6,16]
+                        },
+                        regPwdRe:{
+                            required:true,
+                            equalTo:"#regPwd"
+                        },
+                        regEmail: {
+                            required: true,
+                            email: true
+                        }
+                    },
+                    messages: {
+                        regTel:"请输入正确的手机号哦",
+                        regPwd: "密码为6到16位",
+                        regPwdRe:"两次密码输入不一致",
+                        regEmail: "请输入正确的邮箱，方便您找回密码"
+                    },
+                    submitHandler: function(form) {},
+                    success: regAjax
+                });
+
                 $('#loginBtn,#adminBtn').bind('click', function () {
                     var postUrl;
                     var loginType = $(this).attr("data-type");
@@ -148,36 +211,15 @@
                     });
                 });
                 $('.u_close_btn').bind('click', function () {
-                   $('#signup,#register').addClass('displayNone');
+                    $('#signup,#register').addClass('displayNone');
+                    $('form input').val("");
+                    $('form').find("label.error").remove();
                 });
                 $('#regBtn').bind('click', function () {
                     $('#register').removeClass('displayNone');
                 });
-                $('#regSubmit').click(function(){
-                    var name = $('#regTel').val(),
-                        password = $('#regPwd').val(),
-                        password_re = $('#regPwdRe').val(),
-                        email = $('#regEmail').val();
-                    if(password != password_re){
-                        alert('两次密码输入不一致')
-                    }else {
-                        $.ajax({
-                            url:'/register',
-                            type:'post',
-                            data:{"uname":name,"upwd":password,"uemail":email},
-                            success:function(data,status){
-                                if(status == 'success'){
-                                    $('#register').addClass('displayNone');
-                                    $('#signup').removeClass('displayNone');
-                                }
-                            },
-                            error:function(data,err){
-                                location.href='/';
-                            }
-                        })
-                    }
-                })
-                /*=============搜索===========*/
+
+/*=============搜索===========*/
                 $('.search-text').bind('change', function () {
                     var searchText = $(this).val().trim();
                     $.ajax({
