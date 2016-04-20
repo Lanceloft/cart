@@ -86,15 +86,12 @@ input.valid {
       height: 69px;
       line-height: 69px;
       position: relative; }
-      .g_recommend_popup .m_recommend_form .form_inner .row .check_code_button {
+      .g_recommend_popup .m_recommend_form .form_inner .row .u_code {
         position: absolute;
-        right: 0;
-        bottom: 9px;
-        height: 52px;
-        width: 138px;
-        background: #4ad7ff;
-        color: #fff;
-        line-height: 51px; }
+        right: 21px;
+        top: 8px;
+        padding: 6px;
+        background-color: rgba(96, 216, 142, 0.63); }
     .g_recommend_popup .m_recommend_form .form_inner .row_label {
       width: 65px;
       text-align: right;
@@ -206,7 +203,7 @@ input.valid {
 .g-body {
   width: 100%;
   height: auto;
-  min-height: 780px; }
+  min-height: 469px; }
 
 .g-footer {
   color: #737f99;

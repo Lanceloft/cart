@@ -87,15 +87,12 @@ input.valid {color:green}
         height: 69px;
         line-height: 69px;
         position: relative;
-        .check_code_button {
+        .u_code {
           position: absolute;
-          right: 0;
-          bottom: 9px;
-          height: 52px;
-          width: 138px;
-          background: #4ad7ff;
-          color: #fff;
-          line-height: 51px;
+          right: 21px;
+          top: 8px;
+          padding: 6px;
+          background-color: rgba(96, 216, 142, 0.63);
         }
       }
       .row_label{
@@ -230,7 +227,7 @@ input.valid {color:green}
 .g-body{
   width: 100%;
   height: auto;
-  min-height: 780px;
+  min-height: 469px;
 }
 .g-footer{
   color: #737f99;

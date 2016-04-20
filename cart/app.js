@@ -42,4 +42,4 @@ app.get('/',function(req,res){
     res.render('login');
 });
 
-app.listen(3002);
+app.listen(3000);

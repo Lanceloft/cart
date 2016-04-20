@@ -65,9 +65,9 @@
                     <input name="loginPwd" id="loginPwd" class="m_password" type="password" placeholder="输入您的密码">
                 </div>
                 <div class="row">
-                    <label class="row_label" for="loginCode">验证码</label>
-                    <input name="loginCode" id="loginCode" type="text" class="contactMobile" placeholder="输入验证码">
-                    <button class="check_code_button checkCode" id="checkCodeBt" type="button">发送短信验证码</button>
+                    <label class="row_label" for="u_code">验证码</label>
+                    <input name="loginCode" id="u_code" type="text" class="contactMobile" placeholder="输入验证码">
+                    <img src="/capt/1" class="u_code" onclick="javascript:this.src='/capt/'+Math.random()" alt="验证码">
                 </div>
             </div>
             <button type="button" id="loginSubmit" class="u_submit btn-success">提交</button>
@@ -190,12 +190,12 @@
                     //ajax->后台
                     $('#loginSubmit').click(function(){
                         var name = $('#loginTel').val(),
-                            password = $('#loginPwd').val();
-                        //        var code = $('#code').val();
+                            password = $('#loginPwd').val(),
+                            code = $('#u_code').val();
                         function loginCallback(){
                            if(loginType == 'user'){
                                $('#signup').addClass('displayNone');
-                               $('.login-before').remove()
+                               $('.login-before').remove();
                                var htmlAfter = "<button onclick=\"location.href='/userCenter'\" class='u-center'>用户名："
                                        + name + " 丨 个人中心</button>";
                                $('.m-login').append(htmlAfter);
@@ -206,7 +206,7 @@
                         $.ajax({
                             url:postUrl,
                             type:'post',
-                            data:{"uname":name,"upwd":password},
+                            data:{"uname":name,"upwd":password,"code":code},
                             success:function(data,status){
                                 if(status == 'success'){
                                     loginCallback();
