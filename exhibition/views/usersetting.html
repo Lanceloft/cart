@@ -1,0 +1,32 @@
+<%-include ./layout/homeheader.html%>
+<p>您好：<span id="name"><%=user.name%></span></p>
+<input id="password" type="password" placeholder="新密码">
+<input id="password_re" type="password" placeholder="重复密码">
+<button type="button">修改</button>
+<script>
+    require(['/js/common.js'],function(common){
+        require(['jquery'], function ($) {
+            $('button').click(function(){
+                var name = $('#name').text();
+                var password = $('#password').val();
+                var password_re = $('#password_re').val();
+                $.ajax({
+                    url:'/cpwd',
+                    type:'post',
+                    data:{name:name,password:password},
+                    success:function(data,status){
+                        if(status == 'success'){
+                            location.href='/home'
+                        }else {
+                            alert("err")
+                        }
+                    },
+                    error:function(data,status){
+                        alert('错误')
+                    }
+                })
+            })
+        })
+    });
+</script>
+<%-include ./layout/footer.html%>
