@@ -3,6 +3,9 @@
 body {
   font: 14px "Lucida Grande", Microsoft Yahei, Arial, sans-serif; }
 
+.cursor {
+  cursor: pointer; }
+
 ::-webkit-scrollbar {
   width: 6px;
   background-color: transparent; }
@@ -64,6 +67,44 @@ input.valid {
   left: 0;
   z-index: 10000;
   background-color: rgba(0, 0, 0, 0.6); }
+
+.g-home-page .m_banner {
+  width: 100%;
+  height: 420px; }
+.g-home-page .m_exh_box {
+  width: 1200px;
+  margin: 30px auto; }
+  .g-home-page .m_exh_box .u_exh_else {
+    margin-top: 40px; }
+    .g-home-page .m_exh_box .u_exh_else .u_exh_list {
+      float: left;
+      width: 600px;
+      margin-bottom: 30px; }
+      .g-home-page .m_exh_box .u_exh_else .u_exh_list .exh_img {
+        position: relative;
+        overflow: hidden; }
+        .g-home-page .m_exh_box .u_exh_else .u_exh_list .exh_img:hover img {
+          transform: scale(1.2);
+          z-index: 10;
+          transition: 1s; }
+        .g-home-page .m_exh_box .u_exh_else .u_exh_list .exh_img img {
+          width: 580px;
+          height: 310px;
+          cursor: pointer; }
+        .g-home-page .m_exh_box .u_exh_else .u_exh_list .exh_img p {
+          width: 100%;
+          height: 40px;
+          line-height: 40px;
+          position: absolute;
+          bottom: 0;
+          background-color: rgba(255, 255, 255, 0.8);
+          margin: 0;
+          padding-left: 41px;
+          font-size: 16px; }
+
+.g-detail-page .m_nav {
+  width: 1200px;
+  margin: 30px auto 0; }
 
 .g_recommend_popup {
   width: 648px;
@@ -153,7 +194,7 @@ input.valid {
         width: 147px; }
     .g-header .m-center .u-nav {
       display: inline-block;
-      padding-left: 160px;
+      padding-left: 40px;
       font-size: 16px; }
       .g-header .m-center .u-nav li {
         height: 35px;
@@ -167,8 +208,8 @@ input.valid {
         padding: 30px; }
     .g-header .m-center .u-search {
       position: absolute;
-      top: -12px;
-      right: 242px;
+      top: -5px;
+      right: 4px;
       padding-top: 40px;
       padding-bottom: 20px;
       padding-left: 30px;

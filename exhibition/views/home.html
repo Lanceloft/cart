@@ -1,14 +1,17 @@
 <%-include ./layout/homeheader.html%>
-<main class="g-body">
-    <% Commoditys.forEach(function(commodity,index){ %>
-    <p>
-        <a href="/exh_detail?uid=<%=commodity._id%>"><%=commodity.name %></a>
-        <%=commodity.name %>
-        <%=commodity.price %>
-        <%=commodity.imgSrc %>
-        <a class="btn btn-success" style="width: 120px;"  href="/addToCart/<%=commodity._id%>">立即预约</a>
-    </p>
-    <% }) %>
-    <a  href="cart" style="margin-right: 35px;">购物车</a>
+<main class="g-body g-home-page">
+    <div class="m_banner" style="background-image:url(../image/ex_banner_01.jpg)"></div>
+    <div class="m_exh_box">
+        <div class="u_exh_else clearfix">
+            <% Commoditys.forEach(function(commodity,index){ %>
+              <div class="u_exh_list" onclick="location.href='/exh_detail?uid=<%=commodity._id%>'">
+                  <div class="fl exh_img">
+                      <img src="../image/exhibition/<%=commodity.imgSrc %>" alt="<%=commodity.name %>">
+                      <p><%=commodity.name %></p>
+                  </div>
+              </div>
+            <% }) %>
+        </div>
+    </div>
 </main>
 <%-include ./layout/footer.html%>

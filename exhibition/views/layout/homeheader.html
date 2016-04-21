@@ -34,6 +34,7 @@
             <form class="search-form clearfix">
                 <input class="search-submit">
                 <input class="search-text" type="text" placeholder="Search...">
+                <span class="cursor">搜索</span>
             </form>
         </div>
     </div>
@@ -107,11 +108,13 @@
         require(['jquery','validate','validate-methods'], function ($,validate,validate_methods) {
             $('document').ready(function(){
 /*=============搜索=============*/
-                var searchForm = $('.search-submit');
+                var searchForm = $('.search-form');
                 searchForm.bind('click',function(){
-                    $(this).parent().toggleClass('focus');
+                    $(this).toggleClass('focus');
                 });
-
+                $('.search-text').bind('click', function (e) {
+                    e.stopPropagation();
+                })
 /*=============返回顶部===========*/
                 var back2top = $('aside .back2top');
                 $(window).scroll(function(){
