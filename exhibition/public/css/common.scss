@@ -2,6 +2,25 @@
 body {
   font: 14px "Lucida Grande", Microsoft Yahei, Arial, sans-serif;
 }
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+//滚轴
+::-webkit-scrollbar-thumb {
+  background-color: #d7d4d4;
+  border-radius: 4px;
+}
+
+::-moz-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+
+::-moz-scrollbar-thumb {
+  background-color: #666666;
+  border-radius: 4px;
+}
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -11,6 +30,9 @@ body {
 button,input{
   border: 0;
   outline: 0;
+}
+ul,li{
+  list-style: none;
 }
 .fl{
   float: left;
@@ -128,31 +150,30 @@ input.valid {color:green}
   position: relative;
   z-index: 1000;
   width: 100%;
-  height: 100px;
-  background: #363d4c;
+  height: 80px;
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  border-top: 4px solid #D9FFCD;
   .m-center{
     margin: 0 auto;
     width: 1000px;
     a.u-logo{
       display: inline-block;
-      color: #fff;
-      font-size: 32px;
-      line-height: 100px;
+      line-height: 80px;
+      img{
+        width: 147px;
+      }
     }
     .u-nav{
       display: inline-block;
       padding-left: 160px;
-      vertical-align: middle;
-      font-size: 18px;
+      font-size: 16px;
       li{
         height:35px;
         text-align: center;
         cursor: pointer;
-        &:hover{
-          border-bottom: 1px solid #fff;
-        }
         &:hover a{
-          color: #fff;
+          color: #42d1ff;
         }
       }
       a{
@@ -163,8 +184,8 @@ input.valid {color:green}
     }
     .u-search{
       position: absolute;
-      top: 0;
-      right:188px;
+      top: -12px;
+      right: 242px;
       padding-top: 40px;
       padding-bottom: 20px;
       padding-left: 30px;
@@ -224,6 +245,108 @@ input.valid {color:green}
     }
   }
 }
+.g-body.index_page{
+  .m_banner{
+    position: relative;
+    width: 100%;
+    height:420px;
+    .u_pics{
+      padding: 0;
+      li{
+        display: none;
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        top:-10px;
+      }
+      a{
+        display: inline-block;
+        width: 100%;
+        height: 420px;
+      }
+    }
+    .u_btns{
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      li{
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        float: left;
+        margin-left: 15px;
+        background-color: transparent;
+        border: 1px solid #e8e8e8;
+        cursor: pointer;
+      }
+      li.active{
+        background-color: #00B7FF;
+      }
+    }
+  }
+  .m_exh_box{
+    width: 1200px;
+    margin: 30px auto;
+    .u_exh_top{
+      .exh_img{
+        img{
+          width: 680px;
+          height: 420px;
+        }
+      }
+      .exh_content{
+        width: 477px;
+        margin-left: 20px;
+        h5{
+          font-size: 20px;
+          color: #343539;
+        }
+        p{
+          font-size: 16px;
+          line-height: 1.8;
+          text-indent: 31px;
+          text-align: justify;
+          margin-top: 20px;
+        }
+      }
+    }
+    .u_exh_else{
+      margin-top: 40px;
+      .u_exh_list{
+        float: left;
+        width: 600px;
+        margin-bottom: 30px;
+        .exh_img{
+          position: relative;
+          overflow: hidden;
+          &:hover img{
+            transform: scale(1.2);
+            z-index: 10;
+            transition: 1s;
+          }
+          img{
+            width: 580px;
+            height: 310px;
+            cursor: pointer;
+          }
+          p{
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(255,255,255,0.8);
+            margin: 0;
+            padding-left: 41px;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
 .g-body{
   width: 100%;
   height: auto;
@@ -279,116 +402,4 @@ aside{
   }
 }
 //首页
-.g-body.index_page {
-  width: 910px;
-  margin: 20px auto;
-  .m-left-body{
-    width: 66%;
-    float: left;
-    .m-quick-links .u-main{
-      width:100% ;
-      height: 300px;
-    }
-
-    .m-anno-info .m-anno, .m-anno-info .m-info {
-      width: 49%;
-    }
-
-    .m-anno-info .m-anno {
-      border-right: 1px solid #e8e8e8;
-    }
-
-    .m-anno-info .u-list {
-      border-bottom: 1px solid #999;
-      width: 95%;
-      margin: 0 auto 15px;
-    }
-
-    .m-anno-info .u-list h4 {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
-      white-space: nowrap;
-    }
-
-    .m-anno-info .u-list .line1 {
-      line-height: 28px;
-    }
-
-    .m-anno-info .u-list .line2 {
-      color: #777;
-      font-size: 15px;
-      padding-bottom: 15px;
-      min-height: 57px;
-    }
-
-    .m-anno-info .u-last-list {
-      width: 95%;
-      margin: 0 auto;
-    }
-
-    .m-anno-info .u-last-list p {
-      height: 24px;
-      color: #666;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
-      white-space: nowrap;
-    }
-
-    .m-anno-info .u-last-list .date {
-      margin-right: 15px;
-    }
-
-    .m-anno-info .u-last-list .more {
-      color: #0c00aa;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .m-anno-info .u-last-list .more:hover {
-      color: #137137;
-    }
-
-  }
-
-  .m-right-body{
-    width: 34%;
-    float: left;
-    background-color: #cfd3d8;
-    color: #fff;
-    min-height: 770px;
-    font-size: 13px;
-    .u-main .main-list {
-      border-bottom: 1px solid #bbb;
-      padding-bottom: 10px;
-      width: 97%;
-      margin: 0 auto 10px;
-    }
-
-    .u-main .main-list h5 {
-      line-height: 25px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
-      white-space: nowrap;
-    }
-
-    .u-main .main-list h5 a {
-      color: #fff;
-    }
-
-    .u-main .main-list h5 a:hover {
-      color: #81be00;
-    }
-
-    .u-main .main-list .line1 {
-      line-height: 25px;
-    }
-
-    .u-main .main-list .line2 {
-      line-height: 21px;
-    }
-  }
-}
 
