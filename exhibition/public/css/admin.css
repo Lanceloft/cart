@@ -1,12 +1,12 @@
 .m_left_nav {
   background: #363d4d;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding-top: 100px;
   height: 549px;
-  width: 190px;
-  z-index: 810; }
+  width: 190px; }
+
+.g-body .m_main_form {
+  width: 1100px;
+  margin-left: 50px;
+  margin-top: 38px; }
 
 .sidebar-menu {
   list-style: none;

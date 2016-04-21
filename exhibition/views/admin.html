@@ -1,7 +1,7 @@
 <%-include ./layout/homeheader.html%>
 <link rel="stylesheet" href="css/admin.css">
-<main class="g-body">
-    <aside class="m_left_nav">
+<main class="g-body clearfix">
+    <aside class="m_left_nav fl">
         <section class="sidebar">
             <ul class="sidebar-menu">
                 <li class="header">Main Menu</li>
@@ -30,6 +30,29 @@
             </ul>
         </section>
     </aside>
+    <div class="m_main_form fl">
+        <div class="u_add_exh">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="addName">展厅名</label>
+                    <input type="text" class="form-control" id="addName">
+                </div>
+                <div class="form-group">
+                    <label for="addAddress">展厅地址</label>
+                    <input type="email" class="form-control" id="addAddress">
+                </div>
+                <div class="form-group">
+                    <label for="addImgSrc">图片链接</label>
+                    <input type="email" class="form-control" id="addImgSrc">
+                </div>
+                <div class="form-group">
+                    <label for="addPhoneNum">客服电话</label>
+                    <input type="email" class="form-control" id="addPhoneNum">
+                </div>
+                <button type="submit" class="btn btn-default">Send invitation</button>
+            </form>
+        </div>
+    </div>
     <!--你好：管理员<%=admin.name%>-->
     <!--<% for(var i in commoditys){ %>-->
     <!--<div>-->

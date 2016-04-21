@@ -5,7 +5,8 @@ require.config({
         'jquery': 'jquery.min',
         'datetimepicker': 'jquery.datetimepicker',
         'validate':'jquery.validate.min',
-        'validate-methods':'validate-methods'
+        'validate-methods':'validate-methods',
+        'paginator':'bootstrap-paginator'
     },
     shim: {
         'jquery': {
@@ -16,6 +17,9 @@ require.config({
         },
         'bootstrap':{
             deps:['jquery']
+        },
+        'paginator':{
+            deps:['jquery','bootstrap.min']
         },
         'validate':{
             deps:['jquery']

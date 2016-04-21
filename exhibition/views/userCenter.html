@@ -1,5 +1,38 @@
 <%-include ./layout/homeheader.html%>
+<link rel="stylesheet" href="css/admin.css">
 <main class="g-body">
-    <a href="/logout">注销</a>
+    <aside class="m_left_nav">
+        <section class="sidebar">
+            <ul class="sidebar-menu">
+                <li class="header">Main Menu</li>
+                <li class="treeview">
+                    <a href="#"><span>信息管理</span></a>
+                    <ul class="treeview-menu">
+                        <li><a href="#">-->我的信息修改</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#"><span>预约管理</span></a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"> -->我的预约查看</a></li>
+                        <li><a href="#"> -->我的预约修改</a></li>
+                        <li><a href="#"> -->我的预约删除</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </aside>
 </main>
+<script>
+    require(['/js/common.js'],function(common){
+        require(['jquery'], function ($) {
+            $('.treeview').click(function () {
+                $(this).find('.treeview-menu').toggle();
+            });
+            $('.treeview-menu').click(function (e) {
+                e.stopPropagation();
+            });
+        })
+    });
+</script>
 <%-include ./layout/footer.html%>

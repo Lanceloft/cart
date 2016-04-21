@@ -1,10 +1,12 @@
 <%-include ./layout/homeheader.html%>
 <main class="g-body g-detail-page">
     <div class="m_nav">
-        <p>
-            <a href="http://localhost:3000/">首页</a>><a href="/home">列表页</a>
-            ><%=commodity.name%>
-        </p>
+        <ol class="breadcrumb">
+            <li><a href="http://localhost:3000/">首页</a></li>
+            <li><a href="/home">列表页</a></li>
+            <li class="active"><%=commodity.name%></li>
+        </ol>
+        <a href="/addToCart/<%=commodity._id%>">预约参观</a>
     </div>
 </main>
 <%-include ./layout/footer.html%>

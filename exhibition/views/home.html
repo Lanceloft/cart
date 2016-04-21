@@ -1,6 +1,6 @@
 <%-include ./layout/homeheader.html%>
 <main class="g-body g-home-page">
-    <div class="m_banner" style="background-image:url(../image/ex_banner_01.jpg)"></div>
+    <div class="m_banner" style="background-image:url(../image/ex_banner_03.jpg)"></div>
     <div class="m_exh_box">
         <div class="u_exh_else clearfix">
             <% Commoditys.forEach(function(commodity,index){ %>
@@ -13,5 +13,22 @@
             <% }) %>
         </div>
     </div>
+    <div class="span12">
+        <div id="page1"></div>
+    </div>
 </main>
+<script>
+    require(['/js/common.js'],function(common){
+        require(['jquery','paginator'], function ($,paginator) {
+            $(document).ready(function () {
+                var options = {
+                    currentPage:2,
+                    totalPages:5,
+                    numberOfPages:5
+                };
+                $('#page1').bootstrapPaginator(options);
+            })
+        });
+    });
+</script>
 <%-include ./layout/footer.html%>
