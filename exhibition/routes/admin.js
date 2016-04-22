@@ -32,12 +32,12 @@ module.exports = function(app){
         })
     });
     //下架展厅
-    app.get('/delExh/:id',function(req,res){
+    app.get('/exhToFalse/:id',function(req,res){
         //req.params.id
         var Commodity = global.dbHelper.getModel('commodity');
         Commodity.update({"_id":req.params.id},{$set:{status:false}},function(err,doc){
             if(doc > 0){
-                res.redirect('/admin');
+                res.redirect('/admin#changeExh');
             }
         })
     });
@@ -47,7 +47,17 @@ module.exports = function(app){
         var Commodity = global.dbHelper.getModel('commodity');
         Commodity.update({"_id":req.params.id},{$set:{status:true}},function(err,doc){
             if(doc > 0){
-                res.redirect('/admin');
+                res.send(200)
+            }
+        })
+    });
+    //删除展厅
+    app.get('/delExh/:id',function(req,res){
+        //req.params.id
+        var Commodity = global.dbHelper.getModel('commodity');
+        Commodity.remove({"_id":req.params.id},function(err,doc){
+            if(doc > 0){
+                res.send(200)
             }
         })
     });

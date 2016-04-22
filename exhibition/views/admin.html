@@ -35,7 +35,7 @@
             <li>添加展览馆</li>
         </ol>
         <div class="main_module m_add_exh center-block" style="width:40%">
-            <form>
+            <form class="m_add_exh_form">
                 <div class="form-group">
                     <label for="addName">展厅名</label>
                     <input type="text" class="form-control" id="addName" placeholder="xx展厅">
@@ -76,7 +76,8 @@
                     <td>
                         <a style="display: inline-block;width: 40px" href="/changeExh?uid=<%=commoditys[i]._id%>">修改</a>
                         <a style="display: inline-block;width: 40px" href="/exhToTure/<%=commoditys[i]._id%>">上架</a>
-                        <a style="display: inline-block;width: 40px" href="/delExh/<%=commoditys[i]._id%>">下架</a>
+                        <a style="display: inline-block;width: 40px" href="/exhToFalse/<%=commoditys[i]._id%>">下架</a>
+                        <a style="display: inline-block;width: 40px" href="/delExh/<%=commoditys[i]._id%>">删除</a>
                     </td>
                 </tr>
                 <% }; %>
@@ -244,6 +245,7 @@
                     })
                 })
             });
+            //添加展厅 -ajax
             $('#addExh').click(function () {
                 var name = $('#addName').val();
                 var address = $('#addAddress').val();
@@ -255,7 +257,7 @@
                     data: {"name": name, "address": address, "imgSrc": imgSrc,"detail":detail},
                     success: function (data, status) {
                         if (status == 'success') {
-                            alert("添加成功")
+                            $('.m_add_exh_form').reset();
                         }
                     },
                     error: function (data, err) {
