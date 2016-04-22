@@ -4,13 +4,14 @@
     <div class="m_exh_box">
         <div class="u_exh_else clearfix">
             <% Commoditys.forEach(function(commodity,index){ %>
+            <% if(commodity.status){ %>
               <div class="u_exh_list" onclick="location.href='/exh_detail?uid=<%=commodity._id%>'">
                   <div class="fl exh_img">
                       <img src="../image/exhibition/<%=commodity.imgSrc %>" alt="<%=commodity.name %>">
                       <p><%=commodity.name %></p>
                   </div>
               </div>
-            <% }) %>
+            <% }}) %>
         </div>
     </div>
     <div class="span12">

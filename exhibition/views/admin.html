@@ -6,82 +6,196 @@
             <ul class="sidebar-menu">
                 <li class="header">Main Menu</li>
                 <li class="treeview">
-                    <a href="#"><span>展厅管理</span></a>
+                    <a class="cursor"><span>展厅管理</span></a>
                     <ul class="treeview-menu">
-                        <li><a href="#">-->添加展览馆</a></li>
-                        <li><a href="#">-->删除展览馆</a></li>
-                        <li><a href="#">-->修改展览馆</a></li>
+                        <li class="active"><a href="#addExh">-->添加展览馆</a></li>
+                        <li><a href="#changeExh">-->修改展览馆</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
-                    <a href="#"><span>预约管理</span></a>
+                    <a class="cursor"><span>预约管理</span></a>
                     <ul class="treeview-menu">
-                        <li><a href="#"> -->客户预约修改</a></li>
-                        <li><a href="#"> -->客户预约删除</a></li>
+                        <li><a href="#changeYuyue"> -->客户预约修改</a></li>
+                        <li><a href="#delYuyue"> -->客户预约删除</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
-                    <a href="#"><span>会员管理</span></a>
+                    <a class="cursor"><span>会员管理</span></a>
                     <ul class="treeview-menu">
-                        <li><a href="#"> -->会员列表</a></li>
-                        <li><a href="#"> -->会员管理</a></li>
+                        <li><a href="#watchHuiyuan"> -->会员列表查看</a></li>
+                        <li><a href="#changeHuiyuan"> -->会员信息修改</a></li>
                     </ul>
                 </li>
             </ul>
         </section>
     </aside>
     <div class="m_main_form fl">
-        <div class="u_add_exh">
-            <form class="form-inline">
+        <ol class="breadcrumb">
+            <li>展厅管理</li>
+            <li>添加展览馆</li>
+        </ol>
+        <div class="main_module m_add_exh center-block" style="width:40%">
+            <form>
                 <div class="form-group">
                     <label for="addName">展厅名</label>
-                    <input type="text" class="form-control" id="addName">
+                    <input type="text" class="form-control" id="addName" placeholder="xx展厅">
                 </div>
                 <div class="form-group">
-                    <label for="addAddress">展厅地址</label>
-                    <input type="email" class="form-control" id="addAddress">
+                    <label for="addAddress">地址</label>
+                    <input type="email" class="form-control" id="addAddress" placeholder="xx省xx市">
                 </div>
                 <div class="form-group">
                     <label for="addImgSrc">图片链接</label>
-                    <input type="email" class="form-control" id="addImgSrc">
+                    <input type="email" class="form-control" id="addImgSrc" placeholder="xx.jpg">
                 </div>
                 <div class="form-group">
-                    <label for="addPhoneNum">客服电话</label>
-                    <input type="email" class="form-control" id="addPhoneNum">
+                    <label for="addDetail">展厅详情</label>
+                    <textarea class="form-control" id="addDetail" rows="3"></textarea>
                 </div>
-                <button type="submit" class="btn btn-default">Send invitation</button>
+                <button type="button" id="addExh" class="btn btn-success col-md-4 col-lg-offset-4">添加</button>
             </form>
         </div>
+        <div class="main_module m_change_exh displayNone">
+            <table class="table table-bordered table-hover definewidth m10">
+                <thead class="bg-success">
+                <tr>
+                    <th class="text-center">展厅名</th>
+                    <th class="text-center">展厅地址</th>
+                    <th class="text-center">展厅详情</th>
+                    <th class="text-center">展厅状态</th>
+                    <th class="text-center">管理操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%for(var i in commoditys){ %>
+                <tr class="text-center">
+                    <td><%=commoditys[i].name%></td>
+                    <td><%=commoditys[i].address%></td>
+                    <td><%=commoditys[i].detail%></td>
+                    <td><%=commoditys[i].status%></td>
+                    <td>
+                        <a style="display: inline-block;width: 40px" href="/changeExh?uid=<%=commoditys[i]._id%>">修改</a>
+                        <a style="display: inline-block;width: 40px" href="/exhToTure/<%=commoditys[i]._id%>">上架</a>
+                        <a style="display: inline-block;width: 40px" href="/delExh/<%=commoditys[i]._id%>">下架</a>
+                    </td>
+                </tr>
+                <% }; %>
+                </tbody>
+            </table>
+        </div>
+        <div class="main_module m_change_yuyue displayNone">
+            <table class="table table-bordered table-hover definewidth m10">
+                <thead class="bg-success">
+                <tr>
+                    <th class="text-center">展厅名</th>
+                    <th class="text-center">展厅地址</th>
+                    <th class="text-center">展厅详情</th>
+                    <th class="text-center">展厅状态</th>
+                    <th class="text-center">管理操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%for(var i in commoditys){ %>
+                <tr class="text-center">
+                    <td><%=commoditys[i].name%></td>
+                    <td><%=commoditys[i].address%></td>
+                    <td><%=commoditys[i].detail%></td>
+                    <td><%=commoditys[i].status%></td>
+                    <td>
+                        <a style="display: inline-block;width: 40px" href="/changeExh?uid=<%=commoditys[i]._id%>">修改</a>
+                        <a style="display: inline-block;width: 40px" href="/exhToTure/<%=commoditys[i]._id%>">上架</a>
+                        <a style="display: inline-block;width: 40px" href="/delExh/<%=commoditys[i]._id%>">下架</a>
+                    </td>
+                </tr>
+                <% }; %>
+                </tbody>
+            </table>
+        </div>
+        <div class="main_module m_del_yuyue displayNone">
+            <table class="table table-bordered table-hover definewidth m10">
+                <thead class="bg-success">
+                <tr>
+                    <th class="text-center">展厅名</th>
+                    <th class="text-center">展厅地址</th>
+                    <th class="text-center">展厅详情</th>
+                    <th class="text-center">展厅状态</th>
+                    <th class="text-center">管理操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%for(var i in commoditys){ %>
+                <tr class="text-center">
+                    <td><%=commoditys[i].name%></td>
+                    <td><%=commoditys[i].address%></td>
+                    <td><%=commoditys[i].detail%></td>
+                    <td><%=commoditys[i].status%></td>
+                    <td>
+                        <a style="display: inline-block;width: 40px" href="/changeExh?uid=<%=commoditys[i]._id%>">修改</a>
+                        <a style="display: inline-block;width: 40px" href="/exhToTure/<%=commoditys[i]._id%>">上架</a>
+                        <a style="display: inline-block;width: 40px" href="/delExh/<%=commoditys[i]._id%>">下架</a>
+                    </td>
+                </tr>
+                <% }; %>
+                </tbody>
+            </table>
+        </div>
+        <div class="main_module m_watch_huiyuan displayNone">
+            <table class="table table-bordered table-hover definewidth m10">
+                <thead class="bg-success">
+                <tr>
+                    <th class="text-center">展厅名</th>
+                    <th class="text-center">展厅地址</th>
+                    <th class="text-center">展厅详情</th>
+                    <th class="text-center">展厅状态</th>
+                    <th class="text-center">管理操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%for(var i in commoditys){ %>
+                <tr class="text-center">
+                    <td><%=commoditys[i].name%></td>
+                    <td><%=commoditys[i].address%></td>
+                    <td><%=commoditys[i].detail%></td>
+                    <td><%=commoditys[i].status%></td>
+                    <td>
+                        <a style="display: inline-block;width: 40px" href="/changeExh?uid=<%=commoditys[i]._id%>">修改</a>
+                        <a style="display: inline-block;width: 40px" href="/exhToTure/<%=commoditys[i]._id%>">上架</a>
+                        <a style="display: inline-block;width: 40px" href="/delExh/<%=commoditys[i]._id%>">下架</a>
+                    </td>
+                </tr>
+                <% }; %>
+                </tbody>
+            </table>
+        </div>
+        <div class="main_module m_change_huiyuan displayNone">
+            <table class="table table-bordered table-hover definewidth m10">
+                <thead class="bg-success">
+                <tr>
+                    <th class="text-center">展厅名</th>
+                    <th class="text-center">展厅地址</th>
+                    <th class="text-center">展厅详情</th>
+                    <th class="text-center">展厅状态</th>
+                    <th class="text-center">管理操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%for(var i in commoditys){ %>
+                <tr class="text-center">
+                    <td><%=commoditys[i].name%></td>
+                    <td><%=commoditys[i].address%></td>
+                    <td><%=commoditys[i].detail%></td>
+                    <td><%=commoditys[i].status%></td>
+                    <td>
+                        <a style="display: inline-block;width: 40px" href="/changeExh?uid=<%=commoditys[i]._id%>">修改</a>
+                        <a style="display: inline-block;width: 40px" href="/exhToTure/<%=commoditys[i]._id%>">上架</a>
+                        <a style="display: inline-block;width: 40px" href="/delExh/<%=commoditys[i]._id%>">下架</a>
+                    </td>
+                </tr>
+                <% }; %>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <!--你好：管理员<%=admin.name%>-->
-    <!--<% for(var i in commoditys){ %>-->
-    <!--<div>-->
-        <!--<table>-->
-            <!--<tr>-->
-                <!--<th>商品名</th>-->
-                <!--<td class="oName"><%=commoditys[i].name %></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<th>商品价格</th>-->
-                <!--<td><%=commoditys[i].price %></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<th>商品图片</th>-->
-                <!--<td><%=commoditys[i].imgSrc %></td>-->
-            <!--</tr>-->
-        <!--</table>-->
-        <!--<button type="button" class="updateBtn">修改该商品信息</button>-->
-        <!--<input class="displayNone name"  type="text" value="<%=commoditys[i].name %>">-->
-        <!--<input class="displayNone price"  type="text" value="<%=commoditys[i].price %>">-->
-        <!--<input class="displayNone imgSrc"  type="text" value="<%=commoditys[i].imgSrc %>">-->
-        <!--<button class="displayNone commitBtn" type="button">确认修改</button>-->
-    <!--</div>-->
-    <!--<% } %>-->
-    <!--<p class="user">-->
-        <!--<%=users[0].name %>-->
-    <!--</p>-->
-    <!--<button type="button" id="delUser">删除此用户</button>-->
-    <!--<a  href="addcommodity" style="margin-right: 35px;">添加展览馆</a>-->
 </main>
 <script>
     require(['/js/common.js'],function(common){
@@ -130,6 +244,63 @@
                     })
                 })
             });
+            $('#addExh').click(function () {
+                var name = $('#addName').val();
+                var address = $('#addAddress').val();
+                var imgSrc = $('#addImgSrc').val();
+                var detail = $('#addDetail').val();
+                $.ajax({
+                    url: '/addcommodity',
+                    type: 'post',
+                    data: {"name": name, "address": address, "imgSrc": imgSrc,"detail":detail},
+                    success: function (data, status) {
+                        if (status == 'success') {
+                            alert("添加成功")
+                        }
+                    },
+                    error: function (data, err) {
+                        alert("错误");
+                    }
+                })
+            });
+            $('.treeview-menu li').click(function (e) {
+                $('.treeview-menu li').removeClass('active');
+                $(this).addClass('active');
+            });
+            if(window.location.hash) {
+                window.location = "/admin";
+            }
+            window.onhashchange = function(){
+                var hash = location.hash;
+                $('.main_module').hide();
+                var navName1 = $('.breadcrumb li').eq(0);
+                var navName2 = $('.breadcrumb li').eq(1);
+                if(hash == "#addExh"){
+                    $('.m_add_exh').show();
+                    navName1.text("展厅管理");
+                    navName2.text("添加展览馆");
+                }else if(hash == "#changeExh"){
+                    $('.m_change_exh').show();
+                    navName1.text("展厅管理");
+                    navName2.text("修改展览馆信息");
+                }else if(hash == "#changeYuyue"){
+                    $('.m_change_exh').show();
+                    navName1.text("预约管理");
+                    navName2.text("客户预约修改");
+                }else if(hash == "#delYuyue"){
+                    $('.m_change_exh').show();
+                    navName1.text("预约管理");
+                    navName2.text("客户预约删除");
+                }else if(hash == "#watchHuiyuan"){
+                    $('.m_change_exh').show();
+                    navName1.text("会员管理");
+                    navName2.text("会员列表查看");
+                }else if(hash == "#changeHuiyuan"){
+                    $('.m_change_exh').show();
+                    navName1.text("会员管理");
+                    navName2.text("会员信息修改");
+                }
+            }
         })
     });
 </script>

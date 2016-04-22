@@ -15,8 +15,10 @@ module.exports = {
     },
     commodity:{
         name:String,
-        price:Number,
-        imgSrc:String
+        address:String,
+        imgSrc:String,
+        detail:String,
+        status : { type: Boolean, default: true  }
     },
     cart:{
         uId:{type:String},
