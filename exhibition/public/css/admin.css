@@ -41,4 +41,12 @@
       .sidebar-menu .treeview-menu a:hover {
         text-decoration: none; }
 
+.m_change_exh .u_do span {
+  display: inline-block;
+  width: 40px;
+  cursor: pointer;
+  color: #00A1E6; }
+  .m_change_exh .u_do span:hover {
+    color: #2c3b41; }
+
 /*# sourceMappingURL=admin.css.map */

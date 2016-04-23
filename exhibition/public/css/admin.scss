@@ -53,3 +53,16 @@
     }
   }
 }
+.m_change_exh{
+  .u_do{
+     span{
+       display: inline-block;
+       width: 40px;
+       cursor: pointer;
+       color: #00A1E6;
+       &:hover{
+         color: #2c3b41;
+       }
+     }
+  }
+}

@@ -22,10 +22,10 @@ module.exports = function(app){
             address:req.body.address,
             imgSrc:req.body.imgSrc,
             detail:req.body.detail,
-            status:'true'
+            status:req.body.status
         },function(err,doc){
             if(doc){
-                res.send(200);
+                res.redirect('/admin');
             }else {
                 res.send(404);
             }
@@ -33,21 +33,20 @@ module.exports = function(app){
     });
     //下架展厅
     app.get('/exhToFalse/:id',function(req,res){
-        //req.params.id
         var Commodity = global.dbHelper.getModel('commodity');
         Commodity.update({"_id":req.params.id},{$set:{status:false}},function(err,doc){
             if(doc > 0){
-                res.redirect('/admin#changeExh');
+                res.jsonp({status:"ok"});
             }
         })
     });
     //上架展厅
-    app.get('/exhToTure/:id',function(req,res){
+    app.get('/exhToTrue/:id',function(req,res){
         //req.params.id
         var Commodity = global.dbHelper.getModel('commodity');
         Commodity.update({"_id":req.params.id},{$set:{status:true}},function(err,doc){
             if(doc > 0){
-                res.send(200)
+                res.jsonp({status:"ok"});
             }
         })
     });
@@ -57,7 +56,7 @@ module.exports = function(app){
         var Commodity = global.dbHelper.getModel('commodity');
         Commodity.remove({"_id":req.params.id},function(err,doc){
             if(doc > 0){
-                res.send(200)
+                res.jsonp({status:"ok"});
             }
         })
     });

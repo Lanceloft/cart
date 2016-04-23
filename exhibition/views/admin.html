@@ -34,7 +34,7 @@
             <li>展厅管理</li>
             <li>添加展览馆</li>
         </ol>
-        <div class="main_module m_add_exh center-block" style="width:40%">
+        <div class="main_module m_add_exh center-block displayNone" style="width:40%">
             <form class="m_add_exh_form">
                 <div class="form-group">
                     <label for="addName">展厅名</label>
@@ -68,16 +68,16 @@
                 </thead>
                 <tbody>
                 <%for(var i in commoditys){ %>
-                <tr class="text-center">
-                    <td><%=commoditys[i].name%></td>
-                    <td><%=commoditys[i].address%></td>
-                    <td><%=commoditys[i].detail%></td>
-                    <td><%=commoditys[i].status%></td>
-                    <td>
-                        <a style="display: inline-block;width: 40px" href="/changeExh?uid=<%=commoditys[i]._id%>">修改</a>
-                        <a style="display: inline-block;width: 40px" href="/exhToTure/<%=commoditys[i]._id%>">上架</a>
-                        <a style="display: inline-block;width: 40px" href="/exhToFalse/<%=commoditys[i]._id%>">下架</a>
-                        <a style="display: inline-block;width: 40px" href="/delExh/<%=commoditys[i]._id%>">删除</a>
+                <tr class="text-center u_do">
+                    <td class="exhName"><%=commoditys[i].name%></td>
+                    <td class="exhAddress"><%=commoditys[i].address%></td>
+                    <td class="exhDetail"><%=commoditys[i].detail%></td>
+                    <td class="exhStatus"><%=commoditys[i].status%></td>
+                    <td data-index="<%=commoditys[i]._id%>">
+                        <span class="changeExh">修改</span>
+                        <span class="upExh">上架</span>
+                        <span class="downExh">下架</span>
+                        <span class="delExh">删除</span>
                     </td>
                 </tr>
                 <% }; %>
@@ -252,27 +252,54 @@
                 var imgSrc = $('#addImgSrc').val();
                 var detail = $('#addDetail').val();
                 $.ajax({
-                    url: '/addcommodity',
-                    type: 'post',
-                    data: {"name": name, "address": address, "imgSrc": imgSrc,"detail":detail},
-                    success: function (data, status) {
-                        if (status == 'success') {
-                            $('.m_add_exh_form').reset();
+                    url:'/addcommodity',
+                    type:'post',
+                    data:{
+                        "name": name,
+                        "address": address,
+                        "imgSrc": imgSrc,
+                        "detail":detail,
+                        "status":"true"
+                    },
+                    success:function(data,status){
+                        if(status == 'success'){
+                            alert("1");
                         }
                     },
-                    error: function (data, err) {
-                        alert("错误");
+                    error: function (data,status) {
+                        alert('error');
                     }
                 })
+            });
+            //下架
+            $('.downExh').click(function () {
+                var parent = $(this).parent();
+                var url = "http://127.0.0.1:3000/exhToFalse/"+parent.data('index');
+                $.getJSON(url+'?callback=?',function () {
+                    parent.parent().find('.exhStatus').html("false");
+                });
+            });
+            //上架
+            $('.upExh').click(function () {
+                var parent = $(this).parent();
+                var url = "http://127.0.0.1:3000/exhToTrue/"+parent.data('index');
+                $.getJSON(url+'?callback=?',function () {
+                    parent.parent().find('.exhStatus').html("true");
+                });
+            });
+            //删除
+            $('.delExh').click(function () {
+                var parent = $(this).parent();
+                var url = "http://127.0.0.1:3000/delExh/"+parent.data('index');
+                $.getJSON(url+'?callback=?',function () {
+                    parent.parent().remove();
+                });
             });
             $('.treeview-menu li').click(function (e) {
                 $('.treeview-menu li').removeClass('active');
                 $(this).addClass('active');
             });
-            if(window.location.hash) {
-                window.location = "/admin";
-            }
-            window.onhashchange = function(){
+            function hashChange(){
                 var hash = location.hash;
                 $('.main_module').hide();
                 var navName1 = $('.breadcrumb li').eq(0);
@@ -302,6 +329,14 @@
                     navName1.text("会员管理");
                     navName2.text("会员信息修改");
                 }
+            }
+            if(window.location.hash) {
+                hashChange();
+            }else {
+                $('.m_add_exh').show();
+            }
+            window.onhashchange = function(){
+                hashChange();
             }
         })
     });

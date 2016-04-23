@@ -6,6 +6,8 @@ var multer = require('multer');
 var session = require('express-session');
 var crypto = require('crypto');
 var app = express();
+
+
 //全局
 global.dbHelper = require('./common/dbHelper');
 global.db = mongoose.connect('mongodb://127.0.0.1:27017/cart');
@@ -41,5 +43,20 @@ require('./routes')(app);
 app.get('/',function(req,res){
     res.render('login');
 });
+app.use(function (req, res, next) {
+    res.status(404);
+
+    if (req.accepts('html')) {
+        return res.send("<h2>I'm sorry, I couldn't find that page.</h2>");
+    }
+
+    if (req.accepts('json')) {
+        return res.json({ error: 'Not found' });
+    }
+
+    // default response type
+    res.type('txt');
+    res.send("Hmmm, couldn't find that page.");
+})
 
 app.listen(3000);
