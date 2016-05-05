@@ -31,11 +31,15 @@ module.exports = function(app){
         res.end(buffer);
     });
     app.get('/',function(req,res){
-        if(req.session.user) {
-            res.render('index', {userDoc: req.session.user});
-        }else {
-            res.render('index');
-        }
+        var Commodity = global.dbHelper.getModel('commodity');
+        Commodity.find({},function(err,docs){
+            console.log(docs);
+            if(req.session.user) {
+                res.render('index', {userDoc: req.session.user,Commoditys:docs});
+            }else {
+                res.render('index',{Commoditys:docs});
+            }
+        })
     });
     app.post('/login',function(req,res){
         var User = global.dbHelper.getModel('user'),

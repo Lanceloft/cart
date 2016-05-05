@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e4862efc-2a2a-4536-a0bb-6bb2c688b17e" name="默认的" comment="后台管理页面">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exhibition/public/image/ex_banner_01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exhibition/public/image/ex_banner_02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exhibition/public/image/ex_banner_03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exhibition/public/image/exhibition/nantong.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exhibition/public/image/exhibition/suqian.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exhibition/public/image/exhibition/suzhou.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exhibition/public/image/exhibition/xuzhou.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exhibition/public/image/exhibition/yangzhou.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exhibition/public/image/logo.png" />
+    <list default="true" id="e4862efc-2a2a-4536-a0bb-6bb2c688b17e" name="默认的" comment="后台管理页面  ajax处理管理。牵扯到了跨域浪费了点时间，最后发现。。。日了dog">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/exhibition/public/image/exhibition/nantong.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/exhibition/public/image/exhibition/xuzhou.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exhibition/app.js" afterPath="$PROJECT_DIR$/exhibition/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exhibition/package.json" afterPath="$PROJECT_DIR$/exhibition/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exhibition/public/css/admin.css" afterPath="$PROJECT_DIR$/exhibition/public/css/admin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exhibition/public/css/admin.css.map" afterPath="$PROJECT_DIR$/exhibition/public/css/admin.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exhibition/public/css/admin.scss" afterPath="$PROJECT_DIR$/exhibition/public/css/admin.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exhibition/routes/admin.js" afterPath="$PROJECT_DIR$/exhibition/routes/admin.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exhibition/routes/adminLogin.js" afterPath="$PROJECT_DIR$/exhibition/routes/adminLogin.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exhibition/routes/cart.js" afterPath="$PROJECT_DIR$/exhibition/routes/cart.js" />
@@ -42,6 +31,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exhibition/views/search.html" afterPath="$PROJECT_DIR$/exhibition/views/search.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exhibition/views/userCenter.html" afterPath="$PROJECT_DIR$/exhibition/views/userCenter.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exhibition/views/usersetting.html" afterPath="$PROJECT_DIR$/exhibition/views/usersetting.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/exhibition/public/image/exhibition/suqian.jpg" afterPath="$PROJECT_DIR$/exhibition/public/image/exhibition/ex14.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/exhibition/public/image/exhibition/suzhou.jpg" afterPath="$PROJECT_DIR$/exhibition/public/image/exhibition/ex16.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/exhibition/public/image/exhibition/yangzhou.jpg" afterPath="$PROJECT_DIR$/exhibition/public/image/exhibition/ex17.jpg" />
     </list>
     <ignored path="cart.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,72 +54,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/exhibition/routes/admin.js">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exhibition/views/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.77002585">
-              <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+            <state vertical-scroll-proportion="-7.806452">
+              <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exhibition/views/admin.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.516129">
-              <caret line="294" column="45" selection-start-line="294" selection-start-column="45" selection-end-line="294" selection-end-column="45" />
-              <folding>
-                <element signature="n#li#2;n#ul#0;n#section#0;n#aside#0;n#main#0;n#!!top" expanded="false" />
-                <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#main#0;n#!!top" expanded="false" />
-                <element signature="n#ol#0;n#div#0;n#main#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#main#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="true" />
-                <element signature="n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="true" />
-                <element signature="n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="true" />
-                <element signature="n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="true" />
-                <element signature="e#9534#9606#0" expanded="false" />
-                <element signature="e#9660#9712#0" expanded="false" />
-                <element signature="e#9756#10292#0" expanded="false" />
-                <element signature="e#13441#13562#0" expanded="false" />
-                <element signature="e#13598#14925#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exhibition/app.js">
+      <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exhibition/routes/home.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="44" column="3" selection-start-line="44" selection-start-column="3" selection-end-line="44" selection-end-column="3" />
-              <folding>
-                <marker date="1461386354269" expanded="true" signature="992:1036" placeholder="..." />
-              </folding>
+              <caret line="6" column="10" selection-start-line="2" selection-start-column="6" selection-end-line="6" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="homeheader.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exhibition/views/layout/homeheader.html">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exhibition/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.967742">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="39" column="46" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/exhibition/views/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3580902">
+              <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
               <folding>
-                <marker date="1461384911479" expanded="true" signature="9381:9452" placeholder="..." />
+                <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#3;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -151,7 +117,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cart/views/addcommodity.html" />
         <option value="$PROJECT_DIR$/cart/routes/admin.js" />
         <option value="$PROJECT_DIR$/cart/views/usersetting.html" />
         <option value="$PROJECT_DIR$/cart/routes/forget.js" />
@@ -184,7 +149,6 @@
         <option value="$PROJECT_DIR$/cart/views/admin.html" />
         <option value="$PROJECT_DIR$/.gitgnore" />
         <option value="$PROJECT_DIR$/exhibition/routes/userCenter.js" />
-        <option value="$PROJECT_DIR$/exhibition/views/index.html" />
         <option value="$PROJECT_DIR$/exhibition/views/layout/footer.html" />
         <option value="$PROJECT_DIR$/exhibition/public/css/common.scss" />
         <option value="$PROJECT_DIR$/exhibition/routes/register.js" />
@@ -194,14 +158,16 @@
         <option value="$PROJECT_DIR$/exhibition/views/exh_detail.html" />
         <option value="$PROJECT_DIR$/exhibition/routes/home.js" />
         <option value="$PROJECT_DIR$/exhibition/common/models.js" />
-        <option value="$PROJECT_DIR$/exhibition/views/home.html" />
         <option value="$PROJECT_DIR$/exhibition/public/css/admin.scss" />
         <option value="_http_outgoing.js" />
         <option value="$PROJECT_DIR$/exhibition/public/99.html" />
         <option value="$PROJECT_DIR$/exhibition/views/layout/homeheader.html" />
-        <option value="$PROJECT_DIR$/exhibition/app.js" />
         <option value="$PROJECT_DIR$/exhibition/views/admin.html" />
         <option value="$PROJECT_DIR$/exhibition/routes/admin.js" />
+        <option value="$PROJECT_DIR$/exhibition/views/home.html" />
+        <option value="$PROJECT_DIR$/exhibition/app.js" />
+        <option value="$PROJECT_DIR$/exhibition/routes/index.js" />
+        <option value="$PROJECT_DIR$/exhibition/views/index.html" />
       </list>
     </option>
   </component>
@@ -211,10 +177,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-5" />
-    <option name="y" value="126" />
-    <option name="width" value="1251" />
-    <option name="height" value="772" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -297,8 +263,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exhibition" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="问题" />
         <subPane subId="Project Files">
@@ -310,7 +295,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -342,15 +326,15 @@
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\cart\cart\public\image" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\node\cart\exhibition\views" />
       <recent name="G:\node\cart\exhibition\public" />
       <recent name="G:\node\cart\exhibition\public\js" />
       <recent name="E:\cart\cart\public\js" />
       <recent name="E:\cart\cart\public\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\cart\cart\public\image" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.node">
@@ -600,7 +584,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461339496594</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="后台管理页面  ajax处理管理。牵扯到了跨域浪费了点时间，最后发现。。。日了dog">
+      <created>1461390298658</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1461390298658</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView">
@@ -613,19 +603,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-5" y="126" width="1251" height="772" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14014839" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17261904" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.59738135" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25821596" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23627287" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.256651" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28477904" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35517243" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -638,6 +627,7 @@
       <window_info id="Mongo Explorer" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32846716" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32738853" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
     </layout>
@@ -666,15 +656,107 @@
     <MESSAGE value="列表静态（分页未完）" />
     <MESSAGE value="0." />
     <MESSAGE value="后台管理页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="后台管理页面" />
+    <MESSAGE value="后台管理页面  ajax处理管理。牵扯到了跨域浪费了点时间，最后发现。。。日了dog" />
+    <option name="LAST_COMMIT_MESSAGE" value="后台管理页面  ajax处理管理。牵扯到了跨域浪费了点时间，最后发现。。。日了dog" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="45" />
+      <option name="time" value="47" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/exhibition/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+          <folding>
+            <marker date="1462414277846" expanded="true" signature="992:1036" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/routes/adminLogin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/views/layout/homeheader.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding>
+            <marker date="1461384911479" expanded="true" signature="9381:9452" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/routes/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/views/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="294" column="45" selection-start-line="294" selection-start-column="45" selection-end-line="294" selection-end-column="45" />
+          <folding>
+            <element signature="n#li#2;n#ul#0;n#section#0;n#aside#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#ol#0;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="e#9534#9606#0" expanded="false" />
+            <element signature="e#9660#9712#0" expanded="false" />
+            <element signature="e#9756#10292#0" expanded="false" />
+            <element signature="e#13441#13562#0" expanded="false" />
+            <element signature="e#13598#14925#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="3" selection-start-line="44" selection-start-column="3" selection-end-line="44" selection-end-column="3" />
+          <folding>
+            <marker date="1462414277846" expanded="true" signature="992:1036" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/views/layout/homeheader.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding>
+            <marker date="1461384911479" expanded="true" signature="9381:9452" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/exhibition/routes/cart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -686,7 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="74" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="74" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -698,24 +779,24 @@
             <element signature="n#li#2;n#ul#0;n#section#0;n#aside#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#ol#0;n#div#0;n#main#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="e#9534#9606#0" expanded="false" />
             <element signature="e#9660#9712#0" expanded="false" />
             <element signature="e#9756#10292#0" expanded="false" />
@@ -740,24 +821,24 @@
             <element signature="n#li#2;n#ul#0;n#section#0;n#aside#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#ol#0;n#div#0;n#main#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="e#9534#9606#0" expanded="false" />
             <element signature="e#9660#9712#0" expanded="false" />
             <element signature="e#9756#10292#0" expanded="false" />
@@ -844,13 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exhibition/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.290323">
-          <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exhibition/views/forgetsend.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -886,13 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exhibition/common/dbHelper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exhibition/views/userCenter.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -907,39 +974,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exhibition/routes/forget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exhibition/routes/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exhibition/routes/cart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="30" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exhibition/views/cart.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="74" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exhibition/common/models.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -947,9 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding>
-            <element signature="e#402#1069#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -960,47 +995,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exhibition/views/exh_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exhibition/views/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.387097">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exhibition/routes/adminLogin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exhibition/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exhibition/node_modules/express/lib/response.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="717" column="4" selection-start-line="717" selection-start-column="4" selection-end-line="717" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/exhibition/views/layout/homeheader.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.967742">
+        <state vertical-scroll-proportion="0.0">
           <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
           <folding>
             <marker date="1461384911479" expanded="true" signature="9381:9452" placeholder="..." />
@@ -1012,17 +1016,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1630" column="2" selection-start-line="1630" selection-start-column="2" selection-end-line="1630" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exhibition/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="3" selection-start-line="44" selection-start-column="3" selection-end-line="44" selection-end-column="3" />
-          <folding>
-            <marker date="1461386354269" expanded="true" signature="992:1036" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1030,7 +1023,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6483254">
           <caret line="132" column="2" selection-start-line="132" selection-start-column="2" selection-end-line="132" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1038,36 +1030,43 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43301436">
           <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/routes/adminLogin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/exhibition/views/admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.516129">
-          <caret line="294" column="45" selection-start-line="294" selection-start-column="45" selection-end-line="294" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="287" column="19" selection-start-line="285" selection-start-column="14" selection-end-line="287" selection-end-column="19" />
           <folding>
             <element signature="n#li#2;n#ul#0;n#section#0;n#aside#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#ol#0;n#div#0;n#main#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#4;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#main#0;n#!!top" expanded="false" />
             <element signature="e#9534#9606#0" expanded="false" />
             <element signature="e#9660#9712#0" expanded="false" />
             <element signature="e#9756#10292#0" expanded="false" />
@@ -1077,11 +1076,98 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/common/dbHelper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="12" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/common/models.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/routes/cart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="30" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/exhibition/routes/admin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77002585">
-          <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/routes/forget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/views/exh_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.677419">
+          <caret line="8" column="40" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <marker date="1462414277846" expanded="true" signature="992:1036" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/routes/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="10" selection-start-line="2" selection-start-column="6" selection-end-line="6" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/views/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.806452">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="46" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exhibition/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3580902">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -40,9 +40,7 @@ app.use(function(req,res,next){
     next();
 });
 require('./routes')(app);
-app.get('/',function(req,res){
-    res.render('login');
-});
+
 app.use(function (req, res, next) {
     res.status(404);
 

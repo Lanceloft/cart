@@ -3,12 +3,12 @@
     <div class="m_banner" style="background-image:url(../image/ex_banner_03.jpg)"></div>
     <div class="m_exh_box">
         <div class="u_exh_else clearfix">
-            <% Commoditys.forEach(function(commodity,index){ %>
-            <% if(commodity.status){ %>
-              <div class="u_exh_list" onclick="location.href='/exh_detail?uid=<%=commodity._id%>'">
+            <% Commoditys.forEach(function(item,index){ %>
+            <% if(item.status){ %>
+              <div class="u_exh_list" onclick="location.href='/exh_detail?uid=<%=item._id%>'">
                   <div class="fl exh_img">
-                      <img src="../image/exhibition/<%=commodity.imgSrc %>" alt="<%=commodity.name %>">
-                      <p><%=commodity.name %></p>
+                      <img src="../image/exhibition/<%=item.imgSrc %>" alt="<%=item.name %>">
+                      <p><%=item.name %></p>
                   </div>
               </div>
             <% }}) %>
