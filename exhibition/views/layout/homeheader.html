@@ -48,7 +48,6 @@
         <div class="login-before">
             <button class="u-signup" id="loginBtn" data-type="user">登录</button>
             <button class="u-signup" id="regBtn">注册</button>
-            <button class="u-signup" id="adminBtn" data-type="admin">管理员登录</button>
         </div>
     <%}%>
     </div>
@@ -75,6 +74,9 @@
                 </div>
             </div>
             <button type="button" id="loginSubmit" class="u_submit btn-success">提交</button>
+            <div class="text-center">
+                <a href="/forget">密码忘记了？</a>
+            </div>
         </form>
     </div>
 </div>
@@ -153,9 +155,11 @@
                                     }
                                 },
                                 error: function (data, err) {
-                                    location.href = '/';
+                                    alert(data.responseText);
                                 }
                             })
+                        }else {
+                            alert('请完善注册信息')
                         }
                     });
                 }());
@@ -188,7 +192,7 @@
                     success: regAjax
                 });
 
-                $('#loginBtn,#adminBtn').bind('click', function () {
+                $('#loginBtn').bind('click', function () {
                     var postUrl;
                     var loginType = $(this).attr("data-type");
                     loginType == "user"? postUrl ='/login':postUrl = '/adminLogin';
@@ -219,7 +223,7 @@
                                 }
                             },
                             error:function(data,err){
-                                location.href='/';
+                                alert(data.responseText);
                             }
                         })
                     });

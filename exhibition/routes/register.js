@@ -14,17 +14,15 @@ module.exports = function(app){
             password = md5.update(upwd).digest('hex');
         User.findOne({email:uemail}, function (err,doc) {
             if(err){
-                res.send(500);
-                req.session.error = '网络异常';
+                res.send(500,'网络异常')
             }else if(doc){
-                req.session.error = '邮箱已存在';
+                res.send(500,'邮箱已存在')
             }else{
                 User.findOne({name:uname},function(err,doc){
                     if(err){
-                        res.send(500);
-                        req.session.error = '网络异常';
+                        res.send(500,'网络异常')
                     }else if(doc){
-                        req.session.error = '用户名已存在';
+                        res.send(500,'用户名已存在')
                     }else {
                         User.create({
                             name:uname,

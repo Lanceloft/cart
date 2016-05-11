@@ -1,6 +1,7 @@
 /*common start*/
 body {
   font: 14px "Lucida Grande", Microsoft Yahei, Arial, sans-serif;
+  background-color: #f5f5f5;
 }
 .cursor{
   cursor: pointer;
@@ -168,7 +169,7 @@ input.valid {color:green}
           position: absolute;
           right: 21px;
           top: 8px;
-          padding: 6px;
+          padding: 1px;
           background-color: rgba(96, 216, 142, 0.63);
         }
       }
@@ -347,8 +348,8 @@ input.valid {color:green}
     .u_exh_top{
       .exh_img{
         img{
-          width: 680px;
-          height: 420px;
+          width: 684px;
+          height: 370px;
         }
       }
       .exh_content{

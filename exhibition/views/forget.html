@@ -1,28 +1,56 @@
 <%-include ./layout/homeheader.html%>
-<%-message %>
-<div class="form">
+<style>
+    .forget_page.form{
+        width: 100vh;
+        height: 100vh;
+        margin: 200px auto;
+        text-align: center;
+    }
+    .forget_page.form input{
+        width: 327px;
+        height: 44px;
+        padding-left: 20px;
+    }
+    .forget_page.form button{
+        width: 200px;
+        height: 40px;
+        margin-top: 30px;
+        margin-left: 54px;
+    }
+    .forget_page.form button:active{
+        position: relative;
+        top:3px;
+        background-color: #00AA00;
+    }
+</style>
+<div class="forget_page form">
     <input id="email" type="email" placeholder="邮箱">
-    <button type="button">提交</button>
+    <button type="button" id="getPwd" class="bg-info">提交</button>
 </div>
 <script>
     require(['/js/common.js'],function(common){
         require(['jquery'], function ($) {
-            $('button').click(function(){
-        var email = $('#email').val();
-        $.ajax({
-            url:'/sendmail',
-            type:'post',
-            data:{"uemail":email},
-            success:function(data,status){
-                if(status == 'success'){
-
+            $('#getPwd').click(function(){
+                var email = $('#email').val();
+                if(email){
+                    $.ajax({
+                        url:'/sendmail',
+                        type:'post',
+                        data:{"uemail":email},
+                        success:function(data,status){
+                            alert('邮件发送成功');
+                            $('#getPwd').prop('disabled','disabled')
+                                    .removeClass('bg-info')
+                                    .addClass('bg-default');
+                        },
+                        error:function(data,err){
+                            alert(data.responseText)
+                        }
+                    })
+                }else {
+                    alert('请输入邮箱');
                 }
-            },
-            error:function(data,err){
-                location.href='forget';
-            }
-        })
-    });
+             });
         })
     });
 </script>

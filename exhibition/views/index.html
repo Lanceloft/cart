@@ -1,6 +1,11 @@
 <%-include ./layout/homeheader.html%>
+<% if (success) { %>
+<div class="displayNone" id="successAlert"><%= success %></div>
+<% } %>
+<% if (error) { %>
+<div class="displayNone" id="errorAlert"><%= error %> </div>
+<% } %>
 <div class="g-body index_page clearfix">
-    <%-message %>
     <div class="m_banner">
         <ul class="u_pics">
             <li style="display: block;z-index: 10"><a href="#" style="background-image:url(../image/ex_banner_01.jpg)"></a></li>
@@ -30,30 +35,16 @@
             </div>
         </div>
         <div class="u_exh_else clearfix">
-            <div class="u_exh_list">
-                <div class="fl exh_img">
-                    <img src="../image/exhibition/nantong.jpg" alt="南通展厅">
-                    <p>南通展厅</p>
+            <% Commoditys.forEach(function(item,index){ %>
+                <% if(index>=1&&item.status==true){ %>
+                <div class="u_exh_list">
+                    <div class="fl exh_img">
+                        <img src="../image/exhibition/<%=item.imgSrc%>" alt="<%=item.name%>">
+                        <p><%=item.name%></p>
+                    </div>
                 </div>
-            </div>
-            <div class="u_exh_list">
-                <div class="fl exh_img">
-                    <img src="../image/exhibition/yangzhou.jpg" alt="扬州展厅">
-                    <p>扬州展厅</p>
-                </div>
-            </div>
-            <div class="u_exh_list">
-                <div class="fl exh_img">
-                    <img src="../image/exhibition/suzhou.jpg" alt="苏州展厅">
-                    <p>苏州展厅</p>
-                </div>
-            </div>
-            <div class="u_exh_list">
-                <div class="fl exh_img">
-                    <img src="../image/exhibition/suqian.jpg" alt="宿迁展厅">
-                    <p>宿迁展厅</p>
-                </div>
-            </div>
+                <% } %>
+            <% }) %>
         </div>
     </div>
 </div>

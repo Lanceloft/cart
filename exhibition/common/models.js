@@ -18,7 +18,10 @@ module.exports = {
         address:String,
         imgSrc:String,
         detail:String,
-        status : { type: Boolean, default: true  }
+        price:Number,
+        status : {
+            type: Boolean, default: true
+        }
     },
     cart:{
         uId:{type:String},

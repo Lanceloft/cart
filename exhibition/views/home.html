@@ -1,6 +1,25 @@
 <%-include ./layout/homeheader.html%>
 <main class="g-body g-home-page">
-    <div class="m_banner" style="background-image:url(../image/ex_banner_03.jpg)"></div>
+    <div class="m_cent w_1080 over" style="margin-top: 20px; background-color: white; border: 1px solid #dedede;">
+        <ul class="chaxun" style="margin-top: 30px; margin-left: 50px; padding-bottom: 30px;">
+            <li>
+                <span style="width: 112px;">快速查询仪器：</span>
+                <input type="text" id="input_key" name="input_key" placeholder="请输入仪器名称/别称/供应商名称" value="">
+                &nbsp;<button class="sch" rel="key">检索</button>
+            </li>
+            <li>
+                <span style="width: 112px;">选择实验日期：</span>
+                <input type="text" value="2016-05-13" style="width: 160px; font-weight: bold; color: #20af74;" class="laydate-icon-huanglv" id="input_day" name="input_day">
+                &nbsp;<button class="sch" rel="day">确定</button>
+            </li>
+        </ul>
+        <div class="filter_label_list" style="margin-left: 50px;">
+            <div class="label" style="width: 112px;">选择您的实验领域：</div>
+            <ul class="inline_block_list">
+                <li class="item current"><a href="javascript:;" class="sch on" rel="field" val="all">全部</a></li>
+                <li class="item"><a href="javascript:;" class="sch" rel="field" val="1">通讯电子</a></li><li class="item"><a href="javascript:;" class="sch" rel="field" val="2">材料科学</a></li><li class="item"><a href="javascript:;" class="sch" rel="field" val="3">分析化学</a></li><li class="item"><a href="javascript:;" class="sch" rel="field" val="4">环境与资源</a></li><li class="item"><a href="javascript:;" class="sch" rel="field" val="5">食品</a></li><li class="item"><a href="javascript:;" class="sch" rel="field" val="6">生命科学</a></li><li class="item"><a href="javascript:;" class="sch" rel="field" val="7">农学</a></li><li class="item"><a href="javascript:;" class="sch" rel="field" val="8">医学</a></li><li class="item"><a href="javascript:;" class="sch" rel="field" val="9">其它</a></li>				</ul>
+        </div>
+    </div>
     <div class="m_exh_box">
         <div class="u_exh_else clearfix">
             <% Commoditys.forEach(function(item,index){ %>
@@ -14,20 +33,11 @@
             <% }}) %>
         </div>
     </div>
-    <div class="span12">
-        <div id="page1"></div>
-    </div>
 </main>
 <script>
     require(['/js/common.js'],function(common){
         require(['jquery','paginator'], function ($,paginator) {
             $(document).ready(function () {
-                var options = {
-                    currentPage:2,
-                    totalPages:5,
-                    numberOfPages:5
-                };
-                $('#page1').bootstrapPaginator(options);
             })
         });
     });

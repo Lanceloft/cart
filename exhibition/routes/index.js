@@ -15,8 +15,8 @@ module.exports = function(app){
     var text = '';
     app.get('/capt/:random', function (req, res) {
         var captcha = ccap({
-            width: 120, //配置验证码图片的width,default is 256
-            height: 40, //配置验证码图片的 height,default is 60
+            width: 130, //配置验证码图片的width,default is 256
+            height: 50, //配置验证码图片的 height,default is 60
             offset: 25, //验证码 文本间距,default is 40
             quality: 200, //图片质量,default is 50
             fontsize: 36, //字符字体大小,default is 57
@@ -33,11 +33,15 @@ module.exports = function(app){
     app.get('/',function(req,res){
         var Commodity = global.dbHelper.getModel('commodity');
         Commodity.find({},function(err,docs){
-            console.log(docs);
             if(req.session.user) {
-                res.render('index', {userDoc: req.session.user,Commoditys:docs});
+                res.render('index', {
+                    userDoc: req.session.user,
+                    Commoditys:docs
+                });
             }else {
-                res.render('index',{Commoditys:docs});
+                res.render('index',{
+                    Commoditys:docs
+                });
             }
         })
     });
@@ -51,16 +55,12 @@ module.exports = function(app){
                 password = md5.update(upwd).digest('hex');
             User.findOne({name:uname},function(err,doc){
                 if(err){
-                    res.end(500);
-                    req.session.error = '网络异常';
+                    res.send(404,err);
                 }else if(!doc){
-                    req.session.error = '用户名不存在';
-                    console.log('用户名不存在');
-                    res.send(404);
+                    res.send(404,"用户名不存在");
                 }else {
                     if(doc.password != password){
-                        req.session.error = '密码错误';
-                        res.send(404);
+                        res.send(404,"密码错误");
                     }else {
                         req.session.user = doc;
                         res.send(200);
@@ -68,8 +68,7 @@ module.exports = function(app){
                 }
             })
         }else {
-           req.session.error = '验证码错误';
-           res.send(404);
+            res.send(404,"验证码错误");
         }
     })
 }

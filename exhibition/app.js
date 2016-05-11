@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var multer = require('multer');
 var session = require('express-session');
 var crypto = require('crypto');
+var flash = require('connect-flash');
 var app = express();
 
 
@@ -22,7 +23,7 @@ app.use(session({
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html',require('ejs').renderFile);
 app.set('view engine', 'html');
-
+app.use(flash());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(multer());
@@ -30,13 +31,13 @@ app.use(multer());
 //静态资源
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req,res,next){
+app.use(function (req,res,next) {
     res.locals.user = req.session.user;
-    var err = req.session.error;
-    res.locals.message = '';
-    if(err){
-        res.locals.message = '<div style="position: absolute;top:0;color:red;right: 0;">' + err + '</div>';
-    }
+    var err = req.flash('error');
+    res.locals.error = err.length ? err: null;
+    var success = req.flash('success');
+    res.locals.success = success.length ? success : null;
+
     next();
 });
 require('./routes')(app);

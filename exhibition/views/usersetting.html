@@ -1,8 +1,29 @@
 <%-include ./layout/homeheader.html%>
-<p>您好：<span id="name"><%=user.name%></span></p>
-<input id="password" type="password" placeholder="新密码">
-<input id="password_re" type="password" placeholder="重复密码">
-<button type="button">修改</button>
+<style>
+    .setting_page{
+        width: 100vh;
+        height: 100vh;
+        margin: 200px auto;
+        text-align: center;
+    }
+    .setting_page input{
+        width: 327px;
+        height: 44px;
+        padding-left: 20px;
+    }
+    .setting_page button{
+        width: 200px;
+        height: 40px;
+        margin-top: 30px;
+        margin-left: 54px;
+    }
+</style>
+<div class="setting_page">
+    <p>您好：<span id="name"><%=user.name%></span></p>
+    <input id="password" type="password" placeholder="新密码">
+    <input id="password_re" type="password" placeholder="重复密码">
+    <button type="button" class="bg-info">修改</button>
+</div>
 <script>
     require(['/js/common.js'],function(common){
         require(['jquery'], function ($) {
