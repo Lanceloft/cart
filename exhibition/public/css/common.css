@@ -121,7 +121,10 @@ input.valid {
     height: 100%; }
 .g-detail-page .u_content p {
   font-size: 16px;
-  line-height: 28px; }
+  line-height: 38px; }
+.g-detail-page .u_content #datetimepicker {
+  padding-left: 6px;
+  cursor: pointer; }
 .g-detail-page .u_content .yuyue_btn {
   background-color: #46b855;
   padding: 10px 20px;

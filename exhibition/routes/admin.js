@@ -25,7 +25,12 @@ module.exports = function(app){
             name:req.body.name,
             price:req.body.price,
             imgSrc:req.body.imgSrc,
-            area:req.body.area,
+            phone:req.body.phone,
+            address:req.body.address,
+            sumNum:req.body.sumNum,
+            existNum:req.body.sumNum,
+            usedNum:0,
+            type:req.body.type,
             detail:req.body.detail,
             status:req.body.status
         },function(err,doc){
@@ -71,8 +76,9 @@ module.exports = function(app){
         var uid = req.params.id,
             name = req.query.name,
             price = req.query.price,
+            phone = req.query.phone,
             detail = req.query.detail;
-        Commodity.update({"_id":uid},{$set:{name:name,price:price,detail:detail}},function(err,doc){
+        Commodity.update({"_id":uid},{$set:{name:name,price:price,phone:phone,detail:detail}},function(err,doc){
             if(doc > 0){
                 res.jsonp({status:"ok"});
             }

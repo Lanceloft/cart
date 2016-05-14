@@ -138,7 +138,11 @@ input.valid {color:green}
   .u_content{
     p{
       font-size: 16px;
-      line-height: 28px;
+      line-height: 38px;
+    }
+    #datetimepicker{
+      padding-left: 6px;
+      cursor: pointer;
     }
     .yuyue_btn{
       background-color: #46b855;

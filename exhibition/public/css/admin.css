@@ -1,6 +1,6 @@
 .m_left_nav {
   background: #363d4d;
-  height: 100vh;
+  height: 130vh;
   width: 15%; }
 
 .g-body .m_main_form {
@@ -62,9 +62,9 @@
 
 .exh_detail {
   width: 353px;
-  vertical-align: -113px;
+  vertical-align: -67px;
   line-height: 21px;
-  height: 143px; }
+  height: 100px; }
 
 textarea {
   outline: 0;

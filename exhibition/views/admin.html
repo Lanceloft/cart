@@ -52,12 +52,43 @@
                     <input type="text" class="form-control" id="addName" placeholder="xx展厅">
                 </div>
                 <div class="form-group">
-                    <label for="addPrice">半天价格(元)</label>
-                    <input type="number" class="form-control" id="addPrice" placeholder="200">
+                    <label for="addPrice">参观价格(元/人)</label>
+                    <input type="number" class="form-control" id="addPrice" placeholder="一人的门票价格">
                 </div>
                 <div class="form-group">
-                    <label for="addArea">展厅面积(平方米)</label>
-                    <input type="number" class="form-control" id="addArea" placeholder="200">
+                    <label for="addPeople">展厅可容纳人数</label>
+                    <input type="number" class="form-control" id="addPeople" placeholder="此展厅一天所限定预约数">
+                </div>
+                <div class="form-group">
+                    <label for="addPhone">联系电话</label>
+                    <input type="tel" class="form-control" id="addPhone" placeholder="此展厅客服电话">
+                </div>
+                <div class="form-group">
+                    <label for="addAddress">所属展厅</label>
+                    <select class="form-control" id="addAddress">
+                        <option>徐州</option>
+                        <option>南京</option>
+                        <option>宿迁</option>
+                        <option>无锡</option>
+                        <option>苏州</option>
+                        <option>扬州</option>
+                        <option>连云港</option>
+                        <option>盐城</option>
+                        <option>南通</option>
+                        <option>淮安</option>
+                        <option>泰州</option>
+                        <option>常州</option>
+                        <option>镇江</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>展厅类型</label>
+                    <select class="form-control" id="addType">
+                        <option>科研类</option>
+                        <option>艺术类</option>
+                        <option>体育类</option>
+                        <option>其他</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="addDetail">展厅详情</label>
@@ -71,7 +102,8 @@
                 <thead class="bg-success">
                 <tr>
                     <th class="text-center">展厅名</th>
-                    <th class="text-center">租赁价格（半天/元）</th>
+                    <th class="text-center">参观门票（元/人）</th>
+                    <th class="text-center">联系电话</th>
                     <th class="text-center">展厅详情</th>
                     <th class="text-center">展厅状态</th>
                     <th class="text-center">管理操作</th>
@@ -82,6 +114,7 @@
                 <tr class="text-center u_do">
                     <td class="exhName"><%=commoditys[i].name%></td>
                     <td class="exhPrice"><%=commoditys[i].price%></td>
+                    <td class="exhPhone"><%=commoditys[i].phone%></td>
                     <td class="exhDetail"><%=commoditys[i].detail%></td>
                     <td class="exhStatus"><%=commoditys[i].status%></td>
                     <td data-index="<%=commoditys[i]._id%>">
@@ -218,15 +251,19 @@
                         <input name="changeExhName" id="changeExhName" type="text" value="">
                     </div>
                     <div class="row">
-                        <label class="row_label" for="changeExhPrice">半天价格</label>
+                        <label class="row_label" for="changeExhPrice">参观价格</label>
                         <input name="changeExhPrice" id="changeExhPrice" type="number" value="">
+                    </div>
+                    <div class="row">
+                        <label class="row_label" for="changeExhPhone">半天价格</label>
+                        <input name="changeExhPrice" id="changeExhPhone" type="number" value="">
                     </div>
                     <div class="row">
                         <label class="row_label" for="changeExhDetail">展厅详情</label>
                         <textarea class="exh_detail" name="changeExhDetail" id="changeExhDetail" ></textarea>
                     </div>
                 </div>
-                <button type="button" style="margin-top: 100px" id="changeExhSubmit" class="u_submit btn-success">提交</button>
+                <button type="button" style="margin-top: 55px" id="changeExhSubmit" class="u_submit btn-success">提交</button>
             </form>
         </div>
     </div>

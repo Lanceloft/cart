@@ -150,8 +150,8 @@
                                 data: {"uname": name, "upwd": password, "uemail": email},
                                 success: function (data, status) {
                                     if (status == 'success') {
-                                        $('#register').addClass('displayNone');
-                                        $('#signup').removeClass('displayNone');
+                                        alert("注册成功");
+                                        window.location.reload();
                                     }
                                 },
                                 error: function (data, err) {

@@ -1,26 +1,32 @@
 <%-include ./layout/homeheader.html%>
 <link rel="stylesheet" href="css/admin.css">
-<main class="g-body">
-    <aside class="m_left_nav">
+<main class="g-body clearfix">
+    <aside class="m_left_nav fl">
         <section class="sidebar">
             <ul class="sidebar-menu">
                 <li class="header">Main Menu</li>
                 <li class="treeview">
-                    <a href="#"><span>信息管理</span></a>
+                    <a class="cursor"><span>展厅管理</span></a>
                     <ul class="treeview-menu">
-                        <li><a href="#">-->我的信息修改</a></li>
+                        <li class="active"><a href="#addExh">-->添加展览馆</a></li>
+                        <li><a href="#changeExh">-->修改展览馆</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
-                    <a href="#"><span>预约管理</span></a>
+                    <a class="cursor"><span>预约管理</span></a>
                     <ul class="treeview-menu">
-                        <li><a href="#"> -->我的预约查看</a></li>
-                        <li><a href="#"> -->我的预约修改</a></li>
-                        <li><a href="#"> -->我的预约删除</a></li>
+                        <li><a href="#changeYuyue"> -->客户预约修改</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
-                    <a href="#"><span>账号登出</span></a>
+                    <a class="cursor"><span>会员管理</span></a>
+                    <ul class="treeview-menu">
+                        <li><a href="#watchHuiyuan"> -->会员列表查看</a></li>
+                        <li><a href="#changeHuiyuan"> -->会员信息修改</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a class="cursor"><span>账号登出</span></a>
                     <ul class="treeview-menu">
                         <li><a href="/logout"> -->注销</a></li>
                     </ul>
@@ -28,17 +34,77 @@
             </ul>
         </section>
     </aside>
+    <div class="m_main_form fl">
+        <div class="main_module m_add_exh center-block displayNone" style="width:40%">
+            <label>展厅图片</label>
+            <form id="form1" enctype="multipart/form-data" method="post" action="/upload">
+                <input type="file" name="file" id="file"/>
+                <input class="bg-info img_upload" type="button" id="imgUpload" value="上传" />
+                <p class="imgSrc displayNone"><span>图片名：</span><span class="imgSrcName"></span></p>
+            </form>
+            <form class="m_add_exh_form">
+                <div class="form-group">
+                    <label for="addName">展厅名</label>
+                    <input type="text" class="form-control" id="addName" placeholder="xx展厅">
+                </div>
+                <div class="form-group">
+                    <label for="addPrice">参观价格(元/人)</label>
+                    <input type="number" class="form-control" id="addPrice" placeholder="一人的门票价格">
+                </div>
+                <div class="form-group">
+                    <label for="addPeople">展厅可容纳人数</label>
+                    <input type="number" class="form-control" id="addPeople" placeholder="此展厅一天所限定预约数">
+                </div>
+                <div class="form-group">
+                    <label for="addPhone">联系电话</label>
+                    <input type="tel" class="form-control" id="addPhone" placeholder="此展厅客服电话">
+                </div>
+                <div class="form-group">
+                    <label for="addAddress">所属展厅</label>
+                    <select class="form-control" id="addAddress">
+                        <option>徐州</option>
+                        <option>南京</option>
+                        <option>宿迁</option>
+                        <option>无锡</option>
+                        <option>苏州</option>
+                        <option>扬州</option>
+                        <option>连云港</option>
+                        <option>盐城</option>
+                        <option>南通</option>
+                        <option>淮安</option>
+                        <option>泰州</option>
+                        <option>常州</option>
+                        <option>镇江</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>展厅类型</label>
+                    <select class="form-control" id="addType">
+                        <option>科研类</option>
+                        <option>艺术类</option>
+                        <option>体育类</option>
+                        <option>其他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="addDetail">展厅详情</label>
+                    <textarea class="form-control" id="addDetail" rows="3"></textarea>
+                </div>
+                <button type="button" id="addExh" class="btn btn-success col-md-4 col-lg-offset-4">添加</button>
+            </form>
+        </div>
+        <div class="main_module m_change_exh displayNone">
+
+        </div>
+        <div class="main_module m_change_yuyue displayNone">
+        </div>
+        <div class="main_module m_del_yuyue displayNone">
+        </div>
+        <div class="main_module m_watch_huiyuan displayNone">
+        </div>
+        <div class="main_module m_change_huiyuan displayNone">
+        </div>
+    </div>
 </main>
-<script>
-    require(['/js/common.js'],function(common){
-        require(['jquery'], function ($) {
-            $('.treeview').click(function () {
-                $(this).find('.treeview-menu').toggle();
-            });
-            $('.treeview-menu').click(function (e) {
-                e.stopPropagation();
-            });
-        })
-    });
-</script>
+<script src="js/admin.js"></script>
 <%-include ./layout/footer.html%>

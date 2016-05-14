@@ -15,12 +15,10 @@
             </div>
             <div class="fl u_content">
                 <h1><%=commodity.name%></h1>
-                <p class="price">参考价格：<span class="text-danger"><%=commodity.price%>元/半天</span></p>
-                <p class="area">展厅面积：<span class="text-danger"><%=commodity.area%>平方米</span></p>
-                <p class="address">展厅地址：江苏省,徐州市,泉山区,爱国路1号</p>
-                <p class="phone">客服电话：0516-88888888</p>
+                <p class="price">参观价格：<span class="text-danger"><%=commodity.price%>元/人</span></p>
+                <p class="phone">客服电话：<span class="text-danger"><%=commodity.phone%></span></p>
+                <p class="address">展厅地址：<span class="text-danger"><%=commodity.address%></span></p>
                 <p>预约日期：<input id="datetimepicker" type="text" ></p>
-                <p>预约时段：</p>
                 <% if(user){ %>
                     <a class="yuyue_btn" href="/addToCart/<%=commodity._id%>">预约</a>
                 <% }else{ %>

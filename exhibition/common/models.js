@@ -11,7 +11,12 @@ module.exports = {
         name:String,
         price:Number,
         imgSrc:String,
-        area:Number,
+        sumNum:Number,
+        usedNum:Number,
+        existNum:Number,
+        address:String,
+        phone:Number,
+        type:String,
         detail:String,
         status : {
             type: Boolean, default: true

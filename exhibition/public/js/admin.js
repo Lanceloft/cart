@@ -68,25 +68,31 @@ require(['/js/common.js'],function(common){
         $('#addExh').click(function () {
             var name = $('#addName').val();
             var price = $('#addPrice').val();
+            var addPhone = $('#addPhone').val();
+            var addAddress = $('#addAddress').val();
             var imgSrc = $('.imgSrcName').text();
-            var area = $('#addArea').val();
+            var addPeople = $('#addPeople').val();
             var detail = $('#addDetail').val();
-            console.log(area)
-            if(name&&price&&imgSrc&&detail){
+            var addType = $('#addType').val();
+            if(name&&price&&imgSrc&&detail&&addPhone&&addPeople){
                 $.ajax({
                     url:'/addcommodity',
                     type:'post',
                     data:{
                         "name": name,
                         "price": price,
+                        "phone": addPhone,
+                        "address": addAddress,
                         "imgSrc": imgSrc,
-                        "area":area,
+                        "sumNum":addPeople,
                         "detail":detail,
+                        "type":addType,
                         "status":"true"
                     },
                     success:function(data,status){
                         if(status == 'success'){
                             alert("添加成功");
+                            window.location.reload();
                         }
                     },
                     error: function (data,status) {
@@ -106,19 +112,23 @@ require(['/js/common.js'],function(common){
             });
             $('#changeExhName').val(parent.parent().find('.exhName').text());
             $('#changeExhPrice').val(parent.parent().find('.exhPrice').text());
+            $('#changeExhPhone').val(parent.parent().find('.exhPhone').text());
             $('#changeExhDetail').val(parent.parent().find('.exhDetail').text());
             $('#changeExhSubmit').bind('click',function () {
                 var nName = $('#changeExhName').val(),
                     nPrice = $('#changeExhPrice').val(),
+                    nPhone = $('#changeExhPhone').val(),
                     nDetail = $('#changeExhDetail').val();
                 var url = "http://127.0.0.1:3000/changeExh/"+parent.data('index');
                 $.getJSON(url+'?callback=?',{
                     name:nName,
                     price:nPrice,
+                    phone:nPhone,
                     detail:nDetail
                 },function () {
                     parent.parent().find('.exhName').text(nName);
                     parent.parent().find('.exhPrice').text(nPrice);
+                    parent.parent().find('.exhPhone').text(nPhone);
                     parent.parent().find('.exhDetail').text(nDetail);
                     $('#changeExhInfo').addClass('displayNone');
                     $('#changeExh').unbind('click');
@@ -144,11 +154,16 @@ require(['/js/common.js'],function(common){
         });
         //删除
         $('.delExh').click(function () {
-            var parent = $(this).parent();
-            var url = "http://127.0.0.1:3000/delExh/"+parent.data('index');
-            $.getJSON(url+'?callback=?',function () {
-                parent.parent().remove();
-            });
+            if(window.confirm('你确定要删除这个展馆吗？')){
+                var parent = $(this).parent();
+                var url = "http://127.0.0.1:3000/delExh/"+parent.data('index');
+                $.getJSON(url+'?callback=?',function () {
+                    parent.parent().remove();
+                });
+                return true;
+            }else{
+                return false;
+            }
         });
         $('.treeview-menu li').click(function (e) {
             $('.treeview-menu li').removeClass('active');
