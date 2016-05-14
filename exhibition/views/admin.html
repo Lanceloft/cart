@@ -16,7 +16,6 @@
                     <a class="cursor"><span>预约管理</span></a>
                     <ul class="treeview-menu">
                         <li><a href="#changeYuyue"> -->客户预约修改</a></li>
-                        <li><a href="#delYuyue"> -->客户预约删除</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -41,18 +40,24 @@
             <li>添加展览馆</li>
         </ol>
         <div class="main_module m_add_exh center-block displayNone" style="width:40%">
+            <label>展厅图片</label>
+            <form id="form1" enctype="multipart/form-data" method="post" action="/upload">
+                <input type="file" name="file" id="file"/>
+                <input class="bg-info img_upload" type="button" id="imgUpload" value="上传" />
+                <p class="imgSrc displayNone"><span>图片名：</span><span class="imgSrcName"></span></p>
+            </form>
             <form class="m_add_exh_form">
                 <div class="form-group">
                     <label for="addName">展厅名</label>
                     <input type="text" class="form-control" id="addName" placeholder="xx展厅">
                 </div>
                 <div class="form-group">
-                    <label for="addAddress">地址</label>
-                    <input type="email" class="form-control" id="addAddress" placeholder="xx省xx市">
+                    <label for="addPrice">半天价格(元)</label>
+                    <input type="number" class="form-control" id="addPrice" placeholder="200">
                 </div>
                 <div class="form-group">
-                    <label for="addImgSrc">图片链接</label>
-                    <input type="email" class="form-control" id="addImgSrc" placeholder="xx.jpg">
+                    <label for="addArea">展厅面积(平方米)</label>
+                    <input type="number" class="form-control" id="addArea" placeholder="200">
                 </div>
                 <div class="form-group">
                     <label for="addDetail">展厅详情</label>
@@ -66,7 +71,7 @@
                 <thead class="bg-success">
                 <tr>
                     <th class="text-center">展厅名</th>
-                    <th class="text-center">展厅地址</th>
+                    <th class="text-center">租赁价格（半天/元）</th>
                     <th class="text-center">展厅详情</th>
                     <th class="text-center">展厅状态</th>
                     <th class="text-center">管理操作</th>
@@ -76,7 +81,7 @@
                 <%for(var i in commoditys){ %>
                 <tr class="text-center u_do">
                     <td class="exhName"><%=commoditys[i].name%></td>
-                    <td class="exhAddress"><%=commoditys[i].address%></td>
+                    <td class="exhPrice"><%=commoditys[i].price%></td>
                     <td class="exhDetail"><%=commoditys[i].detail%></td>
                     <td class="exhStatus"><%=commoditys[i].status%></td>
                     <td data-index="<%=commoditys[i]._id%>">
@@ -95,7 +100,7 @@
                 <thead class="bg-success">
                 <tr>
                     <th class="text-center">展厅名</th>
-                    <th class="text-center">展厅地址</th>
+                    <th class="text-center">租赁价格（半天）</th>
                     <th class="text-center">展厅详情</th>
                     <th class="text-center">展厅状态</th>
                     <th class="text-center">管理操作</th>
@@ -105,7 +110,7 @@
                 <%for(var i in commoditys){ %>
                 <tr class="text-center">
                     <td><%=commoditys[i].name%></td>
-                    <td><%=commoditys[i].address%></td>
+                    <td><%=commoditys[i].price%></td>
                     <td><%=commoditys[i].detail%></td>
                     <td><%=commoditys[i].status%></td>
                     <td>
@@ -203,148 +208,28 @@
             </table>
         </div>
     </div>
+    <div class="allScreen displayNone" id="changeExhInfo">
+        <div class="g_recommend_popup animated bounceInDown">
+            <div class="u_close_btn"></div>
+            <form class="m_recommend_form clearfix">
+                <div class="form_inner">
+                    <div class="row">
+                        <label class="row_label" for="changeExhName">展厅名</label>
+                        <input name="changeExhName" id="changeExhName" type="text" value="">
+                    </div>
+                    <div class="row">
+                        <label class="row_label" for="changeExhPrice">半天价格</label>
+                        <input name="changeExhPrice" id="changeExhPrice" type="number" value="">
+                    </div>
+                    <div class="row">
+                        <label class="row_label" for="changeExhDetail">展厅详情</label>
+                        <textarea class="exh_detail" name="changeExhDetail" id="changeExhDetail" ></textarea>
+                    </div>
+                </div>
+                <button type="button" style="margin-top: 100px" id="changeExhSubmit" class="u_submit btn-success">提交</button>
+            </form>
+        </div>
+    </div>
 </main>
-<script>
-    require(['/js/common.js'],function(common){
-        require(['jquery'], function ($) {
-            $('.treeview').click(function () {
-                $(this).find('.treeview-menu').toggle();
-            });
-            $('.treeview-menu').click(function (e) {
-                e.stopPropagation();
-            })
-            $('#delUser').click(function(){
-                var userName = $('.user').text().trim();
-                $.ajax({
-                    url:'delUser',
-                    type:'post',
-                    data:{userName:userName},
-                    success:function(data,status){
-                        if(status == 'success'){
-                            location.href='admin'
-                        }
-                    },
-                    error:function(data,status){
-                        alert('错误')
-                    }
-                })
-            })
-            $('.updateBtn').click(function(){
-                $(this).parent().find('input,.commitBtn').removeClass('displayNone');
-                $(this).parent().find('.commitBtn').click(function(){
-                    var oname = $(this).parent().find('.oName').text(),
-                        nname = $(this).parent().find('.name').val(),
-                        price = $(this).parent().find('.price').val(),
-                        imgSrc = $(this).parent().find('.imgSrc').val();
-                    $.ajax({
-                        url:'/updateCommodity',
-                        type:'post',
-                        data:{oname:oname,nname:nname,price:price,imgSrc:imgSrc},
-                        success:function(data,status){
-                            if(status == 'success'){
-                                location.reload();
-                            }
-                        },
-                        error: function (data,status) {
-                            alert('error');
-                        }
-                    })
-                })
-            });
-            //添加展厅 -ajax
-            $('#addExh').click(function () {
-                var name = $('#addName').val();
-                var address = $('#addAddress').val();
-                var imgSrc = $('#addImgSrc').val();
-                var detail = $('#addDetail').val();
-                $.ajax({
-                    url:'/addcommodity',
-                    type:'post',
-                    data:{
-                        "name": name,
-                        "address": address,
-                        "imgSrc": imgSrc,
-                        "detail":detail,
-                        "status":"true"
-                    },
-                    success:function(data,status){
-                        if(status == 'success'){
-                            alert("1");
-                        }
-                    },
-                    error: function (data,status) {
-                        alert('error');
-                    }
-                })
-            });
-            //下架
-            $('.downExh').click(function () {
-                var parent = $(this).parent();
-                var url = "http://127.0.0.1:3000/exhToFalse/"+parent.data('index');
-                $.getJSON(url+'?callback=?',function () {
-                    parent.parent().find('.exhStatus').html("false");
-                });
-            });
-            //上架
-            $('.upExh').click(function () {
-                var parent = $(this).parent();
-                var url = "http://127.0.0.1:3000/exhToTrue/"+parent.data('index');
-                $.getJSON(url+'?callback=?',function () {
-                    parent.parent().find('.exhStatus').html("true");
-                });
-            });
-            //删除
-            $('.delExh').click(function () {
-                var parent = $(this).parent();
-                var url = "http://127.0.0.1:3000/delExh/"+parent.data('index');
-                $.getJSON(url+'?callback=?',function () {
-                    parent.parent().remove();
-                });
-            });
-            $('.treeview-menu li').click(function (e) {
-                $('.treeview-menu li').removeClass('active');
-                $(this).addClass('active');
-            });
-            function hashChange(){
-                var hash = location.hash;
-                $('.main_module').hide();
-                var navName1 = $('.breadcrumb li').eq(0);
-                var navName2 = $('.breadcrumb li').eq(1);
-                if(hash == "#addExh"){
-                    $('.m_add_exh').show();
-                    navName1.text("展厅管理");
-                    navName2.text("添加展览馆");
-                }else if(hash == "#changeExh"){
-                    $('.m_change_exh').show();
-                    navName1.text("展厅管理");
-                    navName2.text("修改展览馆信息");
-                }else if(hash == "#changeYuyue"){
-                    $('.m_change_exh').show();
-                    navName1.text("预约管理");
-                    navName2.text("客户预约修改");
-                }else if(hash == "#delYuyue"){
-                    $('.m_change_exh').show();
-                    navName1.text("预约管理");
-                    navName2.text("客户预约删除");
-                }else if(hash == "#watchHuiyuan"){
-                    $('.m_change_exh').show();
-                    navName1.text("会员管理");
-                    navName2.text("会员列表查看");
-                }else if(hash == "#changeHuiyuan"){
-                    $('.m_change_exh').show();
-                    navName1.text("会员管理");
-                    navName2.text("会员信息修改");
-                }
-            }
-            if(window.location.hash) {
-                hashChange();
-            }else {
-                $('.m_add_exh').show();
-            }
-            window.onhashchange = function(){
-                hashChange();
-            }
-        })
-    });
-</script>
+<script src="js/admin.js"></script>
 <%-include ./layout/footer.html%>

@@ -1,6 +1,6 @@
 .m_left_nav{
   background: #363d4d;
-  height: 549px;
+  height: 100vh;
   width: 15%;
 }
 .g-body{
@@ -8,6 +8,7 @@
     width: 75%;
     margin-left: 50px;
     margin-top: 38px;
+    margin-bottom: 47px;
   }
 }
 .sidebar-menu {
@@ -32,6 +33,9 @@
     padding: 12px 5px 12px 15px;
     display: block;
     &:hover{
+      text-decoration: none;
+    }
+    &:focus{
       text-decoration: none;
     }
   }
@@ -65,4 +69,32 @@
        }
      }
   }
+}
+.m_add_exh{
+  .img_upload{
+    margin: 10px 100px;
+    width: 100px;
+    &:active{
+      position: relative;
+      top:2px;
+      background-color: #00AA00;
+    }
+  }
+}
+.exh_detail{
+  width: 353px;
+  vertical-align: -113px;
+  line-height: 21px;
+  height: 143px;
+}
+textarea{
+  outline: 0;
+  border: 1px solid #e8e8e8;
+  padding-left: 10px;
+}
+.exhDetail{
+  max-width: 243px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

@@ -39,7 +39,9 @@
                 <% if(index>=1&&item.status==true){ %>
                 <div class="u_exh_list">
                     <div class="fl exh_img">
-                        <img src="../image/exhibition/<%=item.imgSrc%>" alt="<%=item.name%>">
+                        <a href="/exh_detail?uid=<%=item.id%>">
+                           <img src="../image/exhibition/<%=item.imgSrc%>" alt="<%=item.name%>">
+                        </a>
                         <p><%=item.name%></p>
                     </div>
                 </div>

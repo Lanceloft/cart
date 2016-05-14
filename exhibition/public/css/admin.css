@@ -1,12 +1,13 @@
 .m_left_nav {
   background: #363d4d;
-  height: 549px;
+  height: 100vh;
   width: 15%; }
 
 .g-body .m_main_form {
   width: 75%;
   margin-left: 50px;
-  margin-top: 38px; }
+  margin-top: 38px;
+  margin-bottom: 47px; }
 
 .sidebar-menu {
   list-style: none;
@@ -26,6 +27,8 @@
     padding: 12px 5px 12px 15px;
     display: block; }
     .sidebar-menu a:hover {
+      text-decoration: none; }
+    .sidebar-menu a:focus {
       text-decoration: none; }
   .sidebar-menu .treeview-menu {
     background: #2c3b41;
@@ -48,5 +51,30 @@
   color: #00A1E6; }
   .m_change_exh .u_do span:hover {
     color: #2c3b41; }
+
+.m_add_exh .img_upload {
+  margin: 10px 100px;
+  width: 100px; }
+  .m_add_exh .img_upload:active {
+    position: relative;
+    top: 2px;
+    background-color: #00AA00; }
+
+.exh_detail {
+  width: 353px;
+  vertical-align: -113px;
+  line-height: 21px;
+  height: 143px; }
+
+textarea {
+  outline: 0;
+  border: 1px solid #e8e8e8;
+  padding-left: 10px; }
+
+.exhDetail {
+  max-width: 243px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
 
 /*# sourceMappingURL=admin.css.map */

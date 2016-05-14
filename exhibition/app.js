@@ -19,6 +19,19 @@ app.use(session({
         maxAge:1000 * 60 * 60 * 24 * 30
     }
 }));
+// 文件上传
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './exhibition/public/image/exhibition')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname)
+    }
+});
+var upload = multer({ storage: storage });
+global.upload = upload;
+var cpUpload = upload.any();
+app.use(cpUpload)
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html',require('ejs').renderFile);
@@ -26,7 +39,6 @@ app.set('view engine', 'html');
 app.use(flash());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(multer());
 
 //静态资源
 app.use(express.static(path.join(__dirname, 'public')));

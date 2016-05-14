@@ -12,15 +12,20 @@ module.exports = function(app){
                 });
             });
         }else {
-            res.redirect('/adminLogin');
+            res.redirect('/');
         }
     });
+    app.post('/upload', global.upload.array('field1', 5), function (req, res) {
+        req.flash('success', '文件上传成功!');
+    });
+    //添加展厅
     app.post('/addcommodity',function(req,res){
         var Commodity = global.dbHelper.getModel('commodity');
         Commodity.create({
             name:req.body.name,
-            address:req.body.address,
+            price:req.body.price,
             imgSrc:req.body.imgSrc,
+            area:req.body.area,
             detail:req.body.detail,
             status:req.body.status
         },function(err,doc){
@@ -60,20 +65,19 @@ module.exports = function(app){
             }
         })
     });
-    ////修改展厅
-    //app.get('/changeExh', function (req, res) {
-    //    var Commodity = global.dbHelper.getModel('commodity');
-    //    var uid = req.query.uid;
-    //    Commodity.findOne({"_id":uid}, function (err, doc) {
-    //        if (err) {
-    //            return res.redirect('/');
-    //        }else {
-    //            res.render('admin',{
-    //                changeExh:doc
-    //            });
-    //        }
-    //    })
-    //})
+    //修改展厅
+    app.get('/changeExh/:id', function (req, res) {
+        var Commodity = global.dbHelper.getModel('commodity');
+        var uid = req.params.id,
+            name = req.query.name,
+            price = req.query.price,
+            detail = req.query.detail;
+        Commodity.update({"_id":uid},{$set:{name:name,price:price,detail:detail}},function(err,doc){
+            if(doc > 0){
+                res.jsonp({status:"ok"});
+            }
+        });
+    });
     app.post('/delUser',function(req,res){
         if(req.session.user && req.session.user.admin) {
             var User = global.dbHelper.getModel('user');
@@ -81,23 +85,6 @@ module.exports = function(app){
             User.remove({name:uname},function(err,doc){
                 if(doc > 0){
                     res.redirect('/admin');
-                }
-            });
-        }else {
-            req.session.error = '请重新登录';
-            res.redirect('/adminLogin')
-        }
-    });
-    app.post('/updateCommodity',function(req,res){
-        if(req.session.user && req.session.user.admin) {
-            var Commodity = global.dbHelper.getModel('commodity');
-            var oname = req.body.oname,
-                nname =  req.body.nname,
-                price = req.body.price,
-                imgSrc = req.body.imgSrc;
-            Commodity.update({name:oname},{$set:{name:nname,price:price,imgSrc:imgSrc}},function(err,doc){
-                if(doc > 0){
-                    res.redirect('/cart');
                 }
             });
         }else {

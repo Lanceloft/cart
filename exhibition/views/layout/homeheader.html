@@ -204,11 +204,12 @@
                             code = $('#u_code').val();
                         function loginCallback(){
                            if(loginType == 'user'){
-                               $('#signup').addClass('displayNone');
-                               $('.login-before').remove();
-                               var htmlAfter = "<button onclick=\"location.href='/userCenter'\" class='u-center'>用户名："
-                                       + name + " 丨 个人中心</button>";
-                               $('.m-login').append(htmlAfter);
+//                               $('#signup').addClass('displayNone');
+//                               $('.login-before').remove();
+//                               var htmlAfter = "<button onclick=\"location.href='/userCenter'\" class='u-center'>用户名："
+//                                       + name + " 丨 个人中心</button>";
+//                               $('.m-login').append(htmlAfter);
+                               window.location.reload();
                            }else {
                                location.href = '/admin';
                            }
@@ -232,6 +233,7 @@
                     $('#signup,#register').addClass('displayNone');
                     $('form input').val("");
                     $('form').find("label.error").remove();
+                    $('#loginSubmit').unbind('click');
                 });
                 $('#regBtn').bind('click', function () {
                     $('#register').removeClass('displayNone');

@@ -1,35 +1,31 @@
 module.exports = {
     user:{
-        name:{
-            type:String,required:true
-        },
-        password:{
-            type:String,required:true
-        },
-        email:{
-            type:String,required:true
-        },
+        name: String,
+        password:String,
+        email: String,
         admin:{
             type:Boolean,default:false
         }
     },
     commodity:{
         name:String,
-        address:String,
-        imgSrc:String,
-        detail:String,
         price:Number,
+        imgSrc:String,
+        area:Number,
+        detail:String,
         status : {
             type: Boolean, default: true
         }
     },
     cart:{
-        uId:{type:String},
-        cId:{type:String},
-        cName:{type:String},
-        cPrice: { type: String },
-        cImgSrc: { type:String } ,
-        cQuantity: { type: Number },
+        uId:String,
+        cId:String,
+        cName:String,
+        cPrice:String,
+        cImgSrc:String ,
+        cQuantity:Number,
+        cStartTime:Date,
+        cEndTime:Date,
         cStatus : { type: Boolean, default: false  }
     }
 };

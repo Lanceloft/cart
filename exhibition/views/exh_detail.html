@@ -1,4 +1,5 @@
 <%-include ./layout/homeheader.html%>
+<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css">
 <main class="g-body g-detail-page">
     <div class="m_nav">
         <ol class="breadcrumb">
@@ -6,7 +7,46 @@
             <li><a href="/home">列表页</a></li>
             <li class="active"><%=commodity.name%></li>
         </ol>
-        <a href="/addToCart/<%=commodity._id%>">预约参观</a>
+    </div>
+    <div class="m_detail">
+        <div class="u_top clearfix">
+            <div class="fl u_img">
+                <img src="image/exhibition/<%=commodity.imgSrc%>" alt="<%=commodity.name%>">
+            </div>
+            <div class="fl u_content">
+                <h1><%=commodity.name%></h1>
+                <p class="price">参考价格：<span class="text-danger"><%=commodity.price%>元/半天</span></p>
+                <p class="area">展厅面积：<span class="text-danger"><%=commodity.area%>平方米</span></p>
+                <p class="address">展厅地址：江苏省,徐州市,泉山区,爱国路1号</p>
+                <p class="phone">客服电话：0516-88888888</p>
+                <p>预约日期：<input id="datetimepicker" type="text" ></p>
+                <p>预约时段：</p>
+                <% if(user){ %>
+                    <a class="yuyue_btn" href="/addToCart/<%=commodity._id%>">预约</a>
+                <% }else{ %>
+                    <a class="yuyue_btn" href="javascript:;" onclick="alert('请登录后预约');$('#loginBtn').trigger('click')">预约参观</a>
+                <% } %>
+            </div>
+        </div>
+        <div class="u_bottom">
+            <h3>展馆详情</h3>
+            <p><%=commodity.detail%></p>
+        </div>
     </div>
 </main>
+<script>
+    require(['/js/common.js'],function(common) {
+        require(['jquery'],function($){
+            require(['jquery.datetimepicker'], function (datetimepicker) {
+                $('#datetimepicker').datetimepicker({
+                    lang: 'ch',
+                    format:"Y-m-d",
+                    timepicker:false,
+                    earStart:2015,     //设置最小年份
+                    yearEnd:2050
+                });
+            })
+        })
+    })
+</script>
 <%-include ./layout/footer.html%>
