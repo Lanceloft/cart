@@ -24,13 +24,16 @@ module.exports = {
     },
     cart:{
         uId:String,
+        uName:String,
+        uPhone:Number,
+        uMsg:String,
         cId:String,
         cName:String,
-        cPrice:String,
+        cPrice:Number,
         cImgSrc:String ,
         cQuantity:Number,
-        cStartTime:Date,
-        cEndTime:Date,
+        cSumbitTime:Date,
+        cUseTime:Date,
         cStatus : { type: Boolean, default: false  }
     }
 };

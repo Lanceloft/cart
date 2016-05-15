@@ -451,4 +451,10 @@ aside .back2top.scrolled {
         background-color: #00d80c;
         color: #fff; }
 
+.m_yuyue_form {
+  margin-bottom: 75px; }
+  .m_yuyue_form .u_yuyue_form {
+    width: 40%;
+    margin: 0 30%; }
+
 /*# sourceMappingURL=common.css.map */

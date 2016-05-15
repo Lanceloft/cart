@@ -19,6 +19,7 @@ module.exports = function(app){
            }else if(!doc){
                res.send(404,'此邮箱没有注册')
            }else {
+               var pwd = doc.password +'|'+ doc.email;
                var transporter = nodemailer.createTransport({
                    host: "smtp.163.com",
                    port: 25,
@@ -38,14 +39,14 @@ module.exports = function(app){
                    text: "用户:" + doc.name
                    + "，请点击（复制）此链接进行密码更新:<a href=http://"
                    + req.headers.host + "/usersetting?uid="
-                   + doc.password + "  >" + req.headers.host
-                   + "/usersetting?uid=" + doc.password
+                   + pwd + "  >" + req.headers.host
+                   + "/usersetting?uid=" + pwd
                    + "</a><br>请勿回复。", // plaintext body
                    html: "用户:" + doc.name
                    + "，请点击（复制）此链接进行密码更新:<a href=http://"
                    + req.headers.host + "/usersetting?uid="
-                   + doc.password + "  >" + req.headers.host
-                   + "/usersetting?uid=" + doc.password
+                   + pwd + "  >" + req.headers.host
+                   + "/usersetting?uid=" + pwd
                    + "</a><br>请勿回复。" // html body
                };
                transporter.sendMail(mailOptions, function(error, info){
@@ -59,9 +60,11 @@ module.exports = function(app){
     });
     app.get('/usersetting',function(req,res){
         var User = global.dbHelper.getModel("user");
-        var password = req.query.uid;
-        User.findOne({password:password},function(err,doc){
-            res.render('usersetting',{title:"123",user:doc});
+        var pwd = req.query.uid;
+        var password = pwd.substr(0,pwd.indexOf('|'));
+        var email =pwd.substr(pwd.indexOf('|')+1);
+        User.findOne({password:password,email:email},function(err,doc){
+            res.render('usersetting',{title:"hh",user:doc});
             console.log(doc);
         });
     });
