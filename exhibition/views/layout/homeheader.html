@@ -9,13 +9,13 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="/css/common.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/css/animate.min.css">
-    <script src="http://cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+    <script src="../js/require.min.js"></script>
 </head>
 <body>
 <header class="g-header">
     <div class="m-center">
         <a class="u-logo" href="/" alt="江苏展览馆">
-            <img src="image/logo.png" alt="江苏展览馆">
+            <img src="../image/logo.png" alt="江苏展览馆">
         </a>
         <nav class="u-nav">
             <ul class="menu list-inline">
@@ -26,7 +26,11 @@
                     <a href="/home">展厅预约</a>
                 </li>
                 <li>
+                    <% if(user){ %>
                     <a href="/cart">我的预约</a>
+                    <% }else{ %>
+                    <a href="javascript:;" onclick="alert('请登录后查看');$('#loginBtn').trigger('click')">我的预约</a>
+                    <% } %>
                 </li>
                 <li>
                     <a href="/cart">联系我们</a>
@@ -58,7 +62,7 @@
         <form class="m_recommend_form clearfix">
             <div class="form_inner">
                 <p class="title">登录</p>
-                <img class="login-img" id="login-img" src="image/username.gif">
+                <img class="login-img" id="login-img" src="../image/username.gif">
                 <div class="row">
                     <label class="row_label" for="loginTel">手机号</label>
                     <input name="loginTel" id="loginTel" class="m_tel" type="text" placeholder="输入您的手机号">
@@ -86,7 +90,7 @@
         <form class="m_recommend_form clearfix" id="register-form" method="post" onsubmit="return false">
             <div class="form_inner">
                 <p class="title">注册</p>
-                <img class="login-img" src="image/username.gif">
+                <img class="login-img" src="../image/username.gif">
                 <div class="row">
                     <label class="row_label" for="regTel">手机号</label>
                     <input name="regTel" class="m_tel" id="regTel" type="text" placeholder="输入您的手机号">
@@ -131,9 +135,9 @@
 
 /*=============登录注册===========*/
                 $('#loginPwd,#regPwd,#regPwdRe').focus(function(){
-                    $('.login-img').attr('src','image/password.gif')
+                    $('.login-img').attr('src','../image/password.gif')
                 }).blur(function(){
-                    $('.login-img').attr('src','image/username.gif')
+                    $('.login-img').attr('src','../image/username.gif')
                    }
                 )
                 //注册表单验证
@@ -243,12 +247,12 @@
                 $('.search-text').bind('change', function () {
                     var searchText = $(this).val().trim();
                     $.ajax({
-                        url:'search',
+                        url:'/home',
                         type:'get',
                         data:{searchText:searchText},
                         success:function(data,status){
                             if(status == 'success'){
-                                location.href = '/search?searchText='+searchText;
+                                location.href = '/home?searchText='+searchText;
                             }
                         },
                         error:function(data,status){

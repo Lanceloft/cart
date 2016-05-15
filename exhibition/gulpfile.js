@@ -10,10 +10,10 @@ gulp.task('default', ['browser-sync'], function () {
 
 gulp.task('browser-sync', ['nodemon'], function() {
     browserSync.init(null, {
-        proxy: "http://localhost:3002",
+        proxy: "http://localhost:3001",
         files: ["public/**/*.*","views/**/*.*"],
         browser: "google chrome",
-        port: 3002
+        port: 3001
     });
 });
 gulp.task('nodemon', function (cb) {
