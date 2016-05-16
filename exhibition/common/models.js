@@ -15,7 +15,7 @@ module.exports = {
         usedNum:Number,
         existNum:Number,
         address:String,
-        phone:Number,
+        phone:String,
         type:String,
         detail:String,
         status : {
@@ -34,6 +34,14 @@ module.exports = {
         cQuantity:Number,
         cSumbitTime:Date,
         cUseTime:Date,
-        cStatus : { type: Boolean, default: false  }
+        cStatus :Boolean,
+        cRemind:{type:Boolean,default:false}
+    },
+    remainSeat:{
+        cId:String,
+        date:Date,
+        sumNum:Number,
+        usedNum:Number,
+        existNum:Number
     }
 };

@@ -1,5 +1,37 @@
 require(['/js/common.js'],function(common){
-    require(['jquery'], function ($) {
+    require(['jquery','moment'], function ($,moment) {
+        //日期相减-->days
+        function DateDiff(sDate1,sDate2){    //sDate1和sDate2是2002-12-18格式
+            var  aDate,  oDate1,  oDate2,  iDays;
+            aDate  =  sDate1.split("-");
+            oDate1  =  new  Date(aDate[1]  +  '-'  +  aDate[2]  +  '-'  +  aDate[0]);    //转换为12-18-2002格式
+            aDate  =  sDate2.split("-");
+            oDate2  =  new  Date(aDate[1]  +  '-'  +  aDate[2]  +  '-'  +  aDate[0]);
+            iDays  =  parseInt((oDate1  -  oDate2)  /  1000  /  60  /  60  /24);    //把相差的毫秒数转换为天数
+            return  iDays
+        }
+        //预约提醒
+        var thisDayTime = moment().format("YYYY-MM-DD");
+        var useTimeArr = [];
+        for(var i = 0;i<$('.cUseTime').length;i++){
+            useTimeArr[i] = $('.cUseTime').eq(i).text();
+            var remindStatus = $('.cUseTime').eq(i).parent().find('.cStatus').text();
+            if(DateDiff(useTimeArr[i],thisDayTime)==1 && remindStatus == 'false'){
+                var dataIndex= $('.cUseTime').eq(i).parent().find('.dateIndex').data('index');
+                var url = "http://127.0.0.1:3000/remind/"+dataIndex;
+                $.getJSON(url+'?callback=?',function () {});
+            }
+        }
+        console.log(thisDayTime);
+        $('.cRemind').click(function () {
+            var parent = $(this).parent();
+            var url = "http://127.0.0.1:3000/remind/"+parent.data('index');
+            $.getJSON(url+'?callback=?',function () {
+                alert("提醒邮件已发送");
+                location.reload();
+            });
+        })
+
         $('.treeview').click(function () {
             $(this).find('.treeview-menu').toggle();
         });
@@ -165,6 +197,19 @@ require(['/js/common.js'],function(common){
                 return false;
             }
         });
+        //删除预约订单
+        $('.delCart').click(function () {
+            if(window.confirm('你确定要删除这个订单吗？')){
+                var parent = $(this).parent();
+                var url = "http://127.0.0.1:3000/delFromCart/"+parent.data('index');
+                $.getJSON(url+'?callback=?',function () {
+                    parent.parent().remove();
+                });
+                return true;
+            }else{
+                return false;
+            }
+        });
         $('.treeview-menu li').click(function (e) {
             $('.treeview-menu li').removeClass('active');
             $(this).addClass('active');
@@ -183,9 +228,9 @@ require(['/js/common.js'],function(common){
                 navName1.text("展厅管理");
                 navName2.text("修改展览馆信息");
             }else if(hash == "#changeYuyue"){
-                $('.m_change_exh').show();
+                $('.m_change_yuyue').show();
                 navName1.text("预约管理");
-                navName2.text("客户预约修改");
+                navName2.text("客户预约查看");
             }else if(hash == "#delYuyue"){
                 $('.m_change_exh').show();
                 navName1.text("预约管理");

@@ -15,7 +15,7 @@
                 <li class="treeview">
                     <a class="cursor"><span>预约管理</span></a>
                     <ul class="treeview-menu">
-                        <li><a href="#changeYuyue"> -->客户预约修改</a></li>
+                        <li><a href="#changeYuyue"> -->客户预约查看</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -132,27 +132,34 @@
             <table class="table table-bordered table-hover definewidth m10">
                 <thead class="bg-success">
                 <tr>
-                    <th class="text-center">展厅名</th>
-                    <th class="text-center">租赁价格（半天）</th>
-                    <th class="text-center">展厅详情</th>
-                    <th class="text-center">展厅状态</th>
+                    <th class="text-center">参观者姓名</th>
+                    <th class="text-center">预留电话</th>
+                    <th class="text-center">预约展厅名</th>
+                    <th class="text-center">共预约人数</th>
+                    <th class="text-center">门票总价</th>
+                    <th class="text-center">参观时间</th>
+                    <th class="text-center">备注</th>
+                    <th class="text-center">预约提醒</th>
                     <th class="text-center">管理操作</th>
                 </tr>
                 </thead>
                 <tbody>
-                <%for(var i in commoditys){ %>
-                <tr class="text-center">
-                    <td><%=commoditys[i].name%></td>
-                    <td><%=commoditys[i].price%></td>
-                    <td><%=commoditys[i].detail%></td>
-                    <td><%=commoditys[i].status%></td>
-                    <td>
-                        <a style="display: inline-block;width: 40px" href="/changeExh?uid=<%=commoditys[i]._id%>">修改</a>
-                        <a style="display: inline-block;width: 40px" href="/exhToTure/<%=commoditys[i]._id%>">上架</a>
-                        <a style="display: inline-block;width: 40px" href="/delExh/<%=commoditys[i]._id%>">下架</a>
+                <% for(var i in carts){ %>
+                <tr class="text-center u_do">
+                    <td class="uName"><%=carts[i].uName%></td>
+                    <td class="uPhone"><%=carts[i].uPhone%></td>
+                    <td class="cName"><%=carts[i].cName%></td>
+                    <td class="cQuantity"><%=carts[i].cQuantity%></td>
+                    <td class="cPrice"><%=carts[i].cPrice%></td>
+                    <td class="cUseTime"><%=carts[i].cUseTime_string%></td>
+                    <td class="uMsg overFlowHide"><%=carts[i].uMsg%></td>
+                    <td class="cStatus"><%=carts[i].cRemind%></td>
+                    <td class="dateIndex" data-index="<%=carts[i]._id%>">
+                        <span class="cRemind">提醒</span>
+                        <span class="delCart">删除</span>
                     </td>
                 </tr>
-                <% }; %>
+                <% } %>
                 </tbody>
             </table>
         </div>

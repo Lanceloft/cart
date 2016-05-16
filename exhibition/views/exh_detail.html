@@ -20,7 +20,7 @@
                 <p class="address">展厅地址：<span class="text-danger"><%=commodity.address%></span></p>
                 <p class="sumNum">容纳人数：<span class="text-danger"><%=commodity.sumNum%></span></p>
                 <% if(user){ %>
-                    <a class="yuyue_btn" href="javascript:;">预约</a>
+                    <a class="yuyue_btn" href="javascript:;">预约参观</a>
                 <% }else{ %>
                     <a class="yuyue_btn" href="javascript:;" onclick="alert('请登录后预约');$('#loginBtn').trigger('click')">预约参观</a>
                 <% } %>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group">
                         <label for="userQuantity">人数</label>
-                        <input type="number" class="form-control" id="userQuantity" placeholder="预约门票张数">
+                        <input type="text" class="form-control" id="userQuantity" placeholder="预约门票张数">
                     </div>
                     <div class="form-group">
                         <label for="userMsg">留言</label>
@@ -59,12 +59,16 @@
         <div class="u_bottom">
             <h3>展馆详情</h3>
             <p><%=commodity.detail%></p>
+            <h3>注意事项</h3>
+            <ol class="kills text-danger" style="font-size: 18px">
+                <li>如预约日期为一周内自动确认，如预约参观日期大于一周需在离参观日期一周内到<a href="/userCenter">个人中心</a>确认</li>
+            </ol>
         </div>
     </div>
 </main>
 <script>
     require(['/js/common.js'],function(common) {
-        require(['jquery'],function($){
+        require(['jquery','moment'],function($,moment){
             require(['jquery.datetimepicker'], function (datetimepicker) {
                 $('#datetimepicker').datetimepicker({
                     lang: 'ch',
@@ -77,44 +81,55 @@
                     $('.m_yuyue_form').removeClass('displayNone');
                     $('body').animate({scrollTop:500},300)
                 });
+                //日期相减-->days
+                function  DateDiff(sDate1,  sDate2){    //sDate1和sDate2是2002-12-18格式
+                    var  aDate,  oDate1,  oDate2,  iDays;
+                    aDate  =  sDate1.split("-");
+                    oDate1  =  new  Date(aDate[1]  +  '-'  +  aDate[2]  +  '-'  +  aDate[0]);    //转换为12-18-2002格式
+                    aDate  =  sDate2.split("-");
+                    oDate2  =  new  Date(aDate[1]  +  '-'  +  aDate[2]  +  '-'  +  aDate[0]);
+                    iDays  =  parseInt((oDate1  -  oDate2)  /  1000  /  60  /  60  /24);    //把相差的毫秒数转换为天数
+                    return  iDays
+                }
                 $('#yuyueSumit').click(function () {
                     var uName = $('#userName').val();
-                    var cQuantity = $('#userQuantity').val();
+                    var uPhone = $('#userPhone').val();
                     var cUseTime = $('#datetimepicker').val();
                     var uMsg = $('#userMsg').val();
-                    var imgStr = $('.u_top .u_img img').attr('src');
-                    var imgSrc = imgStr.substr(imgStr.indexOf('e',10));
-                    console.log(imgSrc);
-                    var addPeople = $('#addPeople').val();
-                    var detail = $('#addDetail').val();
-                    var addType = $('#addType').val();
-                    if(name&&price&&imgSrc&&detail&&addPhone&&addPeople){
-                        $.ajax({
-                            url:'/addcommodity',
-                            type:'post',
-                            data:{
-                                "name": name,
-                                "price": price,
-                                "phone": addPhone,
-                                "address": addAddress,
-                                "imgSrc": imgSrc,
-                                "sumNum":addPeople,
-                                "detail":detail,
-                                "type":addType,
-                                "status":"true"
-                            },
-                            success:function(data,status){
-                                if(status == 'success'){
-                                    alert("添加成功");
-                                    window.location.reload();
-                                }
-                            },
-                            error: function (data,status) {
-                                alert('error');
-                            }
-                        })
+                    var uQuantity = $('#userQuantity').val();
+                    var cSumbitTime = moment().format("YYYY-MM-DD");
+                    var cStatus;
+                    var dateDiff = DateDiff(cUseTime,cSumbitTime);
+                    if(dateDiff<0){
+                        alert("请重新选择日期");
                     }else {
-                        alert('请完善展厅信息后再添加');
+                        dateDiff<=7?cStatus="true":cStatus="false";
+                        if(uName&&uPhone&&cUseTime&&uMsg&&uQuantity){
+                            $.ajax({
+                                url:'/addToCart/<%=commodity._id%>',
+                                type:'get',
+                                data:{
+                                    "uName": uName,
+                                    "uPhone": uPhone,
+                                    "cUseTime": cUseTime,
+                                    "uMsg": uMsg,
+                                    "uQuantity": uQuantity,
+                                    "cSumbitTime":cSumbitTime,
+                                    "cStatus":cStatus
+                                },
+                                success:function(data,status){
+                                    if(status == 'success'){
+                                        alert("预约成功");
+                                        window.location.reload();
+                                    }
+                                },
+                                error: function (data,status) {
+                                    alert('error');
+                                }
+                            })
+                        }else {
+                            alert('请完善展厅信息后再添加');
+                        }
                     }
                 });
             })

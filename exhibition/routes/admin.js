@@ -1,3 +1,5 @@
+var moment = require('moment');
+var nodemailer = require("nodemailer");
 module.exports = function(app){
     app.get('/admin',function(req,res){
         if(req.session.user && req.session.user.admin){
@@ -7,6 +9,11 @@ module.exports = function(app){
             Commodities.find({},function(err,docs1){
                 User.find({},function(err,docs2){
                     Cart.find({},function(err,docs3){
+                        docs3.forEach(function(doc) {
+                            // item 对应每条记录
+                            doc.cUseTime_string = moment(doc.cUseTime).format('YYYY-MM-DD');
+                            doc.cSumbitTime_string = moment(doc.cSumbitTime).format('YYYY-MM-DD');
+                        })
                         res.render('admin',{commoditys:docs1,users:docs2,carts:docs3,admin:req.session.user});
                     })
                 });
@@ -83,6 +90,53 @@ module.exports = function(app){
                 res.jsonp({status:"ok"});
             }
         });
+    });
+    //预约提醒
+    app.get('/remind/:id', function (req, res) {
+        var Cart = global.dbHelper.getModel('cart');
+        var User = global.dbHelper.getModel('user');
+        Cart.find({"_id":req.params.id}, function (err,doc1) {
+            var uId = doc1[0].uId;
+            doc1[0].cUseTime_string = moment(doc1[0].cUseTime).format('YYYY-MM-DD');
+            var cName =  doc1[0].cName;
+            User.find({"_id":uId}, function (err,userDoc) {
+                var email = userDoc[0].email;
+                var transporter = nodemailer.createTransport({
+                    host: "smtp.163.com",
+                    port: 25,
+                    auth: {
+                        user: 'wangyiyun167@163.com',
+                        pass: 'zhongshuai123'
+                    }
+                });
+                var mailOptions = {
+                    from: {
+                        name: '江苏展览馆',
+                        address: 'wangyiyun167@163.com'
+                    }, // sender address
+                    to: email, // list of receivers
+                    name: '江苏展览馆用户预约提醒',
+                    subject: '江苏展览馆用户预约提醒', // Subject line
+                    text: "用户:" + userDoc[0].name
+                    + "<br>您预约于"+ doc1[0].cUseTime_string +"参观" + cName +"，千万别忘记了哦！"
+                    + "</a><br>请勿回复。", // plaintext body
+                    html: "用户:" + userDoc[0].name
+                    + "<br>您预约于"+ doc1[0].cUseTime_string +"参观" + cName +"，千万别忘记了哦！"
+                    + "</a><br>请勿回复。" // html body
+                };
+                transporter.sendMail(mailOptions, function(error, info){
+                    if(error){
+                        return console.log(error);
+                    }else {
+                        Cart.update({"_id":req.params.id},{$set:{cRemind:true}},function(err,doc){
+                            if(doc > 0){
+                                res.jsonp({status:"ok"});
+                            }
+                        })
+                    }
+                });
+            })
+        })
     });
     app.post('/delUser',function(req,res){
         if(req.session.user && req.session.user.admin) {

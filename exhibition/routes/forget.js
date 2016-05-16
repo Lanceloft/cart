@@ -30,12 +30,12 @@ module.exports = function(app){
                });
                var mailOptions = {
                    from: {
-                       name: '徐州展览馆',
+                       name: '江苏展览馆',
                        address: 'wangyiyun167@163.com'
                    }, // sender address
                    to: email, // list of receivers
-                   name: '徐州展览馆用户密码找回',
-                   subject: '徐州展览馆用户密码找回', // Subject line
+                   name: '江苏展览馆用户密码找回',
+                   subject: '江苏展览馆用户密码找回', // Subject line
                    text: "用户:" + doc.name
                    + "，请点击（复制）此链接进行密码更新:<a href=http://"
                    + req.headers.host + "/usersetting?uid="
@@ -73,12 +73,11 @@ module.exports = function(app){
         var name = req.body.name;
         var password = req.body.password;
         var md5 = crypto.createHash('md5'),
-            password = md5.update('password').digest('hex');
+            password = md5.update(password).digest('hex');
         User.update({name:name},{$set:{password:password}},function(err,doc){
             if(err){
                 req.session.error = err;
             }else {
-                req.session.user = doc;
                 res.send({status:'success'})
             }
         })

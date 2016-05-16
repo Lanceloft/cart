@@ -98,3 +98,18 @@ textarea{
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+.u_do span{
+  display: inline-block;
+  width: 40px;
+  cursor: pointer;
+  color: #00A1E6;
+}
+.u_do span.cartQue{
+  width: 80px;
+}
+.overFlowHide{
+  max-width: 200px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

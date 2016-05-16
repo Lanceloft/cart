@@ -22,12 +22,12 @@
     <p>您好：<span id="name"><%=user.name%></span></p>
     <input id="password" type="password" placeholder="新密码">
     <input id="password_re" type="password" placeholder="重复密码">
-    <button type="button" class="bg-info">修改</button>
+    <button type="button" id="changePwd" class="bg-info">修改</button>
 </div>
 <script>
     require(['/js/common.js'],function(common){
         require(['jquery'], function ($) {
-            $('button').click(function(){
+            $('#changePwd').click(function(){
                 var name = $('#name').text();
                 var password = $('#password').val();
                 var password_re = $('#password_re').val();
@@ -37,7 +37,7 @@
                     data:{name:name,password:password},
                     success:function(data,status){
                         if(status == 'success'){
-                            location.href='/home'
+                            location.href='/'
                         }else {
                             alert("err")
                         }
