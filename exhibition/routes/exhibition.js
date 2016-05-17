@@ -18,5 +18,21 @@ module.exports = function (app) {
                 });
             }
         })
+    });
+    //查询该日期剩余席位
+    app.post('/getRemainSeat', function (req,res) {
+        var Commodity = global.dbHelper.getModel('commodity');
+        var remainSeat = global.dbHelper.getModel('remainSeat');
+        var cId = req.body.cId;
+        var cUseTime = req.body.cUseTime;
+        remainSeat.find({cId:cId,date:new Date(cUseTime)}, function (err, docs1) {
+            if(docs1.length == 0){
+                Commodity.find({"_id":cId}, function (err, docs2) {
+                    res.send(200,{remainSeat:docs2});
+                })
+            }else {
+                res.send(200,{remainSeat:docs1});
+            }
+        })
     })
 }

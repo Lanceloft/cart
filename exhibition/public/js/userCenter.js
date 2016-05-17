@@ -16,7 +16,7 @@ require(['/js/common.js'],function(common){
         $('.treeview-menu').click(function (e) {
             e.stopPropagation();
         })
-        //修改展厅
+        //修改预约订单
         $('.changeCart').bind('click',function () {
             var parent = $(this).parent().parent();
             $('#changeCartInfo').removeClass('displayNone');
@@ -38,22 +38,26 @@ require(['/js/common.js'],function(common){
                 var DateDiffChange = DateDiff(cUseTime,thisDayChange);
                 var cStatus = DateDiffChange>=7?0:1;
                 console.log(cStatus)
-                if(DateDiffChange>=0){
-                    var url = "http://127.0.0.1:3000/changeCart/"+parent.find('.dateIndex').data('index');
-                    $.getJSON(url+'?callback=?',{
-                        uPhone:uPhone,
-                        cQuantity:cQuantity,
-                        cUseTime:cUseTime,
-                        uMsg:uMsg,
-                        cPrice:price_1*cQuantity,
-                        cStatus:cStatus,
-                    },function () {
-                        location.reload();
-                        $('#changeExh').unbind('click');
-                        $('#changeExhSubmit').unbind('click');
-                    });
+                if(cQuantity>0){
+                    if(DateDiffChange>=0){
+                        var url = "http://127.0.0.1:3000/changeCart/"+parent.find('.dateIndex').data('index');
+                        $.getJSON(url+'?callback=?',{
+                            uPhone:uPhone,
+                            cQuantity:cQuantity,
+                            cUseTime:cUseTime,
+                            uMsg:uMsg,
+                            cPrice:price_1*cQuantity,
+                            cStatus:cStatus,
+                        },function () {
+                            location.reload();
+                            $('#changeExh').unbind('click');
+                            $('#changeExhSubmit').unbind('click');
+                        });
+                    }else {
+                        alert("请选择今天以后的日期");
+                    }
                 }else {
-                    alert("请选择今天以后的日期");
+                    alert("请输入合适的预约人数")
                 }
             })
         })
@@ -77,8 +81,10 @@ require(['/js/common.js'],function(common){
         $('.delCart').click(function () {
             if(window.confirm('你确定要取消预约吗？')){
                 var parent = $(this).parent();
+                var delNum = parent.parent().find('.cQuantity').text();
+                var cUseTime = parent.parent().find('.cUseTime').text();
                 var url = "http://127.0.0.1:3000/delFromCart/"+parent.data('index');
-                $.getJSON(url+'?callback=?',function () {
+                $.getJSON(url+'?callback=?',{delNum:delNum,cUseTime:cUseTime},function () {
                     parent.parent().remove();
                 });
                 return true;

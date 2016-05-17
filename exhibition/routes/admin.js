@@ -38,8 +38,6 @@ module.exports = function(app){
             phone:req.body.phone,
             address:req.body.address,
             sumNum:req.body.sumNum,
-            existNum:req.body.sumNum,
-            usedNum:0,
             type:req.body.type,
             detail:req.body.detail,
             status:req.body.status

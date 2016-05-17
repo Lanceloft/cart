@@ -14,7 +14,7 @@
                 <img src="image/exhibition/<%=commodity.imgSrc%>" alt="<%=commodity.name%>">
             </div>
             <div class="fl u_content">
-                <h1><%=commodity.name%></h1>
+                <h1 id="cName"><%=commodity.name%></h1>
                 <p class="price">参观价格：<span class="text-danger"><%=commodity.price%>元/人</span></p>
                 <p class="phone">客服电话：<span class="text-danger"><%=commodity.phone%></span></p>
                 <p class="address">展厅地址：<span class="text-danger"><%=commodity.address%></span></p>
@@ -44,7 +44,7 @@
                         <input type="text" class="form-control" id="userPhone" value="<%=user.name%>">
                     </div>
                     <div class="form-group">
-                        <label for="userQuantity">人数</label>
+                        <label for="userQuantity" id="userQuantityLabel">人数</label>
                         <input type="text" class="form-control" id="userQuantity" placeholder="预约门票张数">
                     </div>
                     <div class="form-group">
@@ -70,6 +70,7 @@
     require(['/js/common.js'],function(common) {
         require(['jquery','moment'],function($,moment){
             require(['jquery.datetimepicker'], function (datetimepicker) {
+                //选择日期
                 $('#datetimepicker').datetimepicker({
                     lang: 'ch',
                     format:"Y-m-d",
@@ -77,6 +78,35 @@
                     earStart:2015,     //设置最小年份
                     yearEnd:2050
                 });
+                //选择日期后显示该展厅剩余席位
+                $("#datetimepicker").blur(function () {
+                    var cId = "<%=commodity._id%>";
+                    var cUseTime = $('#datetimepicker').val();
+                    console.log(cUseTime)
+                    $.ajax({
+                        url:'/getRemainSeat',
+                        type:'post',
+                        data:{
+                            "cId": cId,
+                            "cUseTime": cUseTime
+                        },
+                        success:function(data,status){
+                            if(status == 'success'){
+                                if(typeof data.remainSeat[0].existNum == 'undefined'){
+                                    var existNum = data.remainSeat[0].sumNum;
+                                }else{
+                                    var existNum = data.remainSeat[0].existNum;
+                                }
+                                window.existNum = existNum;
+                                $('#userQuantityLabel').text("人数(仅剩"+existNum+"个席位)");
+                            }
+                        },
+                        error: function (data,status) {
+                            console.log(err);
+                        }
+                    })
+                })
+                //预约按钮
                 $('.yuyue_btn').click(function () {
                     $('.m_yuyue_form').removeClass('displayNone');
                     $('body').animate({scrollTop:500},300)
@@ -91,6 +121,7 @@
                     iDays  =  parseInt((oDate1  -  oDate2)  /  1000  /  60  /  60  /24);    //把相差的毫秒数转换为天数
                     return  iDays
                 }
+                //提交预约表单
                 $('#yuyueSumit').click(function () {
                     var uName = $('#userName').val();
                     var uPhone = $('#userPhone').val();
@@ -105,28 +136,33 @@
                     }else {
                         dateDiff<=7?cStatus="true":cStatus="false";
                         if(uName&&uPhone&&cUseTime&&uMsg&&uQuantity){
-                            $.ajax({
-                                url:'/addToCart/<%=commodity._id%>',
-                                type:'get',
-                                data:{
-                                    "uName": uName,
-                                    "uPhone": uPhone,
-                                    "cUseTime": cUseTime,
-                                    "uMsg": uMsg,
-                                    "uQuantity": uQuantity,
-                                    "cSumbitTime":cSumbitTime,
-                                    "cStatus":cStatus
-                                },
-                                success:function(data,status){
-                                    if(status == 'success'){
-                                        alert("预约成功");
-                                        window.location.reload();
+                            if(uQuantity>0&&uQuantity<existNum){
+                                $.ajax({
+                                    url:'/addToCart/<%=commodity._id%>',
+                                    type:'get',
+                                    data:{
+                                        "uName": uName,
+                                        "uPhone": uPhone,
+                                        "cUseTime": cUseTime,
+                                        "cUseTime1":cUseTime.replace(/-/g,"/"),
+                                        "uMsg": uMsg,
+                                        "uQuantity": uQuantity,
+                                        "cSumbitTime":cSumbitTime,
+                                        "cStatus":cStatus
+                                    },
+                                    success:function(data,status){
+                                        if(status == 'success'){
+                                            alert("预约成功");
+                                            window.location.reload();
+                                        }
+                                    },
+                                    error: function (data,status) {
+                                        alert('error');
                                     }
-                                },
-                                error: function (data,status) {
-                                    alert('error');
-                                }
-                            })
+                                })
+                            }else {
+                                alert("请输入合适的人数")
+                            }
                         }else {
                             alert('请完善展厅信息后再添加');
                         }

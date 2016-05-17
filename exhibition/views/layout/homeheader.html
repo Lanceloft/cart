@@ -78,7 +78,8 @@
                 </div>
             </div>
             <button type="button" id="loginSubmit" class="u_submit btn-success">提交</button>
-            <div class="text-center">
+            <div class="text-center" style="margin-top: 10px">
+                <a href="javascript:;" style="margin: 0 15px" class="login_to_reg">没有账号？</a>
                 <a href="/forget">密码忘记了？</a>
             </div>
         </form>
@@ -139,7 +140,11 @@
                 }).blur(function(){
                     $('.login-img').attr('src','../image/username.gif')
                    }
-                )
+                );
+                $('.login_to_reg').click(function(){
+                    $('#signup').addClass('displayNone');
+                    $('#register').removeClass('displayNone');
+                })
                 //注册表单验证
                 var regAjax = (function() {
                     $('#regSubmit').click(function () {

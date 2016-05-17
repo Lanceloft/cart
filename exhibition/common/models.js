@@ -12,8 +12,6 @@ module.exports = {
         price:Number,
         imgSrc:String,
         sumNum:Number,
-        usedNum:Number,
-        existNum:Number,
         address:String,
         phone:String,
         type:String,
