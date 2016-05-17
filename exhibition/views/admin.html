@@ -21,8 +21,15 @@
                 <li class="treeview">
                     <a class="cursor"><span>会员管理</span></a>
                     <ul class="treeview-menu">
-                        <li><a href="#watchHuiyuan"> -->会员列表查看</a></li>
-                        <li><a href="#changeHuiyuan"> -->会员信息修改</a></li>
+                        <li><a href="#watchHuiyuan"> -->会员列表</a></li>
+                        <li><a href="#addAdmin"> -->添加管理员</a></li>
+                        <li><a href="#changeUserInfo"> -->密码修改</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a class="cursor"><span>留言管理</span></a>
+                    <ul class="treeview-menu">
+                        <li><a href="#watchMsg"> -->查看用户留言</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -163,85 +170,80 @@
                 </tbody>
             </table>
         </div>
-        <div class="main_module m_del_yuyue displayNone">
-            <table class="table table-bordered table-hover definewidth m10">
-                <thead class="bg-success">
-                <tr>
-                    <th class="text-center">展厅名</th>
-                    <th class="text-center">展厅地址</th>
-                    <th class="text-center">展厅详情</th>
-                    <th class="text-center">展厅状态</th>
-                    <th class="text-center">管理操作</th>
-                </tr>
-                </thead>
-                <tbody>
-                <%for(var i in commoditys){ %>
-                <tr class="text-center">
-                    <td><%=commoditys[i].name%></td>
-                    <td><%=commoditys[i].address%></td>
-                    <td><%=commoditys[i].detail%></td>
-                    <td><%=commoditys[i].status%></td>
-                    <td>
-                        <a style="display: inline-block;width: 40px" href="/changeExh?uid=<%=commoditys[i]._id%>">修改</a>
-                        <a style="display: inline-block;width: 40px" href="/exhToTure/<%=commoditys[i]._id%>">上架</a>
-                        <a style="display: inline-block;width: 40px" href="/delExh/<%=commoditys[i]._id%>">下架</a>
-                    </td>
-                </tr>
-                <% }; %>
-                </tbody>
-            </table>
-        </div>
-        <div class="main_module m_watch_huiyuan displayNone">
-            <table class="table table-bordered table-hover definewidth m10">
-                <thead class="bg-success">
-                <tr>
-                    <th class="text-center">展厅名</th>
-                    <th class="text-center">展厅地址</th>
-                    <th class="text-center">展厅详情</th>
-                    <th class="text-center">展厅状态</th>
-                    <th class="text-center">管理操作</th>
-                </tr>
-                </thead>
-                <tbody>
-                <%for(var i in commoditys){ %>
-                <tr class="text-center">
-                    <td><%=commoditys[i].name%></td>
-                    <td><%=commoditys[i].address%></td>
-                    <td><%=commoditys[i].detail%></td>
-                    <td><%=commoditys[i].status%></td>
-                    <td>
-                        <a style="display: inline-block;width: 40px" href="/changeExh?uid=<%=commoditys[i]._id%>">修改</a>
-                        <a style="display: inline-block;width: 40px" href="/exhToTure/<%=commoditys[i]._id%>">上架</a>
-                        <a style="display: inline-block;width: 40px" href="/delExh/<%=commoditys[i]._id%>">下架</a>
-                    </td>
-                </tr>
-                <% }; %>
-                </tbody>
-            </table>
-        </div>
         <div class="main_module m_change_huiyuan displayNone">
             <table class="table table-bordered table-hover definewidth m10">
                 <thead class="bg-success">
                 <tr>
-                    <th class="text-center">展厅名</th>
-                    <th class="text-center">展厅地址</th>
-                    <th class="text-center">展厅详情</th>
-                    <th class="text-center">展厅状态</th>
-                    <th class="text-center">管理操作</th>
+                    <th class="text-center">手机号</th>
+                    <th class="text-center">邮箱</th>
+                    <th class="text-center">是否为管理员</th>
                 </tr>
                 </thead>
                 <tbody>
-                <%for(var i in commoditys){ %>
+                <%for(var i in users){ %>
                 <tr class="text-center">
-                    <td><%=commoditys[i].name%></td>
-                    <td><%=commoditys[i].address%></td>
-                    <td><%=commoditys[i].detail%></td>
-                    <td><%=commoditys[i].status%></td>
-                    <td>
-                        <a style="display: inline-block;width: 40px" href="/changeExh?uid=<%=commoditys[i]._id%>">修改</a>
-                        <a style="display: inline-block;width: 40px" href="/exhToTure/<%=commoditys[i]._id%>">上架</a>
-                        <a style="display: inline-block;width: 40px" href="/delExh/<%=commoditys[i]._id%>">下架</a>
-                    </td>
+                    <td><%=users[i].name%></td>
+                    <td><%=users[i].email%></td>
+                    <td><%=users[i].admin%></td>
+                </tr>
+                <% }; %>
+                </tbody>
+            </table>
+        </div>
+        <div class="main_module m_add_admin displayNone">
+            <div class="m_yuyue_form">
+                <form class="u_yuyue_form fl">
+                    <div class="form-group">
+                        <label for="newAdminName">账号：</label>
+                        <input type="text" class="form-control" id="newAdminName" placeholder="新增管理员账号">
+                    </div>
+                    <div class="form-group">
+                        <label for="newAdminPwd">密码：</label>
+                        <input type="password" class="form-control" id="newAdminPwd" placeholder="新增管理员密码">
+                    </div>
+                    <div class="form-group">
+                        <label for="newAdminEmail">邮箱：</label>
+                        <input type="text" class="form-control" id="newAdminEmail" placeholder="新增管理员邮箱">
+                    </div>
+                    <button type="button" id="addAdminSumit"  class="btn btn-success col-md-4 col-lg-offset-4">提交</button>
+                </form>
+            </div>
+        </div>
+        <div class="main_module m_changeUserInfo displayNone">
+            <div class="m_yuyue_form">
+                <form class="u_yuyue_form fl">
+                    <h3 style="text-align:center;margin-bottom: 20px">账号：<span id="userName"><%=user.name%></span></h3>
+                    <div class="form-group">
+                        <label for="userEmail">邮箱：</label>
+                        <input type="text" disabled="true" class="form-control" id="userEmail" value="<%=user.email%>">
+                    </div>
+                    <div class="form-group">
+                        <label for="userPwd">新密码：</label>
+                        <input type="password" class="form-control" id="userPwd" placeholder="填写新密码">
+                    </div>
+                    <div class="form-group">
+                        <label for="userPwd_re">再次输入新密码：</label>
+                        <input type="password" class="form-control" id="userPwd_re" placeholder="再次填写新密码">
+                    </div>
+                    <button type="button" id="changeUserInfoSumit"  class="btn btn-success col-md-4 col-lg-offset-4">提交</button>
+                </form>
+            </div>
+        </div>
+        <div class="main_module m_watch_msg displayNone">
+            <table class="table table-bordered table-hover definewidth m10">
+                <thead class="bg-success">
+                <tr>
+                    <th class="text-center">手机号</th>
+                    <th class="text-center">邮箱</th>
+                    <th class="text-center">留言内容</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%for(var i in msgs){ %>
+                <tr class="text-center">
+                    <td><%=msgs[i].phone%></td>
+                    <td><%=msgs[i].email%></td>
+                    <td><%=msgs[i].msgContent%></td>
                 </tr>
                 <% }; %>
                 </tbody>

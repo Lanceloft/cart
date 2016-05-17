@@ -37,6 +37,11 @@ module.exports = {
         cStatus :Boolean,
         cRemind:{type:Boolean,default:false}
     },
+    msg:{
+        phone:String,
+        email:String,
+        msgContent:String
+    },
     remainSeat:{
         cId:String,
         date:Date,

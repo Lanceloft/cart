@@ -86,6 +86,37 @@ require(['/js/common.js'],function(common){
                 return false;
             }
         });
+        //个人信息修改
+        $('#changeUserInfoSumit').click(function () {
+            var name = $('#userName').text();
+            var password = $('#userPwd').val();
+            var password_re = $('#userPwd_re').val();
+            if(password.length>=6&&password.length<=16){
+                if(password == password_re){
+                    $.ajax({
+                        url:'/cpwd',
+                        type:'post',
+                        data:{name:name,password:password},
+                        success:function(data,status){
+                            if(status == 'success'){
+                                alert("密码修改成功")
+                                location.href="/logout";
+                            }else {
+                                alert("err")
+                            }
+                        },
+                        error:function(data,status){
+                            alert('错误')
+                        }
+                    })
+                }else {
+                    alert("两次密码输入不匹配")
+                }
+            }else {
+                alert("密码应为6-16位")
+            }
+
+        })
         $('.treeview-menu li').click(function (e) {
             $('.treeview-menu li').removeClass('active');
             $(this).addClass('active');
@@ -97,8 +128,8 @@ require(['/js/common.js'],function(common){
             var navName2 = $('.breadcrumb li').eq(1);
             if(hash == "#myOrder"){
                 $('.m_my_order').show();
-                navName1.text("预约管理");
-                navName2.text("我的预约");
+            }else if(hash == "#m_changeUserInfo"){
+                $('.m_changeUserInfo').show();
             }
         }
         if(window.location.hash) {

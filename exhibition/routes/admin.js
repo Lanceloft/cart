@@ -6,6 +6,7 @@ module.exports = function(app){
             var Commodities = global.dbHelper.getModel('commodity');
             var User = global.dbHelper.getModel('user');
             var Cart = global.dbHelper.getModel('cart');
+            var Msg = global.dbHelper.getModel('msg');
             Commodities.find({},function(err,docs1){
                 User.find({},function(err,docs2){
                     Cart.find({},function(err,docs3){
@@ -13,8 +14,10 @@ module.exports = function(app){
                             // item 对应每条记录
                             doc.cUseTime_string = moment(doc.cUseTime).format('YYYY-MM-DD');
                             doc.cSumbitTime_string = moment(doc.cSumbitTime).format('YYYY-MM-DD');
+                        });
+                        Msg.find({}, function (err, docs4) {
+                            res.render('admin',{commoditys:docs1,users:docs2,carts:docs3,msgs:docs4,admin:req.session.user});
                         })
-                        res.render('admin',{commoditys:docs1,users:docs2,carts:docs3,admin:req.session.user});
                     })
                 });
             });
@@ -137,19 +140,5 @@ module.exports = function(app){
                 });
             })
         })
-    });
-    app.post('/delUser',function(req,res){
-        if(req.session.user && req.session.user.admin) {
-            var User = global.dbHelper.getModel('user');
-            var uname =  req.body.userName;
-            User.remove({name:uname},function(err,doc){
-                if(doc > 0){
-                    res.redirect('/admin');
-                }
-            });
-        }else {
-            req.session.error = '请重新登录';
-            res.redirect('/adminLogin')
-        }
     });
 }

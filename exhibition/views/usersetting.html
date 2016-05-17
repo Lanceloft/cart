@@ -31,21 +31,29 @@
                 var name = $('#name').text();
                 var password = $('#password').val();
                 var password_re = $('#password_re').val();
-                $.ajax({
-                    url:'/cpwd',
-                    type:'post',
-                    data:{name:name,password:password},
-                    success:function(data,status){
-                        if(status == 'success'){
-                            location.href='/'
-                        }else {
-                            alert("err")
-                        }
-                    },
-                    error:function(data,status){
-                        alert('错误')
+                if(password.length>=6&&password.length<=16){
+                    if(password == password_re){
+                        $.ajax({
+                            url:'/cpwd',
+                            type:'post',
+                            data:{name:name,password:password},
+                            success:function(data,status){
+                                if(status == 'success'){
+                                    location.href='/'
+                                }else {
+                                    alert("err")
+                                }
+                            },
+                            error:function(data,status){
+                                alert('错误')
+                            }
+                        })
+                    }else {
+                        alert("两次密码输入不匹配")
                     }
-                })
+                }else {
+                    alert("密码应为6-16位")
+                }
             })
         })
     });

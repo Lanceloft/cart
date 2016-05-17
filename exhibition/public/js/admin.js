@@ -22,7 +22,6 @@ require(['/js/common.js'],function(common){
                 $.getJSON(url+'?callback=?',function () {});
             }
         }
-        console.log(thisDayTime);
         $('.cRemind').click(function () {
             var parent = $(this).parent();
             var url = "http://127.0.0.1:3000/remind/"+parent.data('index');
@@ -214,6 +213,61 @@ require(['/js/common.js'],function(common){
             $('.treeview-menu li').removeClass('active');
             $(this).addClass('active');
         });
+        //新增管理员
+        $('#addAdminSumit').click(function () {
+            var name = $('#newAdminName').val(),
+                password = $('#newAdminPwd').val(),
+                email = $('#newAdminEmail').val();
+            if(name&&password&&email) {
+                $.ajax({
+                    url: '/register',
+                    type: 'post',
+                    data: {"uname": name, "upwd": password, "uemail": email,"admin":true},
+                    success: function (data, status) {
+                        if (status == 'success') {
+                            alert("添加成功");
+                            window.location.reload();
+                        }
+                    },
+                    error: function (data, err) {
+                        alert(data.responseText);
+                    }
+                })
+            }else {
+                alert('请完善注册信息')
+            }
+        })
+        //个人信息修改
+        $('#changeUserInfoSumit').click(function () {
+            var name = $('#userName').text();
+            var password = $('#userPwd').val();
+            var password_re = $('#userPwd_re').val();
+            if(password.length>=6&&password.length<=16){
+                if(password == password_re){
+                    $.ajax({
+                        url:'/cpwd',
+                        type:'post',
+                        data:{name:name,password:password},
+                        success:function(data,status){
+                            if(status == 'success'){
+                                alert("密码修改成功")
+                                location.href="/logout";
+                            }else {
+                                alert("err")
+                            }
+                        },
+                        error:function(data,status){
+                            alert('错误')
+                        }
+                    })
+                }else {
+                    alert("两次密码输入不匹配")
+                }
+            }else {
+                alert("密码应为6-16位")
+            }
+
+        })
         function hashChange(){
             var hash = location.hash;
             $('.main_module').hide();
@@ -236,13 +290,21 @@ require(['/js/common.js'],function(common){
                 navName1.text("预约管理");
                 navName2.text("客户预约删除");
             }else if(hash == "#watchHuiyuan"){
-                $('.m_change_exh').show();
+                $('.m_change_huiyuan').show();
                 navName1.text("会员管理");
-                navName2.text("会员列表查看");
-            }else if(hash == "#changeHuiyuan"){
-                $('.m_change_exh').show();
+                navName2.text("会员列表");
+            }else if(hash == "#addAdmin"){
+                $('.m_add_admin').show();
                 navName1.text("会员管理");
-                navName2.text("会员信息修改");
+                navName2.text("添加管理员");
+            }else if(hash == "#changeUserInfo"){
+                $('.m_changeUserInfo').show();
+                navName1.text("会员管理");
+                navName2.text("密码修改");
+            }else if(hash == "#watchMsg"){
+                $('.m_watch_msg').show();
+                navName1.text("留言管理");
+                navName2.text("查看用户留言");
             }
         }
         if(window.location.hash) {

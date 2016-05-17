@@ -6,6 +6,7 @@ module.exports = function(app){
     require('./userCenter')(app);
     require('./forget')(app);
     require('./exhibition')(app);
+    require('./contactus')(app);
     var crypto = require('crypto');
     var fs = require('fs');
     var RandExp = require('randexp');

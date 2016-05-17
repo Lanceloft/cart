@@ -14,7 +14,7 @@
                 <li class="treeview">
                     <a class="cursor"><span>信息管理</span></a>
                     <ul class="treeview-menu">
-                        <li><a href="#changeInfo"> -->个人信息修改</a></li>
+                        <li><a href="#m_changeUserInfo"> -->密码修改</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -76,7 +76,29 @@
             <a style="font-size: 20px" href="/home">去预约</a>
             <% } %>
         </div>
-        <div class="main_modu le m_changeOrder">
+        <div class="main_module m_changeUserInfo displayNone">
+            <ol class="breadcrumb">
+                <li>信息管理</li>
+                <li>密码修改</li>
+            </ol>
+            <div class="m_yuyue_form">
+                <form class="u_yuyue_form fl">
+                        <h3 style="text-align:center;margin-bottom: 20px">账号：<span id="userName"><%=user.name%></span></h3>
+                        <div class="form-group">
+                            <label for="userEmail">邮箱：</label>
+                            <input type="text" disabled="true" class="form-control" id="userEmail" value="<%=user.email%>">
+                        </div>
+                        <div class="form-group">
+                            <label for="userPwd">新密码：</label>
+                            <input type="password" class="form-control" id="userPwd" placeholder="填写新密码">
+                        </div>
+                        <div class="form-group">
+                            <label for="userPwd_re">再次输入新密码：</label>
+                            <input type="password" class="form-control" id="userPwd_re" placeholder="再次填写新密码">
+                        </div>
+                        <button type="button" id="changeUserInfoSumit"  class="btn btn-success col-md-4 col-lg-offset-4">提交</button>
+                    </form>
+            </div>
         </div>
     </div>
     <div class="allScreen displayNone" id="changeCartInfo">

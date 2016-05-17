@@ -1,0 +1,79 @@
+<%-include ./layout/homeheader.html%>
+<style>
+    .m_about{
+        width: 1000px;
+        height: 240px;
+        background: rgba(0,0,0,0.5);
+        color: #fff;
+        padding: 20px;
+        margin: 100px auto 50px;
+    }
+    .about_tit {
+        font-size: 32px;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 10px;
+    }
+    .m_about p{
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .u_msg_form{
+        padding-bottom: 100px;
+    }
+</style>
+<div class="m_about">
+    <h3 class="about_tit">关于我们</h3>
+    <p>
+        “江苏展览厅预约系统”由中国矿业大学徐海学院校友创办，致力于为展览馆参观提供预约及其他便捷服务。<br>
+        江苏展览厅团队成员全部来自中国矿业大学，瑞典皇家工学院，北京大学，香港大学等海内外名校，全体成员拥有硕士或博士学位<br>
+        江苏展览厅预约系统愿景是：让展厅参观更简单。
+    </p>
+    <p>总部地址：江苏徐州</p>
+    <p>联系邮箱：81243232@qq.com</p>
+</div>
+<form class="u_msg_form" style="width: 40%;margin: 0 auto">
+    <div class="form-group">
+        <label for="msgPhone">您的电话</label>
+        <input type="text" id="msgPhone" class="form-control" placeholder="您的电话">
+    </div>
+    <div class="form-group">
+        <label for="msgEmail">您的邮箱</label>
+        <input type="text" class="form-control" id="msgEmail" placeholder="您的邮箱">
+    </div>
+    <div class="form-group">
+        <label for="msgContent">留言</label>
+        <textarea class="form-control" id="msgContent" rows="3"></textarea>
+    </div>
+    <button type="button" id="msgSumit" class="btn btn-success col-md-4 col-lg-offset-4">提交</button>
+</form>
+<script>
+    require(['/js/common.js'],function(common){
+        require(['jquery'], function ($) {
+            $('#msgSumit').click(function () {
+                var msgPhone = $('#msgPhone').val();
+                var msgEmail = $('#msgEmail').val();
+                var msgContent = $('#msgContent').val();
+                if(msgContent&&msgEmail&&msgPhone){
+                    $.ajax({
+                        url: '/contactus',
+                        type: 'post',
+                        data: {"msgPhone": msgPhone, "msgEmail": msgEmail, "msgContent": msgContent},
+                        success: function (data, status) {
+                            if (status == 'success') {
+                                alert("留言成功！");
+                                location.reload();
+                            }
+                        },
+                        error: function (data, err) {
+                            alert("错误");
+                        }
+                    })
+                }else {
+                    alert("请完善表单后提交")
+                }
+            })
+        })
+    });
+</script>
+<%-include ./layout/footer.html%>

@@ -8,7 +8,8 @@ module.exports = function(app){
         var User = global.dbHelper.getModel('user'),
             uname = req.body.uname,
             upwd = req.body.upwd,
-            uemail = req.body.uemail;
+            uemail = req.body.uemail,
+            admin = req.body.admin;
         //密码用md5保存
         var md5 = crypto.createHash('md5'),
             password = md5.update(upwd).digest('hex');
@@ -28,7 +29,7 @@ module.exports = function(app){
                             name:uname,
                             password:password,
                             email:uemail,
-                            admin:false
+                            admin:admin
                         },function(err,doc){
                             if(err){
                                 res.send(500);

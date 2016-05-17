@@ -33,7 +33,7 @@
                     <% } %>
                 </li>
                 <li>
-                    <a href="/cart">联系我们</a>
+                    <a href="/contactus">联系我们</a>
                 </li>
             </ul>
         </nav>
@@ -151,7 +151,7 @@
                             $.ajax({
                                 url: '/register',
                                 type: 'post',
-                                data: {"uname": name, "upwd": password, "uemail": email},
+                                data: {"uname": name, "upwd": password, "uemail": email,"admin":false},
                                 success: function (data, status) {
                                     if (status == 'success') {
                                         alert("注册成功");
