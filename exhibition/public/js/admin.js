@@ -151,20 +151,24 @@ require(['/js/common.js'],function(common){
                     nPhone = $('#changeExhPhone').val(),
                     nDetail = $('#changeExhDetail').val();
                 var url = "http://127.0.0.1:3000/changeExh/"+parent.data('index');
-                $.getJSON(url+'?callback=?',{
-                    name:nName,
-                    price:nPrice,
-                    phone:nPhone,
-                    detail:nDetail
-                },function () {
-                    parent.parent().find('.exhName').text(nName);
-                    parent.parent().find('.exhPrice').text(nPrice);
-                    parent.parent().find('.exhPhone').text(nPhone);
-                    parent.parent().find('.exhDetail').text(nDetail);
-                    $('#changeExhInfo').addClass('displayNone');
-                    $('#changeExh').unbind('click');
-                    $('#changeExhSubmit').unbind('click');
-                });
+               if(nName&&nPrice&&nPhone&&nDetail){
+                   $.getJSON(url+'?callback=?',{
+                       name:nName,
+                       price:nPrice,
+                       phone:nPhone,
+                       detail:nDetail
+                   },function () {
+                       parent.parent().find('.exhName').text(nName);
+                       parent.parent().find('.exhPrice').text(nPrice);
+                       parent.parent().find('.exhPhone').text(nPhone);
+                       parent.parent().find('.exhDetail').text(nDetail);
+                       $('#changeExhInfo').addClass('displayNone');
+                       $('#changeExh').unbind('click');
+                       $('#changeExhSubmit').unbind('click');
+                   });
+               }else {
+                   alert("完善表单后再提交")
+               }
             })
         })
         //下架
@@ -200,8 +204,10 @@ require(['/js/common.js'],function(common){
         $('.delCart').click(function () {
             if(window.confirm('你确定要删除这个订单吗？')){
                 var parent = $(this).parent();
+                var delNum = parent.parent().find('.cQuantity').text();
+                var cUseTime = parent.parent().find('.cUseTime').text();
                 var url = "http://127.0.0.1:3000/delFromCart/"+parent.data('index');
-                $.getJSON(url+'?callback=?',function () {
+                $.getJSON(url+'?callback=?',{delNum:delNum,cUseTime:cUseTime},function () {
                     parent.parent().remove();
                 });
                 return true;

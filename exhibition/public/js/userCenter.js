@@ -38,27 +38,31 @@ require(['/js/common.js'],function(common){
                 var DateDiffChange = DateDiff(cUseTime,thisDayChange);
                 var cStatus = DateDiffChange>=7?0:1;
                 console.log(cStatus)
-                if(cQuantity>0){
-                    if(DateDiffChange>=0){
-                        var url = "http://127.0.0.1:3000/changeCart/"+parent.find('.dateIndex').data('index');
-                        $.getJSON(url+'?callback=?',{
-                            uPhone:uPhone,
-                            cQuantity:cQuantity,
-                            cUseTime:cUseTime,
-                            uMsg:uMsg,
-                            cPrice:price_1*cQuantity,
-                            cStatus:cStatus,
-                        },function () {
-                            location.reload();
-                            $('#changeExh').unbind('click');
-                            $('#changeExhSubmit').unbind('click');
-                        });
-                    }else {
-                        alert("请选择今天以后的日期");
-                    }
-                }else {
-                    alert("请输入合适的预约人数")
-                }
+               if(uPhone&&cQuantity&&cUseTime&&uMsg){
+                   if(cQuantity>0){
+                       if(DateDiffChange>=0){
+                           var url = "http://127.0.0.1:3000/changeCart/"+parent.find('.dateIndex').data('index');
+                           $.getJSON(url+'?callback=?',{
+                               uPhone:uPhone,
+                               cQuantity:cQuantity,
+                               cUseTime:cUseTime,
+                               uMsg:uMsg,
+                               cPrice:price_1*cQuantity,
+                               cStatus:cStatus,
+                           },function () {
+                               location.reload();
+                               $('#changeExh').unbind('click');
+                               $('#changeExhSubmit').unbind('click');
+                           });
+                       }else {
+                           alert("请选择今天以后的日期");
+                       }
+                   }else {
+                       alert("请输入合适的预约人数")
+                   }
+               }else {
+                   alert("请完善表单后提交")
+               }
             })
         })
         //一周确认
