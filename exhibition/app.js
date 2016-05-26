@@ -11,7 +11,7 @@ var app = express();
 
 //全局
 global.dbHelper = require('./common/dbHelper');
-global.db = mongoose.connect('mongodb://127.0.0.1:27017/cart');
+global.db = mongoose.connect('mongodb://127.0.0.1:27017/exhibition');
 
 app.use(session({
     secret:'secret',
