@@ -28,41 +28,67 @@ require(['/js/common.js'],function(common){
             $('#changeNum').val(parent.find('.cQuantity').text());
             $('#changeUseTime').val(parent.find('.cUseTime').text());
             $('#changeCartDetail').val(parent.find('.uMsg').text());
-            $('#changeCartSubmit').bind('click',function () {
-                var price_1 = (parent.find('.cPrice').text())/(parent.find('.cQuantity').text());
-                var uPhone = $('#changePhone').val(),
-                    cQuantity = $('#changeNum').val(),
-                    cUseTime = $('#changeUseTime').val(),
-                    uMsg = $('#changeCartDetail').val();
-                var thisDayChange = moment().format("YYYY-MM-DD");
-                var DateDiffChange = DateDiff(cUseTime,thisDayChange);
-                var cStatus = DateDiffChange>=7?0:1;
-                console.log(cStatus)
-               if(uPhone&&cQuantity&&cUseTime&&uMsg){
-                   if(cQuantity>0){
-                       if(DateDiffChange>=0){
-                           var url = "http://127.0.0.1:3000/changeCart/"+parent.find('.dateIndex').data('index');
-                           $.getJSON(url+'?callback=?',{
-                               uPhone:uPhone,
-                               cQuantity:cQuantity,
-                               cUseTime:cUseTime,
-                               uMsg:uMsg,
-                               cPrice:price_1*cQuantity,
-                               cStatus:cStatus,
-                           },function () {
-                               location.reload();
-                               $('#changeExh').unbind('click');
-                               $('#changeExhSubmit').unbind('click');
-                           });
-                       }else {
-                           alert("请选择今天以后的日期");
-                       }
-                   }else {
-                       alert("请输入合适的预约人数")
-                   }
-               }else {
-                   alert("请完善表单后提交")
-               }
+            var price_1 = (parent.find('.cPrice').text())/(parent.find('.cQuantity').text());
+            var uPhone = $('#changePhone').val(),
+
+                cUseTime = $('#changeUseTime').val(),
+                uMsg = $('#changeCartDetail').val();
+            var thisDayChange = moment().format("YYYY-MM-DD");
+            var DateDiffChange = DateDiff(cUseTime,thisDayChange);
+            var cStatus = DateDiffChange>=7?0:1;
+            $('#changeNum').blur(function(){
+                var cQuantity = $('#changeNum').val();
+                $.ajax({
+                    url:'/getRemainSeat',
+                    type:'post',
+                    data:{
+                        "cId": $('#cId').text(),
+                        "cUseTime": cUseTime
+                    },
+                    success:function(data,status){
+                        if(status == 'success'){
+                            if(typeof data.remainSeat[0].existNum == 'undefined'){
+                                var existNum = data.remainSeat[0].sumNum;
+                            }else{
+                                var existNum = data.remainSeat[0].existNum;
+                            }
+                            if(existNum<=parseInt(cQuantity)){
+                                alert("您最多可以预约"+existNum+"个位置");
+                            }else {
+                                $('#changeCartSubmit').bind('click',function () {
+                                    if(uPhone&&cQuantity&&cUseTime&&uMsg){
+                                        if(cQuantity>0){
+                                            if(DateDiffChange>=0){
+                                                var url = "http://127.0.0.1:3000/changeCart/"+parent.find('.dateIndex').data('index');
+                                                $.getJSON(url+'?callback=?',{
+                                                    uPhone:uPhone,
+                                                    cQuantity:cQuantity,
+                                                    cUseTime:cUseTime,
+                                                    uMsg:uMsg,
+                                                    cPrice:price_1*cQuantity,
+                                                    cStatus:cStatus
+                                                },function () {
+                                                    location.reload();
+                                                    $('#changeExh').unbind('click');
+                                                    $('#changeExhSubmit').unbind('click');
+                                                });
+                                            }else {
+                                                alert("请填写正确的日期");
+                                            }
+                                        }else {
+                                            alert("请输入合适的预约人数")
+                                        }
+                                    }else {
+                                        alert("请完善表单后提交")
+                                    }
+                                })
+                            }
+                        }
+                    },
+                    error: function (data,status) {
+                        console.log(err);
+                    }
+                })
             })
         })
         //一周确认

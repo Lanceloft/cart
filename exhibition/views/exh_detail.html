@@ -61,7 +61,13 @@
             <p><%=commodity.detail%></p>
             <h3>注意事项</h3>
             <ol class="kills text-danger" style="font-size: 18px">
-                <li>如预约日期为一周内自动确认，如预约参观日期大于一周需在离参观日期一周内到<a href="/userCenter">个人中心</a>确认</li>
+                <li>如预约日期为一周内自动确认，如预约参观日期大于一周需在离参观日期一周内到
+                    <% if(user){ %>
+                        <a href="/userCenter">个人中心</a>
+                    <% }else{ %>
+                        <a href="javascript:;" onclick="alert('请先登录')">个人中心</a>
+                    <% } %>
+                确认</li>
             </ol>
         </div>
     </div>

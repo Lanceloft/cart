@@ -50,6 +50,7 @@
                 <tbody>
                 <% for(var i in carts){ %>
                 <tr class="text-center u_do">
+                    <td class="displayNone" id="cId"><%=carts[i].cId%></td>
                     <td class="uName"><%=carts[i].uName%></td>
                     <td class="uPhone"><%=carts[i].uPhone%></td>
                     <td class="cName"><%=carts[i].cName%></td>
@@ -117,7 +118,7 @@
                     </div>
                     <div class="row">
                         <label class="row_label" for="changeUseTime">参观时间</label>
-                        <input name="changeUseTime" id="changeUseTime" type="text" value="">
+                        <input name="changeUseTime" id="changeUseTime" disabled type="text" value="">
                     </div>
                     <div class="row">
                         <label class="row_label" for="changeCartDetail">备注</label>

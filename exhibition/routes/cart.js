@@ -178,7 +178,9 @@ module.exports = function(app) {
                                         "cId": id,
                                         "date": new Date(cUseTime)
                                     }, function (err, RemainSeatDoc) {
+                                        console.log(RemainSeatDoc);
                                         if (RemainSeatDoc) {
+                                            console.log("1");
                                             RemainSeat.update({"cId": id, "date": new Date(cUseTime)}, {
                                                 $set: {
                                                     usedNum: parseInt(RemainSeatDoc.usedNum) + parseInt(cartDoc1.cQuantity),
@@ -186,7 +188,7 @@ module.exports = function(app) {
                                                 }
                                             }, function (err, RemainSeatDoc1) {
                                                 if (RemainSeatDoc1) {
-                                                    res.send(200);
+                                                    res.jsonp({status: "ok"});
                                                 }
                                             })
                                         } else {
