@@ -19,6 +19,7 @@
         </ul>
     </div>
     <div class="m_exh_box">
+        <% if(Commoditys[0]){ %>
         <div class="u_exh_top clearfix">
             <div class="fl exh_img">
                 <img src="../image/exhibition/<%= Commoditys[0].imgSrc %>" alt="<% Commoditys[0].name %>">
@@ -34,6 +35,7 @@
                 </p>
             </div>
         </div>
+        <% } %>
         <div class="u_exh_else clearfix">
             <% Commoditys.forEach(function(item,index){ %>
                 <% if(index>=1&&item.status==true){ %>
