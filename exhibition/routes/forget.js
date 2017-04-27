@@ -30,12 +30,12 @@ module.exports = function(app){
                });
                var mailOptions = {
                    from: {
-                       name: '江苏展览馆',
+                       name: '广东展览馆',
                        address: 'wangyiyun167@163.com'
                    }, // sender address
                    to: email, // list of receivers
-                   name: '江苏展览馆用户密码找回',
-                   subject: '江苏展览馆用户密码找回', // Subject line
+                   name: '广东展览馆用户密码找回',
+                   subject: '广东展览馆用户密码找回', // Subject line
                    text: "用户:" + doc.name
                    + "，请点击（复制）此链接进行密码更新:<a href=http://"
                    + req.headers.host + "/usersetting?uid="

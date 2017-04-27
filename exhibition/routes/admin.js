@@ -112,12 +112,12 @@ module.exports = function(app){
                 });
                 var mailOptions = {
                     from: {
-                        name: '江苏展览馆',
+                        name: '广东展览馆',
                         address: 'wangyiyun167@163.com'
                     }, // sender address
                     to: email, // list of receivers
-                    name: '江苏展览馆用户预约提醒',
-                    subject: '江苏展览馆用户预约提醒', // Subject line
+                    name: '广东展览馆用户预约提醒',
+                    subject: '广东展览馆用户预约提醒', // Subject line
                     text: "用户:" + userDoc[0].name
                     + "<br>您预约于"+ doc1[0].cUseTime_string +"参观" + cName +"，千万别忘记了哦！"
                     + "</a><br>请勿回复。", // plaintext body

@@ -8,11 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Baymaxxx/cart"
+    "url": "git://github.com/lanceloft/cart"
   },
   "author": {
-    "name": "zhongshuai",
-    "email": "haorenzhongshuai@hotmail.com"
+    "name": "lanceloft",
+    "email": "lanceloft@foxmail.com"
   },
   "dependencies": {
     "body-parser": "~1.13.2",

@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>江苏展览馆_在线展览馆预约</title>
-    <meta name="keywords" content="江苏省展览馆，展览馆预约。快捷预约，实时确认。首家专业的展览馆预约服务"  />
-    <meta name="description" content="江苏展览馆jszlg.com,专业的在线展览馆预约。快捷预约不罗嗦，预约人数日期任你选。" />
+    <title>展览厅预约管理系统</title>
+    <meta name="keywords" content="展览厅预约管理系统"  />
+    <meta name="description" content="展览厅预约管理系统。" />
     <link href="favicon.ico" type="image/x-icon" rel="shortcut icon" />
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="/css/common.css" rel="stylesheet" type="text/css" />
@@ -14,8 +14,8 @@
 <body>
 <header class="g-header">
     <div class="m-center">
-        <a class="u-logo" href="/" alt="江苏展览馆">
-            <img src="../image/logo.png" alt="江苏展览馆">
+        <a class="u-logo" href="/" alt="广东展览馆">
+            <img src="../image/logo.png" alt="广东展览馆">
         </a>
         <nav class="u-nav">
             <ul class="menu list-inline">
@@ -156,6 +156,7 @@
                             $.ajax({
                                 url: '/register',
                                 type: 'post',
+                                // todo to chose admin
                                 data: {"uname": name, "upwd": password, "uemail": email,"admin":false},
                                 success: function (data, status) {
                                     if (status == 'success') {
